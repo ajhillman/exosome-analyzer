@@ -144,6 +144,19 @@ export const companiesData: ExosomeCompany[] = [
     hasWarningLetter: false,
     regulatoryScore: 70,
   },
+  {
+    id: "regenexx",
+    name: "Regenexx",
+    section: "Autologous (Practice of Medicine)",
+    manufacturing: "Point-of-Care Processing",
+    fda_status: "No Warning Letters (Settled FDA litigation)",
+    coa: "Yes (Patient-specific)",
+    source: "Bone Marrow Concentrate (Autologous MSCs)",
+    dmf: "N/A (Autologous approach)",
+    notes: "Founded 2005 by Dr. Chris Centeno and Dr. John Schultz. Pioneered interventional orthopedics. Successfully adapted business model post-FDA litigation (2010-2014). Over 100 licensed physician network locations. Explicitly does NOT use exosome products. Research-based approach with published clinical trials. No recent FDA enforcement actions.",
+    hasWarningLetter: false,
+    regulatoryScore: 82,
+  },
 ];
 
 export const getCompanyById = (id: string): ExosomeCompany | undefined => {

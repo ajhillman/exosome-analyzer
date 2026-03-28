@@ -191,6 +191,18 @@ export const inspectionRecords: InspectionRecord[] = [
 
 export const executiveBackgrounds: ExecutiveBackground[] = [
   {
+    id: "chris-centeno",
+    name: "Dr. Christopher J. Centeno, MD",
+    title: "Co-Founder and Medical Director",
+    companyName: "Regenexx",
+    background: "Pioneered interventional orthopedics in 2005 with Dr. John Schultz. Physician specializing in pain management and orthopedic regenerative medicine. Completed IRB-approved research studies on stem cell therapies for orthopedic injuries.",
+    regulatoryHistory:
+      "Defendant in United States v. Regenerative Sciences LLC (2010-2014). FDA challenged Regenexx Procedure as unapproved drug. Court upheld FDA authority to regulate cultured stem cell products. Successfully adapted business model post-litigation to autologous approach. No recent FDA enforcement actions. Explicitly avoids exosome products.",
+    litigationHistory:
+      "Major FDA litigation (2010-2014) challenging FDA jurisdiction over autologous stem cell use. DC Circuit Court upheld FDA authority (2014). Centeno argued physicians have right to use stem cells for healing but lost on regulatory grounds.",
+    riskLevel: "low",
+  },
+  {
     id: "beeben-russell",
     name: "Michael Beeben Russell",
     title: "Owner/Chairman",
