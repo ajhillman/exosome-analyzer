@@ -1,25 +1,47 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+import { CompanyTable } from "@/components/CompanyTable";
+import { FilterPanel } from "@/components/FilterPanel";
+import { Statistics } from "@/components/Statistics";
+import { useFilters } from "@/contexts/FilterContext";
+import { companiesData, filterCompanies } from "@/data/companies";
+import { useMemo } from "react";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
- */
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+  const { filters } = useFilters();
+
+  const filteredCompanies = useMemo(() => {
+    return filterCompanies(companiesData, {
+      section: filters.section,
+      manufacturing: filters.manufacturing,
+      fda_status: filters.fda_status,
+      coa: filters.coa,
+      dmf: filters.dmf,
+      searchTerm: filters.searchTerm,
+    });
+  }, [filters]);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Header */}
+      <header className="bg-card border-b border-border px-6 py-4 shadow-sm">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-3xl font-bold text-foreground">Exosome Regulatory Analyzer</h1>
+          <p className="text-muted-foreground mt-1">
+            Compare exosome companies across regulatory status, manufacturing standards, and compliance metrics.
+          </p>
+        </div>
+      </header>
+
+      {/* Statistics */}
+      <Statistics companies={filteredCompanies} />
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+        {/* Filter Panel */}
+        <FilterPanel />
+
+        {/* Company Table */}
+        <CompanyTable companies={filteredCompanies} />
+      </div>
     </div>
   );
 }
