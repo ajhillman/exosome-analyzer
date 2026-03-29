@@ -89,6 +89,14 @@ export interface ExosomeCompany {
   // Negative Press
   negative_press_articles?: NegativePressArticle[];
   negative_press_count?: number;
+  // Company Details
+  years_in_business?: number;
+  american_owned_operated?: boolean;
+  company_grade?: "A+" | "A" | "B" | "C" | "D" | "F";
+  regulatory_risk_level?: "Lowest" | "Low" | "Moderate" | "High" | "Extreme";
+  regulatory_classification?: string;
+  dmf_received_date?: string;
+  mesenchymal_viability_rank?: string;
 }
 
 export interface FilterState {
