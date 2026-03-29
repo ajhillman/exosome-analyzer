@@ -10,6 +10,19 @@ export interface ExosomeCompany {
   notes: string;
   hasWarningLetter: boolean;
   regulatoryScore: number;
+  // Manufacturing Details
+  iso_cleanroom?: "ISO 5" | "ISO 6" | "ISO 7" | "ISO 8" | "N/A (Point-of-Care)" | "Unknown";
+  storage_method?: "Cryogenic (-80°C)" | "Lyophilized" | "Refrigerated (4°C)" | "N/A (Autologous)" | "Unknown";
+  container_type?: "Glass Vials" | "Plastic Vials" | "Cryogenic Bags" | "Mixed" | "N/A (Autologous)" | "Unknown";
+  facility_owned?: boolean;
+  facility_location?: string;
+  third_party_testing?: "Eurofins" | "Eurofins BioPharma (Independent)" | "Zen Bio" | "Other" | "Internal Only" | "Internal" | "N/A (Patient-Specific)" | "Unknown";
+  post_thaw_viability?: string; // e.g., "95-97%"
+  mesenchymal_source_detail?: string; // e.g., "Wharton's Jelly from Umbilical Cord, Donor-Screened"
+  leadership_experience?: "High" | "Medium" | "Low" | "Unknown";
+  insurance_coverage?: boolean;
+  delivery_methods?: string[]; // e.g., ["IV Infusion", "Intra-Articular", "Topical"]
+  legal_status?: "FDA-Approved" | "IND Active" | "361 Compliant" | "Disputed" | "Illegal" | "Practice of Medicine Exemption" | "Unknown";
 }
 
 export interface FilterState {
@@ -18,6 +31,9 @@ export interface FilterState {
   fda_status: string[];
   coa: string[];
   dmf: string[];
+  iso_cleanroom?: string[];
+  storage_method?: string[];
+  third_party_testing?: string[];
   searchTerm: string;
 }
 
