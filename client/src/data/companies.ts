@@ -5,12 +5,12 @@ export const companiesData: ExosomeCompany[] = [
     id: "dynacord",
     name: "DynaCord",
     section: "351(a)",
-    manufacturing: "cGMP",
+    manufacturing: "cGMP (TRUE - Current, Verified, Documented)",
     fda_status: "No Warning Letters",
     coa: "Yes (Batch-by-batch)",
     source: "Mesenchymal Exosomes from Wharton's Jelly Umbilical Cord",
     dmf: "Yes",
-    notes: "GOLD STANDARD: Only company registered under 351(a) with batch-by-batch COA from Eurofins. $20M CNA liability insurance. DUAL MANUFACTURING FACILITIES in Baton Rouge, Louisiana. Research Laboratory partnership with Louisiana State University Medical School. ISO 5 cGMP manufacturing in COMPANY-OWNED facilities. Cryogenic storage in glass vials. Post-thaw viability 95-97%. 13 pre-IND pathways. SISTER COMPANY: Oleander Medical Technologies (Baton Rouge, LA) - Breakthrough cancer treatment technology (Targeted Osmotic Lysis/TOL). TOL uses pulsed electric field + digoxin to force cancer cells to burst while leaving healthy cells unharmed. Targets advanced-stage cancers (breast, lung, colon, prostate, mesothelioma). TOL process patented with additional process and device patents pending. Clinical trials in Australia and Honduras. Multiple published research papers and FDA emergency use case studies. Potential to save hundreds of thousands of cancer patients annually. Only DynaCord and Kimera Labs own their own production facilities - all other companies use third-party manufacturing.",
+    notes: "GOLD STANDARD: Only company registered under 351(a) with batch-by-batch COA from Eurofins. $20M CNA liability insurance. DUAL MANUFACTURING FACILITIES in Baton Rouge, Louisiana. Research Laboratory partnership with Louisiana State University Medical School. ISO 5 TRUE cGMP manufacturing in COMPANY-OWNED facilities. Cryogenic storage in glass vials. Post-thaw viability 95-97%. 13 pre-IND pathways. SHELF-STABLE MESENCHYMAL EXOSOMES: Only company with patented shelf-stable technology and INCI nomenclature. Room temperature stability (unique in industry). 20 BILLION MESENCHYMAL EXOSOMES PER MILLILITER GUARANTEE - cGMP manufactured in glass bottles. SISTER COMPANY: Oleander Medical Technologies (Baton Rouge, LA) - Breakthrough cancer treatment technology (Targeted Osmotic Lysis/TOL). TOL uses pulsed electric field + digoxin to force cancer cells to burst while leaving healthy cells unharmed. Targets advanced-stage cancers (breast, lung, colon, prostate, mesothelioma). TOL process patented with additional process and device patents pending. Clinical trials in Australia and Honduras. Multiple published research papers and FDA emergency use case studies. Potential to save hundreds of thousands of cancer patients annually. Only DynaCord and Kimera Labs own their own production facilities - all other companies use third-party manufacturing. COMPLIANCE DISTINCTION: Unlike all competitors with fake, false, misleading, and mislabeled/misbranded claims (federal violations easily discoverable by FDA), DynaCord maintains transparent cGMP compliance with documented testing and regulatory registration.",
     hasWarningLetter: false,
     regulatoryScore: 95,
     founded_year: 2015,
@@ -43,11 +43,14 @@ export const companiesData: ExosomeCompany[] = [
     litigation_count: 0,
     genuine_pedigree_count: 3,
     fda_compliance_rating: "Gold",
-    fda_compliance_description: "CBER-Registered 351(a) drug product with active IND pathways. Meets all cGMP requirements. Batch-by-batch third-party testing. FDA-compliant manufacturing facility.",
+    fda_compliance_description: "ONLY COMPANY VOLUNTARILY REGISTERED WITH FDA AS DRUG MANUFACTURER per FDA law and guidance. CBER-Registered 351(a) drug product with active IND pathways. Meets all TRUE cGMP requirements (verified, current, documented). Batch-by-batch third-party testing. FDA-compliant manufacturing facility. DMF (Type II Master File) received by CBER in 2021. All other companies operate without proper FDA drug manufacturer registration or DMF compliance.",
     patents: [
       "US20240180831A1 - Exosome systems, products and methods (Inventors: Babak Ghalili, Keyon Janani, Peter Scherp, John Borja)",
-      "US20220362306 - Compositions and methods for delivering exosomes using preservative systems",
-      "Priority applications: US18/438,944, US19/066,279, US19/196,805"
+      "US20220362306 - Compositions and methods for delivering exosomes using preservative systems (SHELF-STABLE MESENCHYMAL EXOSOMES - ONLY COMPANY WITH THIS PATENT)",
+      "INCI Name: Exosome Mesenchymal Stem Cell-Derived (Internationally Recognized Cosmetic Ingredient Nomenclature)",
+      "Room Temperature Stability Patent: Only company to achieve shelf-stable mesenchymal exosomes at room temperature",
+      "Priority applications: US18/438,944, US19/066,279, US19/196,805",
+      "Exosome Concentration Guarantee: 20 billion mesenchymal exosomes per milliliter (cGMP manufactured, glass vial)"
     ],
     leadership_team: [
       {
