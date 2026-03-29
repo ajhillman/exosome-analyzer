@@ -1,3 +1,30 @@
+export interface LitigationCase {
+  case_name: string;
+  case_number?: string;
+  filed_date?: string;
+  court?: string;
+  allegations?: string[];
+  status?: "Ongoing" | "Settled" | "Dismissed" | "Won" | "Lost";
+  parties?: string[];
+}
+
+export interface FDAWarning {
+  warning_letter_date?: string;
+  warning_letter_number?: string;
+  violations?: string[];
+  products_cited?: string[];
+  directed_to?: "Company" | "Physicians" | "Both";
+}
+
+export interface LeadershipMember {
+  name: string;
+  title?: string;
+  background?: string;
+  regulatory_history?: string;
+  litigation_involved?: boolean;
+  pedigree_level?: "High" | "Medium" | "Low";
+}
+
 export interface ExosomeCompany {
   id: string;
   name: string;
@@ -17,12 +44,34 @@ export interface ExosomeCompany {
   facility_owned?: boolean;
   facility_location?: string;
   third_party_testing?: "Eurofins" | "Eurofins BioPharma (Independent)" | "Zen Bio" | "Other" | "Internal Only" | "Internal" | "N/A (Patient-Specific)" | "Unknown";
-  post_thaw_viability?: string; // e.g., "95-97%"
-  mesenchymal_source_detail?: string; // e.g., "Wharton's Jelly from Umbilical Cord, Donor-Screened"
+  post_thaw_viability?: string;
+  mesenchymal_source_detail?: string;
   leadership_experience?: "High" | "Medium" | "Low" | "Unknown";
   insurance_coverage?: boolean;
-  delivery_methods?: string[]; // e.g., ["IV Infusion", "Intra-Articular", "Topical"]
+  delivery_methods?: string[];
   legal_status?: "FDA-Approved" | "IND Active" | "361 Compliant" | "Disputed" | "Illegal" | "Practice of Medicine Exemption" | "Unknown";
+  // Company History
+  founded_year?: number;
+  company_age?: number;
+  website?: string;
+  facility_type?: "Drug Manufacturing Facility" | "Tissue Bank" | "Point-of-Care Network";
+  company_location?: string;
+  // Regulatory Timeline
+  ind_irb_filed_date?: string;
+  ind_irb_status?: string;
+  pre_ind_pathways?: number;
+  dmf_number?: string;
+  dmf_type?: string;
+  // Litigation
+  litigation_cases?: LitigationCase[];
+  litigation_count?: number;
+  // FDA Warnings to Physicians
+  fda_warnings_to_physicians?: FDAWarning[];
+  // Leadership
+  leadership_team?: LeadershipMember[];
+  genuine_pedigree_count?: number;
+  // Company Logo
+  company_logo_url?: string;
 }
 
 export interface FilterState {
