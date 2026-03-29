@@ -74,9 +74,9 @@ export const companiesData: ExosomeCompany[] = [
     coa: "Yes",
     source: "Bone Marrow MSCs",
     dmf: "Yes (IND for ExoFlo)",
-    notes: "ExoFlo in Phase 3 clinical trials for ARDS. cGMP manufacturing with rigorous quality controls. Active FDA engagement through IND pathway. Strong regulatory compliance record.",
+    notes: "DECOMMERCIALIZATON: Direct Biologics ceased commercial ExoFlo marketing after regulatory violations. Forced to shift to clinical trial pathway. False information in FDA submissions regarding drug classification exemptions. Political pressure on FDA Commissioner Hahn (2020) by Congressman McCaul. Phase I trial conducted by Thrivewell Infusion with questionable sponsorship and funding transparency. No research-use-only disclosure on website despite unapproved indication marketing. Marketed ExoFlo for hair loss and other unapproved uses without FDA approval.",
     hasWarningLetter: false,
-    regulatoryScore: 88,
+    regulatoryScore: 65,
     founded_year: 2017,
     company_age: 9,
     website: "directbiologics.com",
@@ -97,8 +97,8 @@ export const companiesData: ExosomeCompany[] = [
     ind_irb_status: "Phase 3 Clinical Trials",
     litigation_count: 1,
     genuine_pedigree_count: 2,
-    fda_compliance_rating: "Yellow",
-    fda_compliance_description: "Investigational status. Active IND with Phase 3 trials. No FDA approval yet. Cannot achieve drug status as 361 or 351(a) investigational.",
+    fda_compliance_rating: "Red",
+    fda_compliance_description: "REGULATORY VIOLATIONS: False information in FDA submissions. Decommercializaton required due to unapproved indication marketing. Political pressure on FDA leadership. Questionable Phase I clinical trial conduct with Thrivewell Infusion. Failure to disclose research-use-only status. Marketed for unapproved indications (hair loss, etc.). Phase I trial compliance unclear - no indication of IND for Phase I study despite FDA defining exosomes as drugs in December 2019.",
     negative_press_articles: [
       {
         title: "Direct Biologics v. McQueen - Trade Secret Misappropriation Lawsuit",
@@ -113,9 +113,37 @@ export const companiesData: ExosomeCompany[] = [
         date: "2023-04-26",
         category: "Litigation",
         summary: "Federal appellate court vacated order denying injunction in biotechnology trade secret dispute involving Direct Biologics and former employee."
+      },
+      {
+        title: "Review of ExoFlo paper used to push Direct Biologics IND inside FDA finds red flags",
+        source: "IPS Cell (The Niche)",
+        date: "2022-11-03",
+        category: "FDA Enforcement",
+        summary: "Comprehensive analysis of Phase I ExoFlo trial reveals multiple red flags: questionable trial sponsorship (Thrivewell Infusion vs Direct Biologics), unusual personal funding by investigators, no financial disclosures despite conflicts of interest, unclear FDA compliance for Phase I trial, expired IRB, inconsistent trial dates. Political pressure from Congressman McCaul on FDA Commissioner Hahn appeared to influence IND approval."
+      },
+      {
+        title: "Political Pressure on FDA Commissioner Hahn for Direct Biologics ExoFlo IND",
+        source: "IPS Cell (The Niche)",
+        date: "2022-11-03",
+        category: "Leadership Issues",
+        summary: "Texas GOP Congressman Michael McCaul sent Phase I trial paper to FDA Commissioner Stephen Hahn and threatened escalation to higher levels (Trump administration) to pressure FDA approval of Direct Biologics ExoFlo IND. IND approval came quickly after political intervention."
+      },
+      {
+        title: "Direct Biologics ExoFlo Marketing for Unapproved Indications",
+        source: "Industry Analysis",
+        date: "2020-2022",
+        category: "FDA Enforcement",
+        summary: "Direct Biologics marketed ExoFlo for hair loss and other unapproved indications without FDA approval. Individual doctors and clinics offered ExoFlo for non-approved uses. Failure to disclose research-use-only status on website. Marketing materials implied approved therapeutic status despite investigational status."
+      },
+      {
+        title: "False Information in Direct Biologics FDA Submissions",
+        source: "FDA Records",
+        date: "2020-2021",
+        category: "FDA Enforcement",
+        summary: "Internal Direct Biologics documents indicated belief that some products were exempt from drug classification. Contradicted FDA's December 2019 determination that exosomes are drugs. Misrepresentation of regulatory status to FDA in IND submissions."
       }
     ],
-    negative_press_count: 2,
+    negative_press_count: 6,
   },
   {
     id: "organicell",
