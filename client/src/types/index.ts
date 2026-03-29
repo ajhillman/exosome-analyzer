@@ -40,7 +40,7 @@ export interface ExosomeCompany {
   section: "351(a)" | "361" | "351(a) (Investigational)" | "361 (FDA disputes)" | "361 (Cosmetic)" | "Autologous (Practice of Medicine)";
   manufacturing: "cGMP" | "cGMP (TRUE - Current, Verified, Documented)" | "GMP" | "GMP (Cited for violations)" | "GMP (FDA cited cGMP deviations)" | "GMP (with cGMP deviations)" | "GMP (Non-Compliant)" | "Point-of-Care Processing";
   fda_status: "No Warning Letters" | "Warning Letter (Sept 2023)" | "Warning Letter (Jan 2025)" | "Warning Letter (Sept 2025)" | "Warning Letter (July 2022)" | "Warning Letter (Aug 2025)" | "No Warning Letters (Settled FDA litigation)";
-  coa: "Yes (Batch-by-batch)" | "Yes (Internal)" | "Yes" | "No/Unclear" | "Yes (Patient-specific)";
+  coa: "Yes (Batch-by-batch)" | "Yes (Batch-by-batch Eurofins - ONLY COMPANY WITH THIS STANDARD)" | "Yes (Internal)" | "Yes" | "No/Unclear" | "Yes (Patient-specific)";
   source: string;
   dmf: "Yes" | "Yes (IND for ExoFlo)" | "Yes (IND for Zofin)" | "No" | "No (In process for IND)" | "Yes (EA-IND for TBI)" | "N/A (Autologous approach)";
   notes: string;
@@ -52,7 +52,7 @@ export interface ExosomeCompany {
   container_type?: "Glass Vials" | "Plastic Vials" | "Cryogenic Bags" | "Mixed" | "N/A (Autologous)" | "Unknown";
   facility_owned?: boolean;
   facility_location?: string;
-  third_party_testing?: "Eurofins" | "Eurofins BioPharma (Independent)" | "Zen Bio" | "Other" | "Internal Only" | "Internal" | "N/A (Patient-Specific)" | "Unknown";
+  third_party_testing?: "Eurofins" | "Eurofins BioPharma (Independent)" | "Eurofins BioPharma (Independent - BATCH-BY-BATCH TESTING - ONLY COMPANY WITH THIS STANDARD)" | "Zen Bio" | "Other" | "Internal Only" | "Internal" | "N/A (Patient-Specific)" | "Unknown";
   post_thaw_viability?: string;
   mesenchymal_source_detail?: string;
   leadership_experience?: "High" | "Medium" | "Low" | "Unknown";
