@@ -16,6 +16,15 @@ export interface FDAWarning {
   directed_to?: "Company" | "Physicians" | "Both";
 }
 
+export interface NegativePressArticle {
+  title: string;
+  source: string;
+  date?: string;
+  url?: string;
+  summary?: string;
+  category?: "FDA Enforcement" | "Litigation" | "Scientific Criticism" | "Media Coverage" | "Leadership Issues";
+}
+
 export interface LeadershipMember {
   name: string;
   title?: string;
@@ -72,6 +81,14 @@ export interface ExosomeCompany {
   genuine_pedigree_count?: number;
   // Company Logo
   company_logo_url?: string;
+  // FDA Compliance Rating
+  fda_compliance_rating?: "Gold" | "Silver" | "Bronze" | "Red" | "Yellow";
+  fda_compliance_description?: string;
+  // Patents
+  patents?: string[];
+  // Negative Press
+  negative_press_articles?: NegativePressArticle[];
+  negative_press_count?: number;
 }
 
 export interface FilterState {
