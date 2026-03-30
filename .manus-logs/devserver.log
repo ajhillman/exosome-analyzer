@@ -1,0 +1,100 @@
+[2026-03-30T12:28:16.291Z] 8:28:16 AM [vite] changed tsconfig file detected: /home/ubuntu/exosome-analyzer/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+[2026-03-30T12:28:16.292Z] 8:28:16 AM [vite] vite.config.ts changed, restarting server...
+[2026-03-30T12:28:16.296Z] 8:28:16 AM [vite] (client) page reload public/.gitkeep
+[2026-03-30T12:28:16.297Z] 8:28:16 AM [vite] (client) page reload public/__manus__/debug-collector.js
+[2026-03-30T12:28:16.297Z] 8:28:16 AM [vite] (client) page reload index.html
+[2026-03-30T12:28:16.297Z] 8:28:16 AM [vite] (client) page reload src/App.tsx
+[2026-03-30T12:28:16.297Z] 8:28:16 AM [vite] (client) page reload src/const.ts
+[2026-03-30T12:28:16.298Z] 8:28:16 AM [vite] (client) hmr update /src/index.css
+[2026-03-30T12:28:16.298Z] 8:28:16 AM [vite] (client) page reload src/main.tsx
+[2026-03-30T12:28:16.298Z] 8:28:16 AM [vite] (client) page reload src/components/ErrorBoundary.tsx
+[2026-03-30T12:28:16.298Z] 8:28:16 AM [vite] (client) page reload src/components/ManusDialog.tsx
+[2026-03-30T12:28:16.299Z] 8:28:16 AM [vite] (client) page reload src/components/Map.tsx
+[2026-03-30T12:28:16.299Z] 8:28:16 AM [vite] (client) page reload src/components/ui/accordion.tsx
+[2026-03-30T12:28:16.299Z] 8:28:16 AM [vite] (client) page reload src/components/ui/alert-dialog.tsx
+[2026-03-30T12:28:16.299Z] 8:28:16 AM [vite] (client) page reload src/components/ui/alert.tsx
+[2026-03-30T12:28:16.300Z] 8:28:16 AM [vite] (client) page reload src/components/ui/aspect-ratio.tsx
+[2026-03-30T12:28:16.300Z] 8:28:16 AM [vite] (client) page reload src/components/ui/avatar.tsx
+[2026-03-30T12:28:16.300Z] 8:28:16 AM [vite] (client) page reload src/components/ui/badge.tsx
+[2026-03-30T12:28:16.300Z] 8:28:16 AM [vite] (client) page reload src/components/ui/breadcrumb.tsx
+[2026-03-30T12:28:16.301Z] 8:28:16 AM [vite] (client) page reload src/components/ui/button-group.tsx
+[2026-03-30T12:28:16.301Z] 8:28:16 AM [vite] (client) page reload src/components/ui/button.tsx
+[2026-03-30T12:28:16.301Z] 8:28:16 AM [vite] (client) page reload src/components/ui/calendar.tsx
+[2026-03-30T12:28:16.301Z] 8:28:16 AM [vite] (client) page reload src/components/ui/card.tsx
+[2026-03-30T12:28:16.302Z] 8:28:16 AM [vite] (client) page reload src/components/ui/carousel.tsx
+[2026-03-30T12:28:16.302Z] 8:28:16 AM [vite] (client) page reload src/components/ui/chart.tsx
+[2026-03-30T12:28:16.302Z] 8:28:16 AM [vite] (client) page reload src/components/ui/checkbox.tsx
+[2026-03-30T12:28:16.303Z] 8:28:16 AM [vite] (client) page reload src/components/ui/collapsible.tsx
+[2026-03-30T12:28:16.303Z] 8:28:16 AM [vite] (client) page reload src/components/ui/command.tsx
+[2026-03-30T12:28:16.303Z] 8:28:16 AM [vite] (client) page reload src/components/ui/context-menu.tsx
+[2026-03-30T12:28:16.303Z] 8:28:16 AM [vite] (client) page reload src/components/ui/dialog.tsx
+[2026-03-30T12:28:16.304Z] 8:28:16 AM [vite] (client) page reload src/components/ui/drawer.tsx
+[2026-03-30T12:28:16.304Z] 8:28:16 AM [vite] (client) page reload src/components/ui/dropdown-menu.tsx
+[2026-03-30T12:28:16.304Z] 8:28:16 AM [vite] (client) page reload src/components/ui/empty.tsx
+[2026-03-30T12:28:16.304Z] 8:28:16 AM [vite] (client) page reload src/components/ui/field.tsx
+[2026-03-30T12:28:16.305Z] 8:28:16 AM [vite] (client) page reload src/components/ui/form.tsx
+[2026-03-30T12:28:16.305Z] 8:28:16 AM [vite] (client) page reload src/components/ui/hover-card.tsx
+[2026-03-30T12:28:16.305Z] 8:28:16 AM [vite] (client) page reload src/components/ui/input-group.tsx
+[2026-03-30T12:28:16.305Z] 8:28:16 AM [vite] (client) page reload src/components/ui/input-otp.tsx
+[2026-03-30T12:28:16.305Z] 8:28:16 AM [vite] (client) page reload src/components/ui/input.tsx
+[2026-03-30T12:28:16.306Z] 8:28:16 AM [vite] (client) page reload src/components/ui/item.tsx
+[2026-03-30T12:28:16.306Z] 8:28:16 AM [vite] (client) page reload src/components/ui/kbd.tsx
+[2026-03-30T12:28:16.306Z] 8:28:16 AM [vite] (client) page reload src/components/ui/label.tsx
+[2026-03-30T12:28:16.306Z] 8:28:16 AM [vite] (client) page reload src/components/ui/menubar.tsx
+[2026-03-30T12:28:16.307Z] 8:28:16 AM [vite] (client) page reload src/components/ui/navigation-menu.tsx
+[2026-03-30T12:28:16.307Z] 8:28:16 AM [vite] (client) page reload src/components/ui/pagination.tsx
+[2026-03-30T12:28:16.307Z] 8:28:16 AM [vite] (client) page reload src/components/ui/popover.tsx
+[2026-03-30T12:28:16.307Z] 8:28:16 AM [vite] (client) page reload src/components/ui/progress.tsx
+[2026-03-30T12:28:16.308Z] 8:28:16 AM [vite] (client) page reload src/components/ui/radio-group.tsx
+[2026-03-30T12:28:16.308Z] 8:28:16 AM [vite] (client) page reload src/components/ui/resizable.tsx
+[2026-03-30T12:28:16.308Z] 8:28:16 AM [vite] (client) page reload src/components/ui/scroll-area.tsx
+[2026-03-30T12:28:16.309Z] 8:28:16 AM [vite] (client) page reload src/components/ui/select.tsx
+[2026-03-30T12:28:16.309Z] 8:28:16 AM [vite] (client) page reload src/components/ui/separator.tsx
+[2026-03-30T12:28:16.309Z] 8:28:16 AM [vite] (client) page reload src/components/ui/sheet.tsx
+[2026-03-30T12:28:16.310Z] 8:28:16 AM [vite] (client) page reload src/components/ui/sidebar.tsx
+[2026-03-30T12:28:16.310Z] 8:28:16 AM [vite] (client) page reload src/components/ui/skeleton.tsx
+[2026-03-30T12:28:16.310Z] 8:28:16 AM [vite] (client) page reload src/components/ui/slider.tsx
+[2026-03-30T12:28:16.310Z] 8:28:16 AM [vite] (client) page reload src/components/ui/sonner.tsx
+[2026-03-30T12:28:16.311Z] 8:28:16 AM [vite] (client) page reload src/components/ui/spinner.tsx
+[2026-03-30T12:28:16.311Z] 8:28:16 AM [vite] (client) page reload src/components/ui/switch.tsx
+[2026-03-30T12:28:16.311Z] 8:28:16 AM [vite] (client) page reload src/components/ui/table.tsx
+[2026-03-30T12:28:16.312Z] 8:28:16 AM [vite] (client) page reload src/components/ui/tabs.tsx
+[2026-03-30T12:28:16.312Z] 8:28:16 AM [vite] (client) page reload src/components/ui/textarea.tsx
+[2026-03-30T12:28:16.312Z] 8:28:16 AM [vite] (client) page reload src/components/ui/toggle-group.tsx
+[2026-03-30T12:28:16.312Z] 8:28:16 AM [vite] (client) page reload src/components/ui/toggle.tsx
+[2026-03-30T12:28:16.313Z] 8:28:16 AM [vite] (client) page reload src/components/ui/tooltip.tsx
+[2026-03-30T12:28:16.313Z] 8:28:16 AM [vite] (client) page reload src/components/ComplianceBadge.tsx
+[2026-03-30T12:28:16.313Z] 8:28:16 AM [vite] (client) page reload src/components/FilterPanel.tsx
+[2026-03-30T12:28:16.314Z] 8:28:16 AM [vite] (client) page reload src/components/CompanyTable.tsx
+[2026-03-30T12:28:16.314Z] 8:28:16 AM [vite] (client) page reload src/components/CompanyDetailModal.tsx
+[2026-03-30T12:28:16.314Z] 8:28:16 AM [vite] (client) page reload src/components/Statistics.tsx
+[2026-03-30T12:28:16.314Z] 8:28:16 AM [vite] (client) page reload src/contexts/ThemeContext.tsx
+[2026-03-30T12:28:16.315Z] 8:28:16 AM [vite] (client) page reload src/contexts/FilterContext.tsx
+[2026-03-30T12:28:16.315Z] 8:28:16 AM [vite] (client) page reload src/hooks/useComposition.ts
+[2026-03-30T12:28:16.315Z] 8:28:16 AM [vite] (client) page reload src/hooks/useMobile.tsx
+[2026-03-30T12:28:16.316Z] 8:28:16 AM [vite] (client) page reload src/hooks/usePersistFn.ts
+[2026-03-30T12:28:16.316Z] 8:28:16 AM [vite] (client) page reload src/lib/utils.ts
+[2026-03-30T12:28:16.316Z] 8:28:16 AM [vite] (client) page reload src/pages/Home.tsx
+[2026-03-30T12:28:16.316Z] 8:28:16 AM [vite] (client) page reload src/pages/NotFound.tsx
+[2026-03-30T12:28:16.317Z] 8:28:16 AM [vite] (client) page reload src/types/index.ts
+[2026-03-30T12:28:16.317Z] 8:28:16 AM [vite] (client) page reload src/data/companies.ts
+[2026-03-30T12:28:16.317Z] 8:28:16 AM [vite] (client) page reload src/data/litigation.ts
+[2026-03-30T12:28:16.326Z] 8:28:16 AM [vite] server restarted.
+[2026-03-30T12:28:16.327Z] 
+[2026-03-30T12:28:16.328Z] ➜  Local:   http://localhost:5173/
+[2026-03-30T12:28:16.330Z] ➜  Network: http://169.254.0.21:5173/
+[2026-03-30T12:29:50.547Z] Dev server process group stopped
+[2026-03-30T12:29:50.552Z] ELIFECYCLE  Command failed.
+[2026-03-30T12:29:50.584Z] Dev server exited with code -15
+[2026-03-30T12:29:53.578Z] Starting dev server with command: pnpm run dev
+[2026-03-30T12:29:54.025Z] ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND  No package.json (or package.yaml, or package.json5) was found in "/home/ubuntu/exosome-analyzer".
+[2026-03-30T12:29:54.051Z] Dev server exited with code 1
+[2026-03-30T16:08:13.357Z] Starting dev server with command: pnpm run dev
+[2026-03-30T16:08:13.754Z] ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND  No package.json (or package.yaml, or package.json5) was found in "/home/ubuntu/exosome-analyzer".
+[2026-03-30T16:08:13.775Z] Dev server exited with code 1
+[2026-03-30T16:09:08.811Z] Starting dev server with command: pnpm run dev
+[2026-03-30T16:09:09.203Z] ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND  No package.json (or package.yaml, or package.json5) was found in "/home/ubuntu/exosome-analyzer".
+[2026-03-30T16:09:09.223Z] Dev server exited with code 1
+[2026-03-30T16:10:03.443Z] Starting dev server with command: pnpm run dev
+[2026-03-30T16:10:03.896Z] ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND  No package.json (or package.yaml, or package.json5) was found in "/home/ubuntu/exosome-analyzer".
+[2026-03-30T16:10:03.920Z] Dev server exited with code 1
