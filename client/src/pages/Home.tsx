@@ -1,4 +1,5 @@
 import { CompanyTable } from "@/components/CompanyTable";
+import { ReportCard } from "@/components/ReportCard";
 import { DosingGuides } from "@/components/DosingGuides";
 import { FilterPanel } from "@/components/FilterPanel";
 import { RegulatoryReference } from "@/components/RegulatoryReference";
@@ -8,6 +9,7 @@ import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import {
   Activity,
+  Award,
   BookOpen,
   Building2,
   FlaskConical,
@@ -17,7 +19,7 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-type TabId = "dashboard" | "companies" | "studies" | "dosing" | "regulatory";
+type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory";
 
 export default function Home() {
   const { filters } = useFilters();
@@ -37,6 +39,7 @@ export default function Home() {
   const tabs: { id: TabId; label: string; icon: React.ReactNode }[] = [
     { id: "dashboard", label: "Dashboard", icon: <LayoutDashboard className="w-4 h-4" /> },
     { id: "companies", label: "Companies", icon: <Building2 className="w-4 h-4" /> },
+    { id: "reportcard", label: "Report Card", icon: <Award className="w-4 h-4" /> },
     { id: "studies", label: "Clinical Studies", icon: <BookOpen className="w-4 h-4" /> },
     { id: "dosing", label: "Dosing Protocols", icon: <Syringe className="w-4 h-4" /> },
     { id: "regulatory", label: "Regulatory", icon: <Scale className="w-4 h-4" /> },
@@ -111,6 +114,8 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        {activeTab === "reportcard" && <ReportCard companies={filteredCompanies} />}
 
         {activeTab === "studies" && <StudiesSection />}
 

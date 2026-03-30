@@ -292,14 +292,64 @@ export function CompanyDetailModal({ company, onClose }: CompanyDetailModalProps
                 Patents ({company.patents.length})
               </h3>
               <div className="space-y-2">
-                {company.patents.map((patent, i) => (
-                  <div
-                    key={i}
-                    className="bg-purple-50 border border-purple-100 rounded-xl p-3 text-sm text-purple-900"
-                  >
-                    {patent}
-                  </div>
-                ))}
+                {company.patents.map((patent, i) => {
+                  const hasLink = patent.includes("https://");
+                  const link = hasLink ? patent.match(/https:\/\/[^\s]+/)?.[0] : null;
+                  const isGranted = patent.startsWith("GRANTED:");
+                  const isPending = patent.startsWith("PENDING:");
+                  const isInternational = patent.startsWith("INTERNATIONAL:");
+                  const statusColor = isGranted
+                    ? "bg-emerald-50 border-emerald-200 text-emerald-900"
+                    : isPending
+                      ? "bg-amber-50 border-amber-200 text-amber-900"
+                      : isInternational
+                        ? "bg-blue-50 border-blue-200 text-blue-900"
+                        : "bg-purple-50 border-purple-100 text-purple-900";
+                  const statusBadge = isGranted
+                    ? "bg-emerald-600 text-white"
+                    : isPending
+                      ? "bg-amber-500 text-white"
+                      : isInternational
+                        ? "bg-blue-600 text-white"
+                        : null;
+                  const statusLabel = isGranted
+                    ? "GRANTED"
+                    : isPending
+                      ? "PENDING"
+                      : isInternational
+                        ? "INTL"
+                        : null;
+                  const displayText = patent.replace(/https:\/\/[^\s]+/g, "").replace(/\|\s*$/g, "").trim();
+                  const cleanText = displayText.replace(/^(GRANTED|PENDING|INTERNATIONAL):\s*/, "");
+                  return (
+                    <div
+                      key={i}
+                      className={`${statusColor} border rounded-xl p-3 text-sm`}
+                    >
+                      <div className="flex items-start gap-2">
+                        {statusBadge && (
+                          <span className={`${statusBadge} text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 mt-0.5`}>
+                            {statusLabel}
+                          </span>
+                        )}
+                        <div className="flex-1">
+                          <span>{cleanText}</span>
+                          {link && (
+                            <a
+                              href={link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 ml-2 text-blue-600 hover:text-blue-800 font-medium"
+                            >
+                              <ExternalLink className="w-3 h-3" />
+                              View Patent
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
