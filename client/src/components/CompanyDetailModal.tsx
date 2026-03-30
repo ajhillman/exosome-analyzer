@@ -60,7 +60,7 @@ export function CompanyDetailModal({ company, onClose }: CompanyDetailModalProps
                   <img
                     src={company.company_logo_url}
                     alt={company.name}
-                    className="w-12 h-12 rounded-xl border-2 border-white/30 object-cover"
+                    className="w-12 h-12 rounded-xl border-2 border-white/30 object-contain bg-white/90 p-0.5"
                   />
                 )}
                 {company.name}
@@ -76,7 +76,7 @@ export function CompanyDetailModal({ company, onClose }: CompanyDetailModalProps
                   <img
                     src={company.company_logo_url}
                     alt={company.name}
-                    className="w-12 h-12 rounded-xl border border-gray-200 object-cover"
+                    className="w-12 h-12 rounded-xl border border-gray-200 object-contain bg-white p-0.5"
                   />
                 )}
                 {company.name}

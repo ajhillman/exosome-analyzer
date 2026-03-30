@@ -114,12 +114,12 @@ export function CompanyTable({ companies }: CompanyTableProps) {
               <div className="p-4">
                 <div className="flex items-start gap-4">
                   {/* Logo */}
-                  <div className="w-14 h-14 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
+                  <div className="w-14 h-14 rounded-xl bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 p-1">
                     {company.company_logo_url ? (
                       <img
                         src={company.company_logo_url}
                         alt={company.name}
-                        className="w-full h-full object-cover rounded-xl"
+                        className="w-full h-full object-contain"
                         onError={(e) => {
                           (e.target as HTMLImageElement).style.display = "none";
                           (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-lg font-bold text-gray-400">${company.name.charAt(0)}</span>`;
