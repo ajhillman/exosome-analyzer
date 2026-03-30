@@ -95,6 +95,7 @@ export interface ExosomeCompany {
   negative_press_articles?: NegativePressArticle[];
   negative_press_count?: number;
   // Company Details
+  company_address?: string;
   years_in_business?: number;
   american_owned_operated?: boolean;
   company_grade?: "A+" | "A" | "B" | "C" | "D" | "F";
