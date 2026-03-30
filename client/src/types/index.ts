@@ -4,7 +4,7 @@ export interface LitigationCase {
   filed_date?: string;
   court?: string;
   allegations?: string[];
-  status?: "Ongoing" | "Settled" | "Dismissed" | "Won" | "Lost";
+  status?: "Ongoing" | "Settled" | "Dismissed" | "Won" | "Lost" | "Terminated (Voluntary Dismissal Oct 21, 2024)" | "OPEN";
   parties?: string[];
 }
 
@@ -27,7 +27,7 @@ export interface NegativePressArticle {
   date?: string;
   url?: string;
   summary?: string;
-  category?: "FDA Enforcement" | "Litigation" | "Scientific Criticism" | "Media Coverage" | "Leadership Issues";
+  category?: "FDA Enforcement" | "Litigation" | "Scientific Criticism" | "Media Coverage" | "Leadership Issues" | "Industry Analysis";
 }
 
 export interface LeadershipMember {
