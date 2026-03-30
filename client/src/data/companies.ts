@@ -204,13 +204,13 @@ export const companiesData: ExosomeCompany[] = [
     litigation_count: 0,
     genuine_pedigree_count: 2,
     fda_compliance_rating: "Yellow",
-    fda_compliance_description: "Investigational status. Active IND with clinical trials for Long COVID and COPD. No FDA approval yet. Cannot achieve drug status as 361 or 351(a) investigational. SOURCE MATERIAL DOWNGRADE: Amniotic fluid exosomes have minimal clinical value and contain placental contamination - inferior to Wharton's Jelly (DynaCord) or bone marrow sources.",
+    fda_compliance_description: "Investigational status. Active IND with clinical trials for Long COVID and COPD. No FDA approval yet. Cannot achieve drug status as 361 HCT/P or 351(a) investigational. SOURCE MATERIAL DOWNGRADE: Amniotic fluid exosomes have minimal clinical value and contain placental contamination - inferior to Wharton's Jelly (DynaCord) or bone marrow sources.",
     negative_press_count: 0,
   },
   {
     id: "exoqure",
     name: "Exoqure",
-    section: "361 (Cosmetic)",
+    section: "361 HCT/P (Cosmetic)",
     manufacturing: "GMP",
     fda_status: "No Warning Letters",
     coa: "Yes",
@@ -241,7 +241,7 @@ export const companiesData: ExosomeCompany[] = [
     litigation_count: 0,
     genuine_pedigree_count: 2,
     fda_compliance_rating: "Yellow",
-    fda_compliance_description: "Investigational status with EA-IND for Traumatic Brain Injury. GMP manufacturing. Cannot achieve drug status as 361 or 351(a) investigational.",
+    fda_compliance_description: "Investigational status with EA-IND for Traumatic Brain Injury. GMP manufacturing. Cannot achieve drug status as 361 HCT/P or 351(a) investigational.",
     negative_press_count: 0,
   },
   {
@@ -408,7 +408,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "benev",
     name: "Benev",
-    section: "361 (Cosmetic)",
+    section: "361 HCT/P (Cosmetic)",
     manufacturing: "GMP",
     fda_status: "No Warning Letters",
     coa: "Yes",
@@ -433,11 +433,11 @@ export const companiesData: ExosomeCompany[] = [
     leadership_experience: "High",
     insurance_coverage: true,
     delivery_methods: ["Topical"],
-    legal_status: "361 Compliant",
+    legal_status: "361 HCT/P Compliant",
     litigation_count: 0,
     genuine_pedigree_count: 2,
     fda_compliance_rating: "Bronze",
-    fda_compliance_description: "361 Compliant for cosmetic use. GMP manufacturing. No IND pathway. Adipose-derived source has lower potency than umbilical cord sources.",
+    fda_compliance_description: "361 HCT/P Compliant for cosmetic use. GMP manufacturing. No IND pathway. Adipose-derived source has lower potency than umbilical cord sources.",
     negative_press_articles: [
       {
         title: "Avoid Using Exosomes! | Plastic Surgeon Reacts",
@@ -466,7 +466,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "exocobio",
     name: "ExoCoBio",
-    section: "361 (Cosmetic)",
+    section: "361 HCT/P (Cosmetic)",
     manufacturing: "GMP",
     fda_status: "No Warning Letters",
     coa: "Yes",
@@ -491,11 +491,11 @@ export const companiesData: ExosomeCompany[] = [
     leadership_experience: "Medium",
     insurance_coverage: true,
     delivery_methods: ["Topical"],
-    legal_status: "361 Compliant",
+    legal_status: "361 HCT/P Compliant",
     litigation_count: 0,
     genuine_pedigree_count: 1,
     fda_compliance_rating: "Bronze",
-    fda_compliance_description: "361 Compliant for cosmetic use. International manufacturing (South Korea) raises quality control questions. No IND pathway.",
+    fda_compliance_description: "361 HCT/P Compliant for cosmetic use. International manufacturing (South Korea) raises quality control questions. No IND pathway.",
     negative_press_articles: [
       {
         title: "International Manufacturing Quality Concerns",
@@ -510,7 +510,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "kimera-labs",
     name: "Kimera Labs",
-    section: "361 (FDA disputes)",
+    section: "361 HCT/P (FDA Disputes)",
     manufacturing: "GMP (FDA cited cGMP deviations)",
     fda_status: "Warning Letter (Sept 2023)",
     coa: "Yes (Internal)",
@@ -582,7 +582,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "vitti-labs",
     name: "Vitti Labs",
-    section: "361 (FDA disputes)",
+    section: "361 HCT/P (FDA Disputes)",
     manufacturing: "GMP (with cGMP deviations)",
     fda_status: "Warning Letter (July 2022)",
     coa: "No/Unclear",
@@ -660,7 +660,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "platinum-biologics",
     name: "Platinum Biologics",
-    section: "361 (FDA disputes)",
+    section: "361 HCT/P (FDA Disputes)",
     manufacturing: "GMP (Cited for violations)",
     fda_status: "Warning Letter (Aug 2025)",
     coa: "No/Unclear",
@@ -812,7 +812,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "chara-biologics",
     name: "Chara Biologics",
-    section: "361 (FDA disputes)",
+    section: "361 HCT/P (FDA Disputes)",
     manufacturing: "GMP (Cited for violations)",
     fda_status: "Warning Letter (Jan 2025)",
     coa: "No/Unclear",
@@ -887,7 +887,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "new-life-medical",
     name: "New Life Medical Services",
-    section: "361 (FDA disputes)",
+    section: "361 HCT/P (FDA Disputes)",
     manufacturing: "GMP (Cited for violations)",
     fda_status: "Warning Letter (Sept 2025)",
     coa: "No/Unclear",
@@ -938,7 +938,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "plated-skin-science",
     name: "Plated Skin Science",
-    section: "361 (Cosmetic)",
+    section: "361 HCT/P (Cosmetic)",
     manufacturing: "cGMP",
     fda_status: "No Warning Letters",
     coa: "Yes",
@@ -964,12 +964,12 @@ export const companiesData: ExosomeCompany[] = [
     leadership_experience: "High",
     insurance_coverage: true,
     delivery_methods: ["Topical"],
-    legal_status: "361 Compliant",
+    legal_status: "361 HCT/P Compliant",
     ind_irb_status: "IND Application in Process",
     litigation_count: 0,
     genuine_pedigree_count: 2,
     fda_compliance_rating: "Silver",
-    fda_compliance_description: "361 Compliant for cosmetic topical use. Platelet-derived exosomes from FDA-compliant blood banks. IND application in process. No injectable exosome approvals exist. Strong leadership with FDA approval experience.",
+    fda_compliance_description: "361 HCT/P Compliant for cosmetic topical use. Platelet-derived exosomes from FDA-compliant blood banks. IND application in process. No injectable exosome approvals exist. Strong leadership with FDA approval experience.",
     patents: [
       "Proprietary Renewosome Technology (Patent Pending)",
       "Platelet-Derived Exosome Extraction Process (Patent Pending)"
@@ -994,7 +994,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "biostem-life-sciences",
     name: "BioStem Life Sciences",
-    section: "361 (FDA disputes)",
+    section: "361 HCT/P (FDA Disputes)",
     manufacturing: "GMP (Cited for violations)",
     fda_status: "Warning Letter (Jan 2025)",
     coa: "No/Unclear",

@@ -1,7 +1,7 @@
 import { useFilters } from "@/contexts/FilterContext";
 import { Filter, RotateCcw, Search } from "lucide-react";
 
-const SECTION_OPTIONS = ["351(a)", "361", "351(a) (Investigational)", "361 (FDA disputes)", "361 (Cosmetic)", "Autologous (Practice of Medicine)"];
+const SECTION_OPTIONS = ["351(a)", "361 HCT/P (Tissue Bank)", "351(a) (Investigational)", "361 HCT/P (FDA Disputes)", "361 HCT/P (Cosmetic)", "Autologous (Practice of Medicine)"];
 const MANUFACTURING_OPTIONS = ["cGMP", "GMP"];
 const FDA_STATUS_OPTIONS = ["No Warning Letters", "Warning Letter"];
 const COA_OPTIONS = ["Yes", "No/Unclear"];
