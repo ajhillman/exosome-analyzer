@@ -175,7 +175,7 @@ export function CompanyDetailModal({ company, onClose }: CompanyDetailModalProps
               <div className="bg-white border border-gray-100 rounded-xl p-3">
                 <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1.5">Section</p>
                 {company.section.includes("351(a)") ? (
-                  <ComplianceBadge type="351a" label={company.section} size="md" />
+                  <ComplianceBadge type={company.section.includes("Investigational") ? "351a-inv" : "351a"} label={company.section} size="md" />
                 ) : (
                   <ComplianceBadge type="361" label={company.section} size="md" />
                 )}

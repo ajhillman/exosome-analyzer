@@ -106,7 +106,7 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-1.5 rounded-t-2xl flex items-center gap-2">
                   <Star className="w-3.5 h-3.5 fill-yellow-300 text-yellow-300" />
                   <span className="text-xs font-semibold tracking-wide">
-                    GOLD STANDARD - 351(a) REGISTERED - LSU MEDICAL SCHOOL PARTNERSHIP
+                    GOLD STANDARD - 351(a) REGISTERED - cGMP COMPLIANT
                   </span>
                 </div>
               )}
@@ -177,7 +177,7 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                     {/* Badges Row */}
                     <div className="flex flex-wrap gap-1.5 mt-3">
                       {company.section.includes("351(a)") ? (
-                        <ComplianceBadge type="351a" label={company.section} size="sm" />
+                        <ComplianceBadge type={company.section.includes("Investigational") ? "351a-inv" : "351a"} label={company.section} size="sm" />
                       ) : (
                         <ComplianceBadge type="361" label={company.section} size="sm" />
                       )}

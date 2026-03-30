@@ -10,13 +10,13 @@ export const companiesData: ExosomeCompany[] = [
     coa: "Yes (Batch-by-batch Eurofins - ONLY COMPANY WITH THIS STANDARD)",
     source: "Mesenchymal Exosomes from Wharton's Jelly Umbilical Cord",
     dmf: "Yes",
-    notes: "GOLD STANDARD: Only company registered under 351(a) with BATCH-BY-BATCH THIRD-PARTY COA from Eurofins (ONLY COMPANY WITH THIS STANDARD - competitors test once per year or use internal testing only). $20M CNA liability insurance. DUAL MANUFACTURING FACILITIES in Baton Rouge, Louisiana. Research Laboratory partnership with Louisiana State University Medical School. ISO 5 TRUE cGMP manufacturing in COMPANY-OWNED facilities. Cryogenic storage in glass vials. Post-thaw viability 95-97%. 13 pre-IND pathways. SHELF-STABLE MESENCHYMAL EXOSOMES: Only company with patented shelf-stable technology and INCI nomenclature. Room temperature stability (unique in industry). 20 BILLION MESENCHYMAL EXOSOMES PER MILLILITER GUARANTEE - cGMP manufactured in glass bottles. SISTER COMPANY: Oleander Medical Technologies (Baton Rouge, LA) - Breakthrough cancer treatment technology (Targeted Osmotic Lysis/TOL). TOL uses pulsed electric field + digoxin to force cancer cells to burst while leaving healthy cells unharmed. Targets advanced-stage cancers (breast, lung, colon, prostate, mesothelioma). TOL process patented with additional process and device patents pending. Clinical trials in Australia and Honduras. Multiple published research papers and FDA emergency use case studies. Potential to save hundreds of thousands of cancer patients annually. Only DynaCord and Kimera Labs own their own production facilities - all other companies use third-party manufacturing. COMPLIANCE DISTINCTION: Unlike all competitors with fake, false, misleading, and mislabeled/misbranded claims (federal violations easily discoverable by FDA), DynaCord maintains transparent cGMP compliance with documented batch-by-batch testing and regulatory registration.",
+    notes: "GOLD STANDARD: Only company registered under 351(a) with BATCH-BY-BATCH THIRD-PARTY COA from Eurofins (ONLY COMPANY WITH THIS STANDARD - competitors test once per year or use internal testing only). $20M CNA liability insurance. DUAL MANUFACTURING FACILITIES in Baton Rouge, Louisiana. ISO 5 TRUE cGMP manufacturing in COMPANY-OWNED facilities. Cryogenic storage in glass vials. Post-thaw viability 95-97%. 13 pre-IND pathways. SHELF-STABLE MESENCHYMAL EXOSOMES: Only company with patented shelf-stable technology and INCI nomenclature. Room temperature stability (unique in industry). 20 BILLION MESENCHYMAL EXOSOMES PER MILLILITER GUARANTEE - cGMP manufactured in glass bottles. SISTER COMPANY: Oleander Medical Technologies (Baton Rouge, LA) - Breakthrough cancer treatment technology (Targeted Osmotic Lysis/TOL). TOL uses pulsed electric field + digoxin to force cancer cells to burst while leaving healthy cells unharmed. Targets advanced-stage cancers (breast, lung, colon, prostate, mesothelioma). TOL process patented with additional process and device patents pending. Clinical trials in Australia and Honduras. Multiple published research papers and FDA emergency use case studies. Potential to save hundreds of thousands of cancer patients annually. Only DynaCord and Kimera Labs own their own production facilities - all other companies use third-party manufacturing. COMPLIANCE DISTINCTION: Unlike all competitors with fake, false, misleading, and mislabeled/misbranded claims (federal violations easily discoverable by FDA), DynaCord maintains transparent cGMP compliance with documented batch-by-batch testing and regulatory registration.",
     hasWarningLetter: false,
     regulatoryScore: 95,
     founded_year: 2015,
     company_age: 11,
     website: "dynacord.com, dyna-cord.com",
-    company_logo_url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/dynacord-logo-cpR8fdvYu7tKYtLHmAkETF.webp",
+    company_logo_url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/dynacord-official-logo_478aa354.png",
     insurance_provider: "CNA Life Sciences Liability (A.M. Best Rating: A)",
     insurance_policy_number: "ADT 7017740208",
     insurance_coverage_amount: "$20M",
@@ -81,8 +81,8 @@ export const companiesData: ExosomeCompany[] = [
       },
       {
         name: "Dr. Lucio Miele, M.D., Ph.D.",
-        title: "Cancer Crusaders Professor of Genetics, Director LSU-LCMC Health Cancer Center, Former FDA CBER Senior Investigator",
-        background: "Cancer Crusaders Professor of Genetics and Director of LSU-LCMC Health Cancer Center. Assistant Dean for Translational Science, LSU Health School of Medicine. Medical training in Italy. Graduate training at Max-Planck Institute for Molecular Genetics, Berlin. Fellowship in Human Genetics at NIH (NICHD). Expert in cancer stem cell-regulatory genes (Notch pathway), cancer biomarkers, translational science, and regulatory pathways for biologics.",
+        title: "Cancer Crusaders Professor of Genetics, Former FDA CBER Senior Investigator, Scientific Advisory Board",
+        background: "Cancer Crusaders Professor of Genetics. Medical training in Italy. Graduate training at Max-Planck Institute for Molecular Genetics, Berlin. Fellowship in Human Genetics at NIH (NICHD). Expert in cancer stem cell-regulatory genes (Notch pathway), cancer biomarkers, translational science, and regulatory pathways for biologics.",
         regulatory_history: "FDA/CBER Senior Investigator (1994-1998): Division of Monoclonal Antibodies and Division of Clinical Trials Design and Analysis. Promoted to Acting Chief, Laboratory of Cell Biology. Co-authored 1997 FDA guidance Points to Consider in the Manufacture and Testing of Monoclonal Antibody Products. Direct expertise in biologics manufacturing, clinical trial design, drug classification, IND approval, and FDA compliance. Brings unparalleled FDA regulatory authority to DynaCord's regulatory strategy.",
         pedigree_level: "High",
       }
@@ -361,9 +361,49 @@ export const companiesData: ExosomeCompany[] = [
         date: "2012-10-01",
         category: "Media Coverage",
         summary: "Detailed Regenexx's failed jurisdictional challenge to FDA authority over stem cell procedures."
+      },
+      {
+        title: "FDA Warning Letters About Products - Regenexx",
+        source: "Quackwatch",
+        url: "https://quackwatch.org/cases/fdawarning/prod/fda-warning-letters-about-products-2008/regenexx/",
+        date: "2008",
+        category: "FDA Enforcement",
+        summary: "Documented FDA warning letter history for Regenexx stem cell procedures."
+      },
+      {
+        title: "United States v. Regenerative Sciences - Court Opinion",
+        source: "Justia / U.S. District Court D.C.",
+        url: "https://law.justia.com/cases/federal/district-courts/district-of-columbia/dcdce/1:2010cv01327/143443/47/",
+        date: "2012",
+        category: "Litigation",
+        summary: "Federal court opinion in FDA v. Regenerative Sciences establishing FDA authority over autologous stem cell procedures as drug products."
+      },
+      {
+        title: "Injunction on Stem Cell Treatment Upheld",
+        source: "Courthouse News Service",
+        url: "https://www.courthousenews.com/injunction-on-stem-cell-treatment-upheld/",
+        date: "2014",
+        category: "Litigation",
+        summary: "Appeals court upheld injunction against Regenexx stem cell treatment, confirming FDA regulatory authority."
+      },
+      {
+        title: "The A4M Conference: One Week After the FDA Warnings",
+        source: "Regenexx Blog",
+        url: "https://regenexx.com/blog/the-a4m-conference-one-week-after-the-fda-warnings/",
+        date: "2025",
+        category: "Industry Analysis",
+        summary: "Regenexx analysis of A4M conference aftermath following FDA warning letters to perinatal biologics companies."
+      },
+      {
+        title: "9th Circuit Reverses California CSN Stem Cell Decision",
+        source: "Regenexx Blog",
+        url: "https://regenexx.com/blog/9th-circuit-reverses-california-csn-stem-cell-decision/",
+        date: "2024",
+        category: "Litigation",
+        summary: "9th Circuit Court of Appeals reversed California Cell Surgical Network stem cell decision, reinforcing FDA authority over stem cell products."
       }
     ],
-    negative_press_count: 6,
+    negative_press_count: 11,
   },
   {
     id: "benev",
@@ -634,7 +674,8 @@ export const companiesData: ExosomeCompany[] = [
     website: "https://www.platinumbiologics.com",
     company_logo_url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/platinum-biologics-logo-4RQQmQK8bPNoCuYJB57JVW.webp",
     facility_type: "Tissue Bank",
-    company_location: "Orlando, Florida",
+    company_location: "Pensacola, Florida",
+    company_address: "110 Reed Road, Pensacola, FL 32507",
     iso_cleanroom: "ISO 7",
     storage_method: "Unknown",
     container_type: "Unknown",
@@ -652,12 +693,20 @@ export const companiesData: ExosomeCompany[] = [
         case_number: "4:2024cv00264",
         filed_date: "2024-04-12",
         court: "U.S. District Court, Western District of Missouri",
-        allegations: ["False advertising", "Unfair competition", "Defamation"],
-        status: "Ongoing",
+        allegations: ["False advertising", "Unfair competition", "Defamation", "Deliberate efforts to mislead and misinform the public"],
+        status: "Terminated (Voluntary Dismissal Oct 21, 2024)",
         parties: ["Vitti Labs LLC", "Michael Beeben Russell", "The Regenerative Project LLC"],
       },
+      {
+        case_name: "ROW1 INC d/b/a Regenative Labs v. Michael Russell et al",
+        filed_date: "2023-04-18",
+        court: "Circuit Court of the First Judicial Circuit, Escambia County, Florida",
+        allegations: ["Contract breach", "Indebtedness", "Injunctive relief"],
+        status: "OPEN",
+        parties: ["ROW1 INC d/b/a Regenative Labs", "Michael Russell", "Arian Carney", "Stephen Mesa", "Scott Martin M.D.", "Marcus Russell", "The Regenerative Project LLC d/b/a Platinum Biologics"],
+      },
     ],
-    litigation_count: 1,
+    litigation_count: 2,
     fda_warnings_to_physicians: [
       {
         warning_letter_date: "2025-08-15",
@@ -688,8 +737,8 @@ export const companiesData: ExosomeCompany[] = [
       {
         name: "Michael 'Beeben' Russell",
         title: "CEO/Chairman, Owner",
-        background: "Former VP of Sales for Regenative Labs",
-        regulatory_history: "Associated with Medicare billing scheme involving non-covered orthopedic procedures. One of largest CMS clawbacks in Medicare history. Regenative Labs received FDA enforcement actions for unapproved stem cell products.",
+        background: "Former VP of Sales for Regenative Labs. Single year of high school education per Regenexx blog. Launched Platinum Biologics after leaving Regenative Labs (which received FDA warning letter). Products marketed as 'cosmetic, research and/or homologous use' but sold to interventional spine physicians for injection. Not registered in FDA Tissue Establishment Registration system.",
+        regulatory_history: "Associated with Medicare billing scheme involving non-covered orthopedic procedures. One of largest CMS clawbacks in Medicare history. Regenative Labs received FDA enforcement actions for unapproved stem cell products. Two active lawsuits: ROW1 INC v. Russell (Escambia County FL, 2023, CONTRACT & INDEBTEDNESS, OPEN) and Vitti Labs v. The Regenerative Project (W.D. Missouri, 2024, dismissed). FDA Warning Letter Aug 2025 (CBER 25-705090). Products classified as unapproved and misbranded drugs per Regenexx analysis.",
         litigation_involved: true,
         pedigree_level: "Low",
       },
@@ -733,9 +782,32 @@ export const companiesData: ExosomeCompany[] = [
         date: "2025",
         category: "Leadership Issues",
         summary: "Documented criminal investigations in regenerative medicine industry involving companies and executives."
+      },
+      {
+        title: "ROW1 INC v. RUSSELL, MICHAEL - Complaint (Contract & Indebtedness)",
+        source: "Trellis Law / Escambia County Circuit Court",
+        url: "https://trellis.law/doc/160584397/complaint",
+        date: "2023-04-18",
+        category: "Litigation",
+        summary: "ROW1 INC d/b/a Regenative Labs sued Michael Russell, Arian Carney, Stephen Mesa, Scott Martin M.D., Marcus Russell, and The Regenerative Project LLC d/b/a Platinum Biologics for contract breach and indebtedness. Seeks injunctive relief and damages exceeding $50,000. Case OPEN before Judge Amy P. Brodersen."
+      },
+      {
+        title: "Vitti Labs LLC et al v. The Regenerative Project LLC - Federal Complaint",
+        source: "PacerMonitor / U.S. District Court W.D. Missouri",
+        date: "2024-04-12",
+        category: "Litigation",
+        summary: "Vitti Labs alleged deliberate efforts by Michael Beeben Russell and Platinum Biologics to mislead and misinform the public regarding Vitti Labs capabilities. Case terminated by voluntary dismissal October 21, 2024."
+      },
+      {
+        title: "Regenexx Blog: Platinum Biologics Beeben 2.0 - Nano PRP Jelly Analysis",
+        source: "Regenexx Blog (Chris Centeno, MD)",
+        url: "https://regenexx.com/blog/platinum-biologics-beeben-2-0/",
+        date: "2024-09-26",
+        category: "Regulatory Analysis",
+        summary: "Detailed regulatory analysis concluding Nano PRP Jelly is an unapproved and misbranded drug product. Product disclaimers for cosmetic, research, and homologous use all fail under FDA regulations. Platinum Biologics not registered in FDA Tissue Establishment Registration system. Russell identified as former Regenative Labs VP with single year of high school. Regenative Labs CMS clawback described as one of largest in Medicare history."
       }
     ],
-    negative_press_count: 4,
+    negative_press_count: 8,
   },
   {
     id: "chara-biologics",
@@ -768,10 +840,11 @@ export const companiesData: ExosomeCompany[] = [
     legal_status: "Illegal",
     fda_warnings_to_physicians: [
       {
-        warning_letter_date: "2025-01",
+        warning_letter_date: "2025-01-17",
         warning_letter_number: "CBER-25-698004",
         violations: ["Unapproved new drug", "Unlicensed biological product", "Marketing violations"],
         products_cited: ["CharaExo", "CharaOmni"],
+        fda_links: ["https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/chara-biologics-inc-698004-01172025"],
         directed_to: "Both",
       },
     ],
@@ -840,9 +913,10 @@ export const companiesData: ExosomeCompany[] = [
     legal_status: "Illegal",
     fda_warnings_to_physicians: [
       {
-        warning_letter_date: "2025-09",
+        warning_letter_date: "2025-09-24",
         warning_letter_number: "CBER-25-711102",
         violations: ["Unapproved drug products", "Manufacturing deficiencies", "Quality control deficiencies"],
+        fda_links: ["https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/new-life-medical-services-llc-711102-09242025"],
         directed_to: "Both",
       },
     ],
@@ -916,6 +990,59 @@ export const companiesData: ExosomeCompany[] = [
       },
     ],
     negative_press_count: 0,
+  },
+  {
+    id: "biostem-life-sciences",
+    name: "BioStem Life Sciences",
+    section: "361 (FDA disputes)",
+    manufacturing: "GMP (Cited for violations)",
+    fda_status: "Warning Letter (Jan 2025)",
+    coa: "No/Unclear",
+    source: "Umbilical Cord/Placental Tissue",
+    dmf: "No",
+    notes: "FDA Warning Letter 673788 (January 17, 2025): Products classified as unapproved new drugs and unlicensed biological products. Violations include marketing unapproved biologics, manufacturing deficiencies, and failure to meet 21 CFR 1271 requirements. Part of FDA's unprecedented enforcement wave against perinatal biologics firms in 2025.",
+    hasWarningLetter: true,
+    regulatoryScore: 20,
+    founded_year: 2018,
+    company_age: 8,
+    website: "https://www.biostemlifesciences.com",
+    company_logo_url: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=200&h=200&fit=crop",
+    facility_type: "Tissue Bank",
+    company_location: "Florida",
+    iso_cleanroom: "Unknown",
+    storage_method: "Unknown",
+    container_type: "Unknown",
+    facility_owned: false,
+    facility_location: "Florida",
+    third_party_testing: "Internal Only",
+    mesenchymal_source_detail: "Umbilical Cord/Placental Tissue (Source Details Unclear)",
+    leadership_experience: "Low",
+    insurance_coverage: false,
+    delivery_methods: ["Intra-Articular", "Topical"],
+    legal_status: "Illegal",
+    fda_warnings_to_physicians: [
+      {
+        warning_letter_date: "2025-01-17",
+        warning_letter_number: "CBER-25-673788",
+        violations: ["Unapproved new drugs", "Unlicensed biological products", "Manufacturing deficiencies"],
+        fda_links: ["https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/biostem-life-sciences-673788-01172025"],
+        directed_to: "Both",
+      },
+    ],
+    litigation_count: 0,
+    genuine_pedigree_count: 0,
+    fda_compliance_rating: "Red",
+    fda_compliance_description: "FDA Warning Letter (Jan 17, 2025) for unapproved drugs and unlicensed biological products. Part of FDA's 2025 enforcement wave against perinatal biologics companies.",
+    negative_press_articles: [
+      {
+        title: "FDA Warning Letter to BioStem Life Sciences",
+        source: "FDA.gov",
+        date: "2025-01-17",
+        category: "FDA Enforcement",
+        summary: "FDA issued warning letter to BioStem Life Sciences for distributing unapproved drugs and unlicensed biological products."
+      }
+    ],
+    negative_press_count: 1,
   },
 ];
 

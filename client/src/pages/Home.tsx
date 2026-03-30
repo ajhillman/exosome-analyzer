@@ -1,6 +1,7 @@
 import { CompanyTable } from "@/components/CompanyTable";
 import { DosingGuides } from "@/components/DosingGuides";
 import { FilterPanel } from "@/components/FilterPanel";
+import { RegulatoryReference } from "@/components/RegulatoryReference";
 import { Statistics } from "@/components/Statistics";
 import { StudiesSection } from "@/components/StudiesSection";
 import { useFilters } from "@/contexts/FilterContext";
@@ -11,11 +12,12 @@ import {
   Building2,
   FlaskConical,
   LayoutDashboard,
+  Scale,
   Syringe,
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-type TabId = "dashboard" | "companies" | "studies" | "dosing";
+type TabId = "dashboard" | "companies" | "studies" | "dosing" | "regulatory";
 
 export default function Home() {
   const { filters } = useFilters();
@@ -37,6 +39,7 @@ export default function Home() {
     { id: "companies", label: "Companies", icon: <Building2 className="w-4 h-4" /> },
     { id: "studies", label: "Clinical Studies", icon: <BookOpen className="w-4 h-4" /> },
     { id: "dosing", label: "Dosing Protocols", icon: <Syringe className="w-4 h-4" /> },
+    { id: "regulatory", label: "Regulatory", icon: <Scale className="w-4 h-4" /> },
   ];
 
   return (
@@ -112,6 +115,8 @@ export default function Home() {
         {activeTab === "studies" && <StudiesSection />}
 
         {activeTab === "dosing" && <DosingGuides />}
+
+        {activeTab === "regulatory" && <RegulatoryReference />}
       </main>
     </div>
   );
