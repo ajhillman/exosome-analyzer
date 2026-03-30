@@ -27,7 +27,7 @@ export interface NegativePressArticle {
   date?: string;
   url?: string;
   summary?: string;
-  category?: "FDA Enforcement" | "Litigation" | "Scientific Criticism" | "Media Coverage" | "Leadership Issues" | "Industry Analysis";
+  category?: "FDA Enforcement" | "Litigation" | "Scientific Criticism" | "Media Coverage" | "Leadership Issues" | "Industry Analysis" | "Regulatory Analysis";
 }
 
 export interface LeadershipMember {

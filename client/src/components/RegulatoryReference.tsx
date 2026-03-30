@@ -191,7 +191,7 @@ export function RegulatoryReference() {
   }, []);
 
   const uniqueStatuses = useMemo(() => {
-    return [...new Set(stateRegulations.map((s) => s.status))].sort();
+    return Array.from(new Set(stateRegulations.map((s) => s.status))).sort();
   }, []);
 
   // Categorize states for the summary
