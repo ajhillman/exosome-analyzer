@@ -2,6 +2,7 @@ import { CompanyTable } from "@/components/CompanyTable";
 import { ReportCard } from "@/components/ReportCard";
 import { DosingGuides } from "@/components/DosingGuides";
 import { FilterPanel } from "@/components/FilterPanel";
+import { DMFEducation } from "@/components/DMFEducation";
 import { RegulatoryReference } from "@/components/RegulatoryReference";
 import { Statistics } from "@/components/Statistics";
 import { StudiesSection } from "@/components/StudiesSection";
@@ -12,6 +13,7 @@ import {
   Award,
   BookOpen,
   Building2,
+  FileText,
   FlaskConical,
   LayoutDashboard,
   Scale,
@@ -19,7 +21,7 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory";
+type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "dmf";
 
 export default function Home() {
   const { filters } = useFilters();
@@ -43,6 +45,7 @@ export default function Home() {
     { id: "studies", label: "Clinical Studies", icon: <BookOpen className="w-4 h-4" /> },
     { id: "dosing", label: "Dosing Protocols", icon: <Syringe className="w-4 h-4" /> },
     { id: "regulatory", label: "Regulatory", icon: <Scale className="w-4 h-4" /> },
+    { id: "dmf", label: "DMF Guide", icon: <FileText className="w-4 h-4" /> },
   ];
 
   return (
@@ -122,6 +125,8 @@ export default function Home() {
         {activeTab === "dosing" && <DosingGuides />}
 
         {activeTab === "regulatory" && <RegulatoryReference />}
+
+        {activeTab === "dmf" && <DMFEducation />}
       </main>
     </div>
   );

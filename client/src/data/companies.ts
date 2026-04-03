@@ -1063,7 +1063,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "rion",
     name: "RION",
-    section: "351(a)",
+    section: "351(a) (Investigational)",
     manufacturing: "cGMP",
     fda_status: "No Warning Letters",
     coa: "Yes (Batch-by-batch)",
@@ -1098,7 +1098,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "aruna-bio",
     name: "Aruna Bio",
-    section: "351(a)",
+    section: "351(a) (Investigational)",
     manufacturing: "cGMP",
     fda_status: "No Warning Letters",
     coa: "Yes (Batch-by-batch)",
@@ -1133,7 +1133,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "capricor-therapeutics",
     name: "Capricor Therapeutics",
-    section: "351(a)",
+    section: "351(a) (Investigational)",
     manufacturing: "cGMP",
     fda_status: "No Warning Letters",
     coa: "Yes (Batch-by-batch)",
@@ -1168,7 +1168,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "aegle-therapeutics",
     name: "Aegle Therapeutics",
-    section: "351(a)",
+    section: "351(a) (Investigational)",
     manufacturing: "cGMP",
     fda_status: "No Warning Letters",
     coa: "Yes (Batch-by-batch)",
@@ -1381,7 +1381,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "united-therapeutics",
     name: "United Therapeutics",
-    section: "351(a)",
+    section: "351(a) (Investigational)",
     manufacturing: "cGMP",
     fda_status: "No Warning Letters",
     coa: "Yes (Batch-by-batch)",
@@ -1416,7 +1416,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "aethlon-medical",
     name: "Aethlon Medical",
-    section: "351(a)",
+    section: "351(a) (Investigational)",
     manufacturing: "cGMP",
     fda_status: "No Warning Letters",
     coa: "Yes",
@@ -1527,7 +1527,7 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "bio-techne-exosome-diagnostics",
     name: "Bio-Techne / Exosome Diagnostics",
-    section: "351(a)",
+    section: "361 HCT/P (Tissue Bank)",
     manufacturing: "cGMP",
     fda_status: "No Warning Letters",
     coa: "Yes (Batch-by-batch)",

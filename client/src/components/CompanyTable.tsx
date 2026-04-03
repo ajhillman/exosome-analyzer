@@ -30,7 +30,7 @@ function ScoreRing({ score, size = 48 }: { score: number; size?: number }) {
           : "#ef4444";
 
   return (
-    <div className="relative" style={{ width: size, height: size }}>
+    <div className="relative shrink-0" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="-rotate-90">
         <circle
           cx={size / 2}
@@ -71,7 +71,7 @@ function GradeIndicator({ grade }: { grade?: string }) {
   };
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold border ${colors[grade || "C"] || colors.C}`}
+      className={`inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold border shrink-0 ${colors[grade || "C"] || colors.C}`}
     >
       {grade || "N/A"}
     </span>
@@ -104,7 +104,7 @@ export function CompanyTable({ companies }: CompanyTableProps) {
             >
               {company.id === "dynacord" && (
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-1.5 rounded-t-2xl flex items-center gap-2">
-                  <Star className="w-3.5 h-3.5 fill-yellow-300 text-yellow-300" />
+                  <Star className="w-3.5 h-3.5 fill-yellow-300 text-yellow-300 shrink-0" />
                   <span className="text-xs font-semibold tracking-wide">
                     GOLD STANDARD - 351(a) REGISTERED - cGMP COMPLIANT
                   </span>
@@ -112,31 +112,59 @@ export function CompanyTable({ companies }: CompanyTableProps) {
               )}
 
               <div className="p-4">
-                <div className="flex items-start gap-4">
-                  {/* Logo */}
-                  <div className="w-14 h-14 rounded-xl bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 p-1">
-                    {company.company_logo_url ? (
-                      <img
-                        src={company.company_logo_url}
-                        alt={company.name}
-                        className="w-full h-full object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = "none";
-                          (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-lg font-bold text-gray-400">${company.name.charAt(0)}</span>`;
-                        }}
-                      />
-                    ) : (
-                      <span className="text-lg font-bold text-gray-400">
-                        {company.name.charAt(0)}
-                      </span>
-                    )}
+                {/* Mobile Layout: stacked */}
+                <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
+                  {/* Top row on mobile: Logo + Name + Grade + Score */}
+                  <div className="flex items-center gap-3 w-full sm:w-auto">
+                    {/* Logo */}
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 p-1">
+                      {company.company_logo_url ? (
+                        <img
+                          src={company.company_logo_url}
+                          alt={company.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = "none";
+                            (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-lg font-bold text-gray-400">${company.name.charAt(0)}</span>`;
+                          }}
+                        />
+                      ) : (
+                        <span className="text-lg font-bold text-gray-400">
+                          {company.name.charAt(0)}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Name + Grade on mobile */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="text-sm sm:text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors truncate">
+                          {company.name}
+                        </h3>
+                        <GradeIndicator grade={company.company_grade} />
+                        {company.hasWarningLetter && (
+                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] sm:text-xs font-medium bg-red-100 text-red-700 border border-red-200 shrink-0">
+                            <AlertTriangle className="w-3 h-3" />
+                            <span className="hidden sm:inline">FDA Warning</span>
+                            <span className="sm:hidden">FDA</span>
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[11px] sm:text-xs text-gray-500 mt-0.5 truncate">{company.source}</p>
+                    </div>
+
+                    {/* Score + Arrow on mobile - aligned right */}
+                    <div className="flex items-center gap-1 sm:gap-3 shrink-0">
+                      <ScoreRing score={company.regulatoryScore} size={40} />
+                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-300 group-hover:text-blue-500 transition-colors" />
+                    </div>
                   </div>
 
-                  {/* Main Info */}
-                  <div className="flex-1 min-w-0">
+                  {/* Desktop: expanded info area */}
+                  <div className="hidden sm:flex sm:flex-1 sm:flex-col sm:min-w-0">
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-wrap">
                           <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
                             {company.name}
                           </h3>
@@ -168,43 +196,74 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                         )}
                       </div>
 
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 shrink-0">
                         <ScoreRing score={company.regulatoryScore} />
                         <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-blue-500 transition-colors" />
                       </div>
                     </div>
-
-                    {/* Badges Row */}
-                    <div className="flex flex-wrap gap-1.5 mt-3">
-                      {company.section.includes("351(a)") ? (
-                        <ComplianceBadge type={company.section.includes("Investigational") ? "351a-inv" : "351a"} label={company.section} size="sm" />
-                      ) : (
-                        <ComplianceBadge type="361" label={company.section} size="sm" />
-                      )}
-                      {company.manufacturing.includes("cGMP") ? (
-                        <ComplianceBadge type="cgmp" label="cGMP" size="sm" />
-                      ) : (
-                        <ComplianceBadge type="gmp" label="GMP" size="sm" />
-                      )}
-                      {company.coa.includes("Yes") && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-teal-50 text-teal-700 border border-teal-200">
-                          <Shield className="w-2.5 h-2.5" />
-                          COA
-                        </span>
-                      )}
-                      {company.insurance_coverage && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-indigo-50 text-indigo-700 border border-indigo-200">
-                          <Award className="w-2.5 h-2.5" />
-                          Insured
-                        </span>
-                      )}
-                      {company.patents && company.patents.length > 0 && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-purple-50 text-purple-700 border border-purple-200">
-                          {company.patents.length} Patents
-                        </span>
-                      )}
-                    </div>
                   </div>
+                </div>
+
+                {/* Website link on mobile */}
+                {company.website && (
+                  <div className="sm:hidden mt-1">
+                    <a
+                      href={
+                        company.website.startsWith("http")
+                          ? company.website
+                          : `https://${company.website}`
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:text-blue-800"
+                    >
+                      <Globe className="w-3 h-3" />
+                      {company.website.replace(/^https?:\/\/(www\.)?/, "")}
+                      <ExternalLink className="w-2.5 h-2.5" />
+                    </a>
+                  </div>
+                )}
+
+                {/* Badges Row */}
+                <div className="flex flex-wrap gap-1.5 mt-2.5">
+                  {company.section.includes("351(a)") ? (
+                    <ComplianceBadge type={company.section.includes("Investigational") ? "351a-inv" : "351a"} label={company.section} size="sm" />
+                  ) : (
+                    <ComplianceBadge type="361" label={company.section} size="sm" />
+                  )}
+                  {company.manufacturing.includes("cGMP") ? (
+                    <ComplianceBadge type="cgmp" label="cGMP" size="sm" />
+                  ) : (
+                    <ComplianceBadge type="gmp" label="GMP" size="sm" />
+                  )}
+                  {company.coa.includes("Yes") && (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-teal-50 text-teal-700 border border-teal-200">
+                      <Shield className="w-2.5 h-2.5" />
+                      COA
+                    </span>
+                  )}
+                  {company.insurance_coverage && (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-indigo-50 text-indigo-700 border border-indigo-200">
+                      <Award className="w-2.5 h-2.5" />
+                      Insured
+                    </span>
+                  )}
+                  {company.patents && company.patents.length > 0 && (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-purple-50 text-purple-700 border border-purple-200">
+                      {company.patents.length} Patents
+                    </span>
+                  )}
+                  {company.dmf.includes("Yes") && (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-cyan-50 text-cyan-700 border border-cyan-200">
+                      DMF
+                    </span>
+                  )}
+                  {company.third_party_testing && company.third_party_testing.includes("Eurofins") && (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-violet-50 text-violet-700 border border-violet-200">
+                      3rd Party Lab
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
