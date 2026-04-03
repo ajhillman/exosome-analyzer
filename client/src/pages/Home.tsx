@@ -7,6 +7,7 @@ import { DMFEducation } from "@/components/DMFEducation";
 import { RegulatoryReference } from "@/components/RegulatoryReference";
 import { Statistics } from "@/components/Statistics";
 import { StudiesSection } from "@/components/StudiesSection";
+import { FDAEnforcement } from "@/components/FDAEnforcement";
 import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import {
@@ -18,12 +19,13 @@ import {
   FlaskConical,
   LayoutDashboard,
   Scale,
+  FileWarning,
   Shield,
   Syringe,
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "dmf" | "compliance";
+type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "dmf" | "compliance" | "enforcement";
 
 export default function Home() {
   const { filters } = useFilters();
@@ -49,6 +51,7 @@ export default function Home() {
     { id: "regulatory", label: "Regulatory", icon: <Scale className="w-4 h-4" /> },
     { id: "dmf", label: "DMF Guide", icon: <FileText className="w-4 h-4" /> },
     { id: "compliance", label: "Compliance Case", icon: <Shield className="w-4 h-4" /> },
+    { id: "enforcement", label: "FDA Enforcement", icon: <FileWarning className="w-4 h-4" /> },
   ];
 
   return (
@@ -68,7 +71,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex items-center gap-1 bg-gray-100 rounded-xl p-1">
+          <div className="flex items-center gap-1 bg-gray-100 rounded-xl p-1 overflow-x-auto max-w-[calc(100vw-280px)] scrollbar-hide">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -132,6 +135,8 @@ export default function Home() {
         {activeTab === "dmf" && <DMFEducation />}
 
         {activeTab === "compliance" && <ComplianceCase />}
+
+        {activeTab === "enforcement" && <FDAEnforcement />}
       </main>
     </div>
   );
