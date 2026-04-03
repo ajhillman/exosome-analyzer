@@ -6,6 +6,7 @@ export interface LitigationCase {
   allegations?: string[];
   status?: "Ongoing" | "Settled" | "Dismissed" | "Won" | "Lost" | "Terminated (Voluntary Dismissal Oct 21, 2024)" | "OPEN";
   parties?: string[];
+  description?: string;
 }
 
 export interface FDAWarning {
