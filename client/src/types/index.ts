@@ -4,6 +4,7 @@ export interface LitigationCase {
   filed_date?: string;
   court?: string;
   allegations?: string[];
+  description?: string;
   status?: "Ongoing" | "Settled" | "Dismissed" | "Won" | "Lost" | "Terminated (Voluntary Dismissal Oct 21, 2024)" | "OPEN";
   parties?: string[];
 }
@@ -44,7 +45,7 @@ export interface ExosomeCompany {
   name: string;
   section: "351(a)" | "361 HCT/P (Tissue Bank)" | "351(a) (Investigational)" | "361 HCT/P (FDA Disputes)" | "361 HCT/P (Cosmetic)" | "Autologous (Practice of Medicine)";
   manufacturing: "cGMP" | "cGMP (TRUE - Current, Verified, Documented)" | "GMP" | "GMP (Cited for violations)" | "GMP (FDA cited cGMP deviations)" | "GMP (with cGMP deviations)" | "GMP (Non-Compliant)" | "Point-of-Care Processing";
-  fda_status: "No Warning Letters" | "Warning Letter (Sept 2023)" | "Warning Letter (Jan 2025)" | "Warning Letter (Sept 2025)" | "Warning Letter (July 2022)" | "Warning Letter (Aug 2025)" | "No Warning Letters (Settled FDA litigation)";
+  fda_status: "No Warning Letters" | "Warning Letter (Sept 2023)" | "Warning Letter (Jan 2025)" | "Warning Letter (Sept 2025)" | "Warning Letter (July 2022)" | "Warning Letter (Aug 2025)" | "No Warning Letters (Settled FDA litigation)" | "Warning Letter (Aug 2020)";
   coa: "Yes (Batch-by-batch)" | "Yes (Batch-by-batch Eurofins - ONLY COMPANY WITH THIS STANDARD)" | "Yes (Internal)" | "Yes" | "No/Unclear" | "Yes (Patient-specific)";
   source: string;
   dmf: "Yes" | "Yes (IND for ExoFlo)" | "Yes (IND for Zofin)" | "No" | "No (In process for IND)" | "Yes (EA-IND for TBI)" | "N/A (Autologous approach)";
