@@ -118,7 +118,7 @@ function CompanyReportCard({ company }: { company: ExosomeCompany }) {
     },
     {
       label: "cGMP Manufacturing",
-      passed: company.manufacturing === "cGMP" ? true : company.manufacturing === "Claims cGMP" ? null : false,
+      passed: company.manufacturing?.includes("cGMP") && !company.manufacturing?.includes("deviations") ? true : company.manufacturing?.includes("cGMP") ? null : false,
       detail: company.manufacturing,
     },
     {
@@ -128,7 +128,7 @@ function CompanyReportCard({ company }: { company: ExosomeCompany }) {
     },
     {
       label: "Certificate of Analysis (COA)",
-      passed: company.coa === "Yes" ? true : company.coa === "Partial" ? null : false,
+      passed: company.coa?.startsWith("Yes") ? true : company.coa?.includes("Unclear") ? false : null,
       detail: company.coa,
     },
     {
