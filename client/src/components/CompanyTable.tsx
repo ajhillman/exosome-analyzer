@@ -22,12 +22,12 @@ function ScoreRing({ score, size = 48 }: { score: number; size?: number }) {
   const offset = circumference - (score / 100) * circumference;
   const color =
     score >= 80
-      ? "#10b981"
+      ? "#198038"
       : score >= 60
-        ? "#f59e0b"
+        ? "#b28600"
         : score >= 40
-          ? "#f97316"
-          : "#ef4444";
+          ? "#eb6200"
+          : "#da1e28";
 
   return (
     <div className="relative shrink-0" style={{ width: size, height: size }}>
@@ -37,8 +37,8 @@ function ScoreRing({ score, size = 48 }: { score: number; size?: number }) {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#e5e7eb"
-          strokeWidth={4}
+          stroke="rgba(0,0,0,0.06)"
+          strokeWidth={3}
         />
         <circle
           cx={size / 2}
@@ -46,7 +46,7 @@ function ScoreRing({ score, size = 48 }: { score: number; size?: number }) {
           r={radius}
           fill="none"
           stroke={color}
-          strokeWidth={4}
+          strokeWidth={3}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeLinecap="round"
@@ -54,24 +54,26 @@ function ScoreRing({ score, size = 48 }: { score: number; size?: number }) {
         />
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-sm font-bold text-gray-800">{score}</span>
+        <span className="text-xs font-bold" style={{ color, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{score}</span>
       </div>
     </div>
   );
 }
 
 function GradeIndicator({ grade }: { grade?: string }) {
-  const colors: Record<string, string> = {
-    "A+": "bg-emerald-100 text-emerald-800 border-emerald-200",
-    A: "bg-green-100 text-green-800 border-green-200",
-    B: "bg-blue-100 text-blue-800 border-blue-200",
-    C: "bg-yellow-100 text-yellow-800 border-yellow-200",
-    D: "bg-orange-100 text-orange-800 border-orange-200",
-    F: "bg-red-100 text-red-800 border-red-200",
+  const styles: Record<string, { bg: string; text: string; border: string }> = {
+    "A+": { bg: "rgba(25, 128, 56, 0.08)", text: "#198038", border: "rgba(25, 128, 56, 0.2)" },
+    A: { bg: "rgba(25, 128, 56, 0.06)", text: "#198038", border: "rgba(25, 128, 56, 0.15)" },
+    B: { bg: "rgba(15, 98, 254, 0.06)", text: "#0f62fe", border: "rgba(15, 98, 254, 0.15)" },
+    C: { bg: "rgba(178, 134, 0, 0.06)", text: "#b28600", border: "rgba(178, 134, 0, 0.15)" },
+    D: { bg: "rgba(235, 98, 0, 0.06)", text: "#eb6200", border: "rgba(235, 98, 0, 0.15)" },
+    F: { bg: "rgba(218, 30, 40, 0.06)", text: "#da1e28", border: "rgba(218, 30, 40, 0.15)" },
   };
+  const s = styles[grade || "C"] || styles.C;
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold border shrink-0 ${colors[grade || "C"] || colors.C}`}
+      className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold shrink-0"
+      style={{ background: s.bg, color: s.text, border: `1px solid ${s.border}`, fontFamily: "'Plus Jakarta Sans', sans-serif" }}
     >
       {grade || "N/A"}
     </span>
@@ -85,39 +87,41 @@ export function CompanyTable({ companies }: CompanyTableProps) {
     <>
       <div className="space-y-3">
         {companies.length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-2xl shadow-sm">
-            <p className="text-gray-500 text-lg">No companies match your filters.</p>
-            <p className="text-gray-400 text-sm mt-2">Try adjusting your search criteria.</p>
+          <div className="text-center py-16 card-premium">
+            <p className="text-gray-400 text-base font-medium">No companies match your filters.</p>
+            <p className="text-gray-300 text-sm mt-2">Try adjusting your search criteria.</p>
           </div>
         ) : (
-          companies.map((company) => (
+          companies.map((company, index) => (
             <div
               key={company.id}
               onClick={() => setSelectedCompany(company)}
-              className={`bg-white rounded-2xl shadow-sm border hover:shadow-lg transition-all duration-200 cursor-pointer group ${
-                company.id === "dynacord"
-                  ? "border-blue-200 ring-1 ring-blue-100"
-                  : company.hasWarningLetter
-                    ? "border-red-100"
-                    : "border-gray-100"
-              }`}
+              className="card-premium cursor-pointer group"
+              style={{
+                animationDelay: `${index * 0.03}s`,
+                ...(company.id === "dynacord" ? {
+                  border: '1px solid rgba(15, 98, 254, 0.2)',
+                  boxShadow: '0 0 0 1px rgba(15, 98, 254, 0.08), 0 2px 8px rgba(15, 98, 254, 0.06)',
+                } : company.hasWarningLetter ? {
+                  border: '1px solid rgba(218, 30, 40, 0.12)',
+                } : {}),
+              }}
             >
               {company.id === "dynacord" && (
-                <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-1.5 rounded-t-2xl flex items-center gap-2">
-                  <Star className="w-3.5 h-3.5 fill-yellow-300 text-yellow-300 shrink-0" />
-                  <span className="text-xs font-semibold tracking-wide">
-                    GOLD STANDARD - 351(a) REGISTERED - cGMP COMPLIANT
+                <div className="dynacord-glow text-white px-5 py-2 rounded-t-2xl flex items-center gap-2">
+                  <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300 shrink-0" />
+                  <span className="text-[11px] font-semibold tracking-[0.08em] uppercase">
+                    Gold Standard, 351(a) Registered, cGMP Compliant
                   </span>
                 </div>
               )}
 
-              <div className="p-4">
-                {/* Mobile Layout: stacked */}
+              <div className="p-4 md:p-5">
+                {/* Mobile Layout */}
                 <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
-                  {/* Top row on mobile: Logo + Name + Grade + Score */}
                   <div className="flex items-center gap-3 w-full sm:w-auto">
                     {/* Logo */}
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 p-1">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 p-1.5">
                       {company.company_logo_url ? (
                         <img
                           src={company.company_logo_url}
@@ -125,11 +129,11 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                           className="w-full h-full object-contain"
                           onError={(e) => {
                             (e.target as HTMLImageElement).style.display = "none";
-                            (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-lg font-bold text-gray-400">${company.name.charAt(0)}</span>`;
+                            (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-lg font-bold text-gray-300" style="font-family: 'Plus Jakarta Sans', sans-serif">${company.name.charAt(0)}</span>`;
                           }}
                         />
                       ) : (
-                        <span className="text-lg font-bold text-gray-400">
+                        <span className="text-lg font-bold text-gray-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                           {company.name.charAt(0)}
                         </span>
                       )}
@@ -138,45 +142,45 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                     {/* Name + Grade on mobile */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="text-sm sm:text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors truncate">
+                        <h3 className="text-sm sm:text-[15px] font-bold text-gray-900 group-hover:text-[#0f62fe] transition-colors truncate" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                           {company.name}
                         </h3>
                         <GradeIndicator grade={company.company_grade} />
                         {company.hasWarningLetter && (
-                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] sm:text-xs font-medium bg-red-100 text-red-700 border border-red-200 shrink-0">
+                          <span className="warning-badge shrink-0">
                             <AlertTriangle className="w-3 h-3" />
                             <span className="hidden sm:inline">FDA Warning</span>
                             <span className="sm:hidden">FDA</span>
                           </span>
                         )}
                       </div>
-                      <p className="text-[11px] sm:text-xs text-gray-500 mt-0.5 truncate">{company.source}</p>
+                      <p className="text-[11px] text-gray-400 mt-0.5 truncate font-medium">{company.source}</p>
                     </div>
 
-                    {/* Score + Arrow on mobile - aligned right */}
+                    {/* Score on mobile */}
                     <div className="flex items-center gap-1 sm:gap-3 shrink-0">
                       <ScoreRing score={company.regulatoryScore} size={40} />
-                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-300 group-hover:text-blue-500 transition-colors" />
+                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-200 group-hover:text-[#0f62fe] transition-colors" />
                     </div>
                   </div>
 
-                  {/* Desktop: expanded info area */}
+                  {/* Desktop expanded */}
                   <div className="hidden sm:flex sm:flex-1 sm:flex-col sm:min-w-0">
                     <div className="flex items-start justify-between gap-3">
                       <div>
                         <div className="flex items-center gap-2 flex-wrap">
-                          <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
+                          <h3 className="text-[15px] font-bold text-gray-900 group-hover:text-[#0f62fe] transition-colors" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                             {company.name}
                           </h3>
                           <GradeIndicator grade={company.company_grade} />
                           {company.hasWarningLetter && (
-                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium bg-red-100 text-red-700 border border-red-200">
+                            <span className="warning-badge">
                               <AlertTriangle className="w-3 h-3" />
                               FDA Warning
                             </span>
                           )}
                         </div>
-                        <p className="text-xs text-gray-500 mt-0.5">{company.source}</p>
+                        <p className="text-[11px] text-gray-400 mt-0.5 font-medium">{company.source}</p>
                         {company.website && (
                           <a
                             href={
@@ -187,26 +191,26 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 mt-1"
+                            className="inline-flex items-center gap-1 text-[12px] text-[#0f62fe] hover:text-[#0043ce] mt-1.5 font-medium transition-colors"
                           >
                             <Globe className="w-3 h-3" />
                             {company.website.replace(/^https?:\/\/(www\.)?/, "")}
-                            <ExternalLink className="w-2.5 h-2.5" />
+                            <ExternalLink className="w-2.5 h-2.5 opacity-50" />
                           </a>
                         )}
                       </div>
 
                       <div className="flex items-center gap-3 shrink-0">
                         <ScoreRing score={company.regulatoryScore} />
-                        <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-blue-500 transition-colors" />
+                        <ChevronRight className="w-5 h-5 text-gray-200 group-hover:text-[#0f62fe] transition-colors" />
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Website link on mobile */}
+                {/* Website on mobile */}
                 {company.website && (
-                  <div className="sm:hidden mt-1">
+                  <div className="sm:hidden mt-1.5">
                     <a
                       href={
                         company.website.startsWith("http")
@@ -216,17 +220,17 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:text-blue-800"
+                      className="inline-flex items-center gap-1 text-[11px] text-[#0f62fe] hover:text-[#0043ce] font-medium"
                     >
                       <Globe className="w-3 h-3" />
                       {company.website.replace(/^https?:\/\/(www\.)?/, "")}
-                      <ExternalLink className="w-2.5 h-2.5" />
+                      <ExternalLink className="w-2.5 h-2.5 opacity-50" />
                     </a>
                   </div>
                 )}
 
-                {/* Badges Row */}
-                <div className="flex flex-wrap gap-1.5 mt-2.5">
+                {/* Badges */}
+                <div className="flex flex-wrap gap-1.5 mt-3">
                   {company.section.includes("351(a)") ? (
                     <ComplianceBadge type={company.section.includes("Investigational") ? "351a-inv" : "351a"} label={company.section} size="sm" />
                   ) : (
@@ -238,29 +242,29 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                     <ComplianceBadge type="gmp" label="GMP" size="sm" />
                   )}
                   {company.coa.includes("Yes") && (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-teal-50 text-teal-700 border border-teal-200">
+                    <span className="badge-premium" style={{ background: 'rgba(0, 157, 154, 0.06)', color: '#009d9a', border: '1px solid rgba(0, 157, 154, 0.15)' }}>
                       <Shield className="w-2.5 h-2.5" />
                       COA
                     </span>
                   )}
                   {company.insurance_coverage && (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-indigo-50 text-indigo-700 border border-indigo-200">
+                    <span className="badge-premium" style={{ background: 'rgba(105, 41, 196, 0.06)', color: '#6929c4', border: '1px solid rgba(105, 41, 196, 0.15)' }}>
                       <Award className="w-2.5 h-2.5" />
                       Insured
                     </span>
                   )}
                   {company.patents && company.patents.length > 0 && (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-purple-50 text-purple-700 border border-purple-200">
+                    <span className="badge-premium" style={{ background: 'rgba(15, 98, 254, 0.06)', color: '#0f62fe', border: '1px solid rgba(15, 98, 254, 0.15)' }}>
                       {company.patents.length} Patents
                     </span>
                   )}
                   {company.dmf.includes("Yes") && (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-cyan-50 text-cyan-700 border border-cyan-200">
+                    <span className="badge-premium" style={{ background: 'rgba(0, 157, 154, 0.06)', color: '#009d9a', border: '1px solid rgba(0, 157, 154, 0.15)' }}>
                       DMF
                     </span>
                   )}
                   {company.third_party_testing && company.third_party_testing.includes("Eurofins") && (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-violet-50 text-violet-700 border border-violet-200">
+                    <span className="badge-premium" style={{ background: 'rgba(105, 41, 196, 0.06)', color: '#6929c4', border: '1px solid rgba(105, 41, 196, 0.15)' }}>
                       3rd Party Lab
                     </span>
                   )}

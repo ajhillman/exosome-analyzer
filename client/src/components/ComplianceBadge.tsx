@@ -1,4 +1,4 @@
-import { AlertTriangle, CheckCircle, Clock } from "lucide-react";
+import { AlertTriangle, CheckCircle, Clock, Shield, FileText } from "lucide-react";
 
 interface ComplianceBadgeProps {
   type: "351a" | "351a-inv" | "361" | "cgmp" | "gmp" | "warning" | "no-warning" | "dmf" | "ind";
@@ -8,46 +8,84 @@ interface ComplianceBadgeProps {
 
 export function ComplianceBadge({ type, label, size = "md" }: ComplianceBadgeProps) {
   const sizeClasses = {
-    sm: "px-2 py-1 text-xs",
-    md: "px-3 py-1.5 text-sm",
-    lg: "px-4 py-2 text-base",
+    sm: "px-2 py-0.5 text-[10px] gap-1",
+    md: "px-2.5 py-1 text-[11px] gap-1.5",
+    lg: "px-3 py-1.5 text-xs gap-1.5",
   };
 
-  const typeClasses = {
-    "351a": "bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100 border border-blue-300 dark:border-blue-700",
-    "351a-inv": "bg-yellow-100 text-yellow-900 dark:bg-yellow-900 dark:text-yellow-100 border border-yellow-400 dark:border-yellow-600",
-    "361": "bg-amber-100 text-amber-900 dark:bg-amber-900 dark:text-amber-100 border border-amber-300 dark:border-amber-700",
-    cgmp: "bg-green-100 text-green-900 dark:bg-green-900 dark:text-green-100 border border-green-300 dark:border-green-700",
-    gmp: "bg-yellow-100 text-yellow-900 dark:bg-yellow-900 dark:text-yellow-100 border border-yellow-300 dark:border-yellow-700",
-    warning: "bg-red-100 text-red-900 dark:bg-red-900 dark:text-red-100 border border-red-300 dark:border-red-700",
-    "no-warning": "bg-green-100 text-green-900 dark:bg-green-900 dark:text-green-100 border border-green-300 dark:border-green-700",
-    dmf: "bg-purple-100 text-purple-900 dark:bg-purple-900 dark:text-purple-100 border border-purple-300 dark:border-purple-700",
-    ind: "bg-indigo-100 text-indigo-900 dark:bg-indigo-900 dark:text-indigo-100 border border-indigo-300 dark:border-indigo-700",
+  const iconSize = size === "sm" ? "w-2.5 h-2.5" : size === "md" ? "w-3 h-3" : "w-3.5 h-3.5";
+
+  const typeStyles: Record<string, { bg: string; color: string; border: string; icon: React.ReactNode }> = {
+    "351a": {
+      bg: "linear-gradient(135deg, rgba(15, 98, 254, 0.08) 0%, rgba(15, 98, 254, 0.04) 100%)",
+      color: "#0f62fe",
+      border: "rgba(15, 98, 254, 0.2)",
+      icon: <Shield className={iconSize} />,
+    },
+    "351a-inv": {
+      bg: "linear-gradient(135deg, rgba(178, 134, 0, 0.08) 0%, rgba(178, 134, 0, 0.04) 100%)",
+      color: "#b28600",
+      border: "rgba(178, 134, 0, 0.2)",
+      icon: <Clock className={iconSize} />,
+    },
+    "361": {
+      bg: "linear-gradient(135deg, rgba(178, 134, 0, 0.06) 0%, rgba(178, 134, 0, 0.03) 100%)",
+      color: "#92400e",
+      border: "rgba(146, 64, 14, 0.15)",
+      icon: <AlertTriangle className={iconSize} />,
+    },
+    cgmp: {
+      bg: "linear-gradient(135deg, rgba(25, 128, 56, 0.08) 0%, rgba(25, 128, 56, 0.04) 100%)",
+      color: "#198038",
+      border: "rgba(25, 128, 56, 0.2)",
+      icon: <CheckCircle className={iconSize} />,
+    },
+    gmp: {
+      bg: "linear-gradient(135deg, rgba(178, 134, 0, 0.06) 0%, rgba(178, 134, 0, 0.03) 100%)",
+      color: "#854d0e",
+      border: "rgba(133, 77, 14, 0.15)",
+      icon: <AlertTriangle className={iconSize} />,
+    },
+    warning: {
+      bg: "linear-gradient(135deg, rgba(218, 30, 40, 0.08) 0%, rgba(218, 30, 40, 0.04) 100%)",
+      color: "#da1e28",
+      border: "rgba(218, 30, 40, 0.2)",
+      icon: <AlertTriangle className={iconSize} />,
+    },
+    "no-warning": {
+      bg: "linear-gradient(135deg, rgba(25, 128, 56, 0.08) 0%, rgba(25, 128, 56, 0.04) 100%)",
+      color: "#198038",
+      border: "rgba(25, 128, 56, 0.2)",
+      icon: <CheckCircle className={iconSize} />,
+    },
+    dmf: {
+      bg: "linear-gradient(135deg, rgba(105, 41, 196, 0.08) 0%, rgba(105, 41, 196, 0.04) 100%)",
+      color: "#6929c4",
+      border: "rgba(105, 41, 196, 0.2)",
+      icon: <FileText className={iconSize} />,
+    },
+    ind: {
+      bg: "linear-gradient(135deg, rgba(15, 98, 254, 0.06) 0%, rgba(15, 98, 254, 0.03) 100%)",
+      color: "#0f62fe",
+      border: "rgba(15, 98, 254, 0.15)",
+      icon: <FileText className={iconSize} />,
+    },
   };
 
-  const getIcon = () => {
-    switch (type) {
-      case "warning":
-        return <AlertTriangle className="w-4 h-4" />;
-      case "no-warning":
-      case "351a":
-      case "cgmp":
-      case "dmf":
-      case "ind":
-        return <CheckCircle className="w-4 h-4" />;
-      case "351a-inv":
-      case "361":
-      case "gmp":
-        return <Clock className="w-4 h-4" />;
-      default:
-        return null;
-    }
-  };
+  const style = typeStyles[type] || typeStyles["361"];
 
   return (
-    <div className={`inline-flex items-center gap-2 rounded-full font-medium ${sizeClasses[size]} ${typeClasses[type]}`}>
-      {getIcon()}
-      <span>{label}</span>
-    </div>
+    <span
+      className={`inline-flex items-center rounded-lg font-semibold ${sizeClasses[size]}`}
+      style={{
+        background: style.bg,
+        color: style.color,
+        border: `1px solid ${style.border}`,
+        letterSpacing: '0.02em',
+      }}
+    >
+      {style.icon}
+      {label}
+    </span>
   );
 }

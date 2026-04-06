@@ -17,23 +17,16 @@ interface ReportCardProps {
   companies: ExosomeCompany[];
 }
 
-function getGradeColor(grade: string) {
-  switch (grade) {
-    case "A+":
-      return { bg: "bg-emerald-500", text: "text-white", ring: "ring-emerald-300", light: "bg-emerald-50", border: "border-emerald-200", textDark: "text-emerald-800" };
-    case "A":
-      return { bg: "bg-green-500", text: "text-white", ring: "ring-green-300", light: "bg-green-50", border: "border-green-200", textDark: "text-green-800" };
-    case "B":
-      return { bg: "bg-blue-500", text: "text-white", ring: "ring-blue-300", light: "bg-blue-50", border: "border-blue-200", textDark: "text-blue-800" };
-    case "C":
-      return { bg: "bg-amber-500", text: "text-white", ring: "ring-amber-300", light: "bg-amber-50", border: "border-amber-200", textDark: "text-amber-800" };
-    case "D":
-      return { bg: "bg-orange-500", text: "text-white", ring: "ring-orange-300", light: "bg-orange-50", border: "border-orange-200", textDark: "text-orange-800" };
-    case "F":
-      return { bg: "bg-red-500", text: "text-white", ring: "ring-red-300", light: "bg-red-50", border: "border-red-200", textDark: "text-red-800" };
-    default:
-      return { bg: "bg-gray-400", text: "text-white", ring: "ring-gray-300", light: "bg-gray-50", border: "border-gray-200", textDark: "text-gray-800" };
-  }
+function getGradeStyle(grade: string) {
+  const styles: Record<string, { accent: string; bg: string; bgLight: string; border: string }> = {
+    "A+": { accent: "#198038", bg: "rgba(25, 128, 56, 0.1)", bgLight: "rgba(25, 128, 56, 0.04)", border: "rgba(25, 128, 56, 0.15)" },
+    A: { accent: "#198038", bg: "rgba(25, 128, 56, 0.08)", bgLight: "rgba(25, 128, 56, 0.03)", border: "rgba(25, 128, 56, 0.12)" },
+    B: { accent: "#0f62fe", bg: "rgba(15, 98, 254, 0.08)", bgLight: "rgba(15, 98, 254, 0.03)", border: "rgba(15, 98, 254, 0.12)" },
+    C: { accent: "#b28600", bg: "rgba(178, 134, 0, 0.08)", bgLight: "rgba(178, 134, 0, 0.03)", border: "rgba(178, 134, 0, 0.12)" },
+    D: { accent: "#eb6200", bg: "rgba(235, 98, 0, 0.08)", bgLight: "rgba(235, 98, 0, 0.03)", border: "rgba(235, 98, 0, 0.12)" },
+    F: { accent: "#da1e28", bg: "rgba(218, 30, 40, 0.08)", bgLight: "rgba(218, 30, 40, 0.03)", border: "rgba(218, 30, 40, 0.12)" },
+  };
+  return styles[grade] || styles.C;
 }
 
 function getScoreLabel(score: number) {
@@ -46,17 +39,10 @@ function getScoreLabel(score: number) {
 }
 
 function CircularScore({ score, grade, size = 100 }: { score: number; grade: string; size?: number }) {
-  const colors = getGradeColor(grade);
-  const radius = (size - 12) / 2;
+  const style = getGradeStyle(grade);
+  const radius = (size - 10) / 2;
   const circumference = 2 * Math.PI * radius;
   const progress = (score / 100) * circumference;
-  const strokeColor =
-    grade === "A+" ? "#10b981" :
-    grade === "A" ? "#22c55e" :
-    grade === "B" ? "#3b82f6" :
-    grade === "C" ? "#f59e0b" :
-    grade === "D" ? "#f97316" :
-    "#ef4444";
 
   return (
     <div className="relative" style={{ width: size, height: size }}>
@@ -66,16 +52,16 @@ function CircularScore({ score, grade, size = 100 }: { score: number; grade: str
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#e5e7eb"
-          strokeWidth="6"
+          stroke="rgba(0,0,0,0.04)"
+          strokeWidth="5"
         />
         <circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke={strokeColor}
-          strokeWidth="6"
+          stroke={style.accent}
+          strokeWidth="5"
           strokeDasharray={circumference}
           strokeDashoffset={circumference - progress}
           strokeLinecap="round"
@@ -83,8 +69,8 @@ function CircularScore({ score, grade, size = 100 }: { score: number; grade: str
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className={`text-2xl font-black ${colors.textDark}`}>{grade}</span>
-        <span className="text-[10px] text-gray-500 font-medium">{score}/100</span>
+        <span className="text-xl font-extrabold" style={{ color: style.accent, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{grade}</span>
+        <span className="text-[9px] text-gray-400 font-medium">{score}/100</span>
       </div>
     </div>
   );
@@ -92,14 +78,14 @@ function CircularScore({ score, grade, size = 100 }: { score: number; grade: str
 
 function CriteriaRow({ label, passed, detail }: { label: string; passed: boolean | null; detail?: string }) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-      <div className="flex items-center gap-2">
-        {passed === true && <CheckCircle className="w-4 h-4 text-emerald-500" />}
-        {passed === false && <XCircle className="w-4 h-4 text-red-500" />}
-        {passed === null && <AlertTriangle className="w-4 h-4 text-amber-500" />}
-        <span className="text-sm text-gray-700">{label}</span>
+    <div className="flex items-center justify-between py-2.5 border-b border-gray-100/80 last:border-0">
+      <div className="flex items-center gap-2.5">
+        {passed === true && <CheckCircle className="w-4 h-4 text-[#198038]" />}
+        {passed === false && <XCircle className="w-4 h-4 text-[#da1e28]" />}
+        {passed === null && <AlertTriangle className="w-4 h-4 text-[#b28600]" />}
+        <span className="text-[13px] text-gray-700 font-medium">{label}</span>
       </div>
-      {detail && <span className="text-xs text-gray-500 max-w-[200px] text-right">{detail}</span>}
+      {detail && <span className="text-[11px] text-gray-400 max-w-[200px] text-right font-medium">{detail}</span>}
     </div>
   );
 }
@@ -107,7 +93,7 @@ function CriteriaRow({ label, passed, detail }: { label: string; passed: boolean
 function CompanyReportCard({ company }: { company: ExosomeCompany }) {
   const [expanded, setExpanded] = useState(false);
   const grade = company.company_grade || "N/A";
-  const colors = getGradeColor(grade);
+  const style = getGradeStyle(grade);
   const score = company.regulatoryScore;
 
   const criteria = [
@@ -162,63 +148,71 @@ function CompanyReportCard({ company }: { company: ExosomeCompany }) {
   const totalCount = criteria.length;
 
   return (
-    <div className={`bg-white rounded-2xl border ${colors.border} shadow-sm overflow-hidden transition-all duration-300 ${expanded ? "ring-2 " + colors.ring : ""}`}>
+    <div
+      className="card-premium overflow-hidden transition-all duration-300"
+      style={expanded ? { border: `1px solid ${style.border}`, boxShadow: `0 0 0 3px ${style.bgLight}` } : {}}
+    >
       <div
-        className="p-5 cursor-pointer hover:bg-gray-50/50 transition-colors"
+        className="p-4 md:p-5 cursor-pointer hover:bg-gray-50/30 transition-colors"
         onClick={() => setExpanded(!expanded)}
       >
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-4 md:gap-5">
           {/* Logo */}
-          <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden shrink-0">
+          <div className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 p-1">
             {company.company_logo_url ? (
-              <img src={company.company_logo_url} alt={company.name} className="w-10 h-10 object-contain" />
+              <img src={company.company_logo_url} alt={company.name} className="w-full h-full object-contain" />
             ) : (
-              <Globe className="w-6 h-6 text-gray-400" />
+              <Globe className="w-5 h-5 text-gray-300" />
             )}
           </div>
 
           {/* Score Circle */}
-          <CircularScore score={score} grade={grade} size={80} />
+          <div className="shrink-0">
+            <CircularScore score={score} grade={grade} size={72} />
+          </div>
 
           {/* Company Info */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <h3 className="text-base font-bold text-gray-900 truncate">{company.name}</h3>
+              <h3 className="text-[15px] font-bold text-gray-900 truncate" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{company.name}</h3>
               {company.fda_compliance_rating === "Gold" && (
                 <Award className="w-4 h-4 text-amber-500 shrink-0" />
               )}
             </div>
-            <p className="text-xs text-gray-500 mb-2">{company.section}</p>
-            <div className="flex items-center gap-3">
-              <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${colors.bg} ${colors.text}`}>
+            <p className="text-[11px] text-gray-400 mb-2 font-medium">{company.section}</p>
+            <div className="flex items-center gap-2 flex-wrap">
+              <span
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold text-white"
+                style={{ background: style.accent }}
+              >
                 {grade === "A+" && <ShieldCheck className="w-3 h-3" />}
                 {(grade === "A" || grade === "B") && <Shield className="w-3 h-3" />}
                 {(grade === "C" || grade === "D") && <ShieldAlert className="w-3 h-3" />}
                 {grade === "F" && <XCircle className="w-3 h-3" />}
                 Grade {grade}
               </span>
-              <span className="text-xs text-gray-500">{getScoreLabel(score)}</span>
-              <span className="text-xs text-gray-400">{passCount}/{totalCount} criteria met</span>
+              <span className="text-[11px] text-gray-400 font-medium">{getScoreLabel(score)}</span>
+              <span className="text-[11px] text-gray-300">{passCount}/{totalCount} criteria</span>
             </div>
           </div>
 
           {/* Score Bar */}
-          <div className="hidden md:block w-40">
-            <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+          <div className="hidden md:block w-36">
+            <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
               <div
-                className={`${colors.bg} h-full rounded-full transition-all duration-700`}
-                style={{ width: `${score}%` }}
+                className="h-full rounded-full transition-all duration-700"
+                style={{ width: `${score}%`, background: style.accent }}
               />
             </div>
             <div className="flex justify-between mt-1">
-              <span className="text-[10px] text-gray-400">0</span>
-              <span className="text-[10px] text-gray-400">100</span>
+              <span className="text-[9px] text-gray-300 font-medium">0</span>
+              <span className="text-[9px] text-gray-300 font-medium">100</span>
             </div>
           </div>
 
           {/* Expand Arrow */}
-          <div className={`transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}>
-            <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className={`transition-transform duration-200 shrink-0 ${expanded ? "rotate-180" : ""}`}>
+            <svg className="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
@@ -227,15 +221,15 @@ function CompanyReportCard({ company }: { company: ExosomeCompany }) {
 
       {/* Expanded Detail */}
       {expanded && (
-        <div className="border-t border-gray-100 px-5 py-4">
+        <div className="border-t border-gray-100 px-4 md:px-5 py-5 animate-fade-in">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Criteria Checklist */}
             <div>
-              <h4 className="text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
-                <FileText className="w-4 h-4 text-blue-600" />
+              <h4 className="text-[13px] font-bold text-gray-700 mb-3 flex items-center gap-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <FileText className="w-4 h-4 text-[#0f62fe]" />
                 Regulatory Criteria
               </h4>
-              <div className="bg-gray-50 rounded-xl p-3">
+              <div className="bg-gray-50/80 rounded-xl p-3 border border-gray-100/60">
                 {criteria.map((c, i) => (
                   <CriteriaRow key={i} label={c.label} passed={c.passed} detail={c.detail} />
                 ))}
@@ -245,20 +239,23 @@ function CompanyReportCard({ company }: { company: ExosomeCompany }) {
             {/* Summary Panel */}
             <div className="space-y-4">
               <div>
-                <h4 className="text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-blue-600" />
+                <h4 className="text-[13px] font-bold text-gray-700 mb-3 flex items-center gap-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <Shield className="w-4 h-4 text-[#0f62fe]" />
                   Compliance Summary
                 </h4>
-                <div className={`${colors.light} ${colors.border} border rounded-xl p-4`}>
+                <div
+                  className="rounded-xl p-4 border"
+                  style={{ background: style.bgLight, borderColor: style.border }}
+                >
                   <div className="flex items-center gap-3 mb-3">
-                    <CircularScore score={score} grade={grade} size={60} />
+                    <CircularScore score={score} grade={grade} size={56} />
                     <div>
-                      <p className={`text-lg font-black ${colors.textDark}`}>{getScoreLabel(score)}</p>
-                      <p className="text-xs text-gray-500">Regulatory Score: {score}/100</p>
+                      <p className="text-base font-extrabold" style={{ color: style.accent, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{getScoreLabel(score)}</p>
+                      <p className="text-[11px] text-gray-400 font-medium">Score: {score}/100</p>
                     </div>
                   </div>
                   {company.fda_compliance_description && (
-                    <p className="text-xs text-gray-600 leading-relaxed line-clamp-4">
+                    <p className="text-[12px] text-gray-500 leading-relaxed line-clamp-4">
                       {company.fda_compliance_description}
                     </p>
                   )}
@@ -272,28 +269,28 @@ function CompanyReportCard({ company }: { company: ExosomeCompany }) {
                     href={company.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-50 rounded-lg p-2.5 text-xs text-blue-600 hover:bg-blue-50 transition-colors"
+                    className="flex items-center gap-2 bg-gray-50 rounded-xl p-2.5 text-[11px] text-[#0f62fe] font-medium hover:bg-blue-50/50 transition-colors border border-gray-100/60"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     Website
                   </a>
                 )}
                 {company.years_in_business && (
-                  <div className="flex items-center gap-2 bg-gray-50 rounded-lg p-2.5 text-xs text-gray-600">
+                  <div className="flex items-center gap-2 bg-gray-50 rounded-xl p-2.5 text-[11px] text-gray-500 font-medium border border-gray-100/60">
                     <Globe className="w-3.5 h-3.5" />
-                    {company.years_in_business} yrs in business
+                    {company.years_in_business} yrs
                   </div>
                 )}
                 {company.patents && (
-                  <div className="flex items-center gap-2 bg-gray-50 rounded-lg p-2.5 text-xs text-gray-600">
+                  <div className="flex items-center gap-2 bg-gray-50 rounded-xl p-2.5 text-[11px] text-gray-500 font-medium border border-gray-100/60">
                     <FileText className="w-3.5 h-3.5" />
                     {company.patents.length} patent(s)
                   </div>
                 )}
                 {company.negative_press_count !== undefined && company.negative_press_count > 0 && (
-                  <div className="flex items-center gap-2 bg-red-50 rounded-lg p-2.5 text-xs text-red-600">
+                  <div className="flex items-center gap-2 rounded-xl p-2.5 text-[11px] text-[#da1e28] font-medium border" style={{ background: 'rgba(218, 30, 40, 0.04)', borderColor: 'rgba(218, 30, 40, 0.1)' }}>
                     <AlertTriangle className="w-3.5 h-3.5" />
-                    {company.negative_press_count} negative report(s)
+                    {company.negative_press_count} report(s)
                   </div>
                 )}
               </div>
@@ -322,30 +319,31 @@ export function ReportCard({ companies }: ReportCardProps) {
   return (
     <div className="space-y-6">
       {/* Summary Header */}
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
-        <h2 className="text-lg font-bold text-gray-900 mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
+      <div className="card-premium p-5 md:p-6">
+        <h2 className="text-lg font-extrabold text-gray-900 mb-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           Industry Report Card
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-2 md:gap-3">
           {["A+", "A", "B", "C", "D", "F"].map((grade) => {
-            const colors = getGradeColor(grade);
+            const s = getGradeStyle(grade);
             const count = gradeDistribution[grade] || 0;
             return (
               <div
                 key={grade}
-                className={`${colors.light} ${colors.border} border rounded-xl p-3 text-center`}
+                className="rounded-xl p-3 text-center border transition-all hover:scale-[1.02]"
+                style={{ background: s.bgLight, borderColor: s.border }}
               >
-                <div className={`text-2xl font-black ${colors.textDark}`}>{grade}</div>
-                <div className="text-xs text-gray-500 mt-1">
+                <div className="text-2xl font-extrabold" style={{ color: s.accent, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{grade}</div>
+                <div className="text-[10px] text-gray-400 mt-1 font-medium">
                   {count} {count === 1 ? "company" : "companies"}
                 </div>
               </div>
             );
           })}
-          <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center">
-            <div className="text-2xl font-black text-gray-700">{avgScore}</div>
-            <div className="text-xs text-gray-500 mt-1">Avg Score</div>
+          <div className="rounded-xl p-3 text-center border border-gray-100 bg-gray-50/50">
+            <div className="text-2xl font-extrabold text-gray-700" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{avgScore}</div>
+            <div className="text-[10px] text-gray-400 mt-1 font-medium">Avg Score</div>
           </div>
         </div>
       </div>
