@@ -12,6 +12,7 @@ import { IPSCLandscape } from "@/components/IPSCLandscape";
 import { ExosomeNews } from "@/components/ExosomeNews";
 import { StateChecklist } from "@/components/StateChecklist";
 import LitigationTracker from "@/components/LitigationTracker";
+import { Glossary } from "@/components/Glossary";
 import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import {
@@ -34,7 +35,7 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "litigation" | "ipsc" | "news";
+type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "litigation" | "ipsc" | "news" | "glossary";
 
 export default function Home() {
   const { filters } = useFilters();
@@ -66,6 +67,7 @@ export default function Home() {
     { id: "litigation", label: "Litigation", icon: <Scale className="w-4 h-4" /> },
     { id: "ipsc", label: "iPSC Landscape", icon: <Dna className="w-4 h-4" /> },
     { id: "news", label: "Industry Intel", icon: <Newspaper className="w-4 h-4" /> },
+    { id: "glossary", label: "Glossary", icon: <BookOpen className="w-4 h-4" /> },
   ];
 
   return (
@@ -198,6 +200,7 @@ export default function Home() {
         {activeTab === "litigation" && <LitigationTracker />}
         {activeTab === "ipsc" && <IPSCLandscape />}
         {activeTab === "news" && <ExosomeNews />}
+        {activeTab === "glossary" && <Glossary />}
       </main>
     </div>
   );
