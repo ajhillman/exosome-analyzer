@@ -11,6 +11,7 @@ import { FDAEnforcement } from "@/components/FDAEnforcement";
 import { IPSCLandscape } from "@/components/IPSCLandscape";
 import { ExosomeNews } from "@/components/ExosomeNews";
 import { StateChecklist } from "@/components/StateChecklist";
+import LitigationTracker from "@/components/LitigationTracker";
 import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import {
@@ -33,7 +34,7 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "ipsc" | "news";
+type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "litigation" | "ipsc" | "news";
 
 export default function Home() {
   const { filters } = useFilters();
@@ -62,6 +63,7 @@ export default function Home() {
     { id: "dmf", label: "DMF Guide", icon: <FileText className="w-4 h-4" /> },
     { id: "compliance", label: "Compliance", icon: <Shield className="w-4 h-4" /> },
     { id: "enforcement", label: "FDA Enforcement", icon: <FileWarning className="w-4 h-4" /> },
+    { id: "litigation", label: "Litigation", icon: <Scale className="w-4 h-4" /> },
     { id: "ipsc", label: "iPSC Landscape", icon: <Dna className="w-4 h-4" /> },
     { id: "news", label: "Industry Intel", icon: <Newspaper className="w-4 h-4" /> },
   ];
@@ -193,6 +195,7 @@ export default function Home() {
         {activeTab === "dmf" && <DMFEducation />}
         {activeTab === "compliance" && <ComplianceCase />}
         {activeTab === "enforcement" && <FDAEnforcement />}
+        {activeTab === "litigation" && <LitigationTracker />}
         {activeTab === "ipsc" && <IPSCLandscape />}
         {activeTab === "news" && <ExosomeNews />}
       </main>
