@@ -167,10 +167,10 @@ export function StudiesSection() {
           <div>
             <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-blue-600" />
-              WJ-MSC Exosome Clinical Studies
+              hUCMSC-Exos / WJ-MSC Exosome Clinical Studies
             </h2>
             <p className="text-sm text-gray-500 mt-1">
-              {clinicalStudies.length} peer-reviewed human studies on Wharton's Jelly mesenchymal stem cell exosomes
+              {clinicalStudies.length} peer-reviewed human studies on hUCMSC-Exos (Wharton's Jelly mesenchymal stem cell-derived exosomes)
             </p>
           </div>
           <div className="flex items-center gap-3 flex-wrap">

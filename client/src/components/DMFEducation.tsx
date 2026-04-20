@@ -48,7 +48,7 @@ export function DMFEducation() {
           <Info className="w-6 h-6 text-blue-600 shrink-0 mt-0.5" />
           <div>
             <h3 className="text-lg font-bold text-gray-900">
-              Type II DMF for WJ-MSC Exosomes
+              Type II DMF for hUCMSC-Exos / WJ-MSC Exosomes
             </h3>
             <p className="text-gray-600 text-sm mt-2 leading-relaxed">
               {dmfDefinition.typeIICovers}

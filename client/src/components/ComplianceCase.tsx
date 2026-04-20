@@ -45,8 +45,8 @@ export default function ComplianceCase() {
         </div>
         <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-3xl">
           The exosome market has a serious problem. Most products sold in the United States today are legally non-compliant.
-          Some are dangerous. None have reached the manufacturing and documentation standard that DynaCord's WJ-MSC mesenchymal
-          exosome product has achieved. This page explains what every other product gets wrong, what the law requires, and how
+          Some are dangerous. None have reached the manufacturing and documentation standard that DynaCord's hUCMSC-Exos (WJ-MSC mesenchymal
+          exosome) product has achieved. This page explains what every other product gets wrong, what the law requires, and how
           DynaCord meets every standard that others fail.
         </p>
       </div>
@@ -338,7 +338,7 @@ export default function ComplianceCase() {
           <div className="bg-gradient-to-r from-blue-900/30 to-slate-800/50 rounded-xl border border-blue-700/30 p-5 md:p-6">
             <div className="flex items-center gap-3 mb-3">
               <Scale className="w-7 h-7 text-blue-400" />
-              <h3 className="text-xl font-bold text-white">Why Consented Mesenchymal Exosome Therapy Is Legal in Texas</h3>
+              <h3 className="text-xl font-bold text-white">Why Consented hUCMSC-Exos (Mesenchymal Exosome) Therapy Is Legal in Texas</h3>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed">{texasLegalFramework.shortAnswer}</p>
           </div>

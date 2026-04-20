@@ -190,10 +190,10 @@ export function DosingGuides() {
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
           <Syringe className="w-5 h-5 text-blue-600" />
-          WJ-MSC Exosome Dosing Protocols
+          hUCMSC-Exos / WJ-MSC Dosing Protocols
         </h2>
         <p className="text-sm text-gray-500 mt-1">
-          Aggressive dosing guidelines for Wharton's Jelly mesenchymal stem cell exosomes across {dosingGuides.length} delivery routes. Based on published human clinical data.
+          Aggressive dosing guidelines for hUCMSC-Exos (Wharton's Jelly mesenchymal stem cell-derived exosomes) across {dosingGuides.length} delivery routes. Based on published human clinical data.
         </p>
         <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl p-3 flex items-start gap-2">
           <AlertCircle className="w-4 h-4 text-amber-600 mt-0.5 shrink-0" />

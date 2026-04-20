@@ -117,7 +117,7 @@ export function FDAEnforcement() {
           <h3 className="font-bold text-emerald-900 text-sm">DynaCord: Zero FDA Enforcement Actions</h3>
           <p className="text-emerald-700 text-sm mt-1">
             DynaCord has never received a Warning Letter, Untitled Letter, or any FDA enforcement action.
-            It is the only WJ-MSC exosome product manufactured as a drug under FDA CBER with 351(a) registration,
+            It is the only hUCMSC-Exos (WJ-MSC exosome) product manufactured as a drug under FDA CBER with 351(a) registration,
             cGMP manufacturing, batch-by-batch Eurofins third-party testing, CNA liability insurance, and a Type II DMF.
           </p>
         </div>
