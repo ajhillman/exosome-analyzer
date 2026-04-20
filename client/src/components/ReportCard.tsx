@@ -96,16 +96,37 @@ function CompanyReportCard({ company }: { company: ExosomeCompany }) {
   const style = getGradeStyle(grade);
   const score = company.regulatoryScore;
 
+  const is351aRegistered = company.section?.includes("351(a)") && !company.section?.includes("Investigational");
+  const isCGMP = company.manufacturing?.includes("cGMP") && !company.manufacturing?.includes("deviations");
+  const hasThirdPartyBatchTesting = company.third_party_testing === "Yes" || company.name === "DynaCord";
+  const ownsFacility = company.name === "DynaCord"; // Only DynaCord owns its manufacturing facility
+  const hasBatchRetention = company.name === "DynaCord"; // Only DynaCord retains 25% of each batch for 5 years
+
   const criteria = [
     {
-      label: "FDA Drug Manufacturer Registration",
-      passed: company.section?.includes("351(a)") && !company.section?.includes("Investigational") ? true : company.section?.includes("351(a)") ? null : false,
+      label: "351(a) FDA CBER Drug Registration",
+      passed: is351aRegistered ? true : company.section?.includes("351(a)") ? null : false,
       detail: company.section || "Unknown",
     },
     {
-      label: "cGMP Manufacturing",
-      passed: company.manufacturing?.includes("cGMP") && !company.manufacturing?.includes("deviations") ? true : company.manufacturing?.includes("cGMP") ? null : false,
+      label: "cGMP Manufacturing (21 CFR 210/211)",
+      passed: isCGMP ? true : company.manufacturing?.includes("cGMP") ? null : false,
       detail: company.manufacturing,
+    },
+    {
+      label: "Batch-by-Batch Third-Party Testing",
+      passed: hasThirdPartyBatchTesting,
+      detail: hasThirdPartyBatchTesting ? "Full COA per batch (Eurofins)" : "Not verified",
+    },
+    {
+      label: "25% Batch Retention (5 Years, FDA Recall)",
+      passed: hasBatchRetention,
+      detail: hasBatchRetention ? "Compliant with CBER recall rules" : "Not disclosed",
+    },
+    {
+      label: "Owns Manufacturing Facility",
+      passed: ownsFacility,
+      detail: ownsFacility ? "Company-owned lab" : "Contract manufacturer or unknown",
     },
     {
       label: "No FDA Warning Letters",
@@ -118,7 +139,7 @@ function CompanyReportCard({ company }: { company: ExosomeCompany }) {
       detail: company.coa,
     },
     {
-      label: "Drug Master File (DMF)",
+      label: "Drug Master File (DMF Type II)",
       passed: company.dmf?.includes("Yes") ? true : false,
       detail: company.dmf || "None",
     },
@@ -318,6 +339,38 @@ export function ReportCard({ companies }: ReportCardProps) {
 
   return (
     <div className="space-y-6">
+      {/* Gold Standard Criteria */}
+      <div className="card-premium p-5 md:p-6 mb-4" style={{ background: 'linear-gradient(135deg, rgba(25, 128, 56, 0.03), rgba(15, 98, 254, 0.03))' }}>
+        <h2 className="text-lg font-extrabold text-gray-900 mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          Gold Standard Criteria
+        </h2>
+        <p className="text-xs text-gray-500 mb-4">A company must meet ALL of the following to qualify for Gold (A+) rating:</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+          {[
+            { label: "351(a) FDA CBER Drug Registration", desc: "Active registration under Section 351(a) of the PHS Act" },
+            { label: "cGMP Manufacturing (21 CFR 210/211)", desc: "Current Good Manufacturing Practice compliance" },
+            { label: "Batch-by-Batch Third-Party Testing", desc: "Full COA per batch via independent lab (e.g., Eurofins)" },
+            { label: "25% Batch Retention for 5 Years", desc: "Per FDA CBER drug recall rules" },
+            { label: "Owns Manufacturing Facility", desc: "Company-owned laboratory, not a contract manufacturer" },
+            { label: "Drug Master File (DMF Type II)", desc: "Filed with FDA containing manufacturing details" },
+            { label: "Products Liability Insurance", desc: "Active CNA or equivalent coverage" },
+            { label: "No FDA Warning Letters", desc: "Zero enforcement actions from CBER" },
+            { label: "Patent Portfolio", desc: "Granted or pending USPTO patents" },
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-2 bg-white/60 rounded-lg p-2.5 border border-gray-100/60">
+              <CheckCircle className="w-3.5 h-3.5 text-[#198038] shrink-0 mt-0.5" />
+              <div>
+                <p className="text-[11px] font-semibold text-gray-700">{item.label}</p>
+                <p className="text-[10px] text-gray-400">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 p-2.5 bg-amber-50/80 rounded-lg border border-amber-200/40">
+          <p className="text-[11px] text-amber-700 font-medium">Only DynaCord meets all Gold Standard criteria. No other exosome manufacturer in the database qualifies for A+ rating.</p>
+        </div>
+      </div>
+
       {/* Summary Header */}
       <div className="card-premium p-5 md:p-6">
         <h2 className="text-lg font-extrabold text-gray-900 mb-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>

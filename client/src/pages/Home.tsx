@@ -10,6 +10,7 @@ import { StudiesSection } from "@/components/StudiesSection";
 import { FDAEnforcement } from "@/components/FDAEnforcement";
 import { IPSCLandscape } from "@/components/IPSCLandscape";
 import { ExosomeNews } from "@/components/ExosomeNews";
+import { StateChecklist } from "@/components/StateChecklist";
 import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import {
@@ -21,6 +22,7 @@ import {
   FileText,
   FlaskConical,
   LayoutDashboard,
+  MapPin,
   Newspaper,
   Scale,
   FileWarning,
@@ -31,7 +33,7 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "dmf" | "compliance" | "enforcement" | "ipsc" | "news";
+type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "ipsc" | "news";
 
 export default function Home() {
   const { filters } = useFilters();
@@ -56,6 +58,7 @@ export default function Home() {
     { id: "studies", label: "Clinical Studies", icon: <BookOpen className="w-4 h-4" /> },
     { id: "dosing", label: "Dosing Protocols", icon: <Syringe className="w-4 h-4" /> },
     { id: "regulatory", label: "Regulatory", icon: <Scale className="w-4 h-4" /> },
+    { id: "statechecklist", label: "State Laws", icon: <MapPin className="w-4 h-4" /> },
     { id: "dmf", label: "DMF Guide", icon: <FileText className="w-4 h-4" /> },
     { id: "compliance", label: "Compliance", icon: <Shield className="w-4 h-4" /> },
     { id: "enforcement", label: "FDA Enforcement", icon: <FileWarning className="w-4 h-4" /> },
@@ -186,6 +189,7 @@ export default function Home() {
         {activeTab === "studies" && <StudiesSection />}
         {activeTab === "dosing" && <DosingGuides />}
         {activeTab === "regulatory" && <RegulatoryReference />}
+        {activeTab === "statechecklist" && <StateChecklist />}
         {activeTab === "dmf" && <DMFEducation />}
         {activeTab === "compliance" && <ComplianceCase />}
         {activeTab === "enforcement" && <FDAEnforcement />}
