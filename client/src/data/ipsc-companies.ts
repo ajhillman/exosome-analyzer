@@ -1,0 +1,88 @@
+export interface IPSCCompany {
+  name: string;
+  description: string;
+  focus: string;
+  stage: "Preclinical" | "Phase 1" | "Phase 2" | "Phase 3" | "Commercial" | "Research" | "CDMO";
+  ticker?: string;
+  country: string;
+  cellType: string;
+  url?: string;
+}
+
+export const ipscCompanies: IPSCCompany[] = [
+  { name: "Allele Biotechnology and Pharmaceuticals", description: "Developing a diabetes drug created from iPSC-derived pancreatic beta cells.", focus: "Diabetes (Type 1)", stage: "Preclinical", country: "USA", cellType: "Pancreatic Beta Cells" },
+  { name: "Aspen Neuroscience", description: "First autologous iPSC-derived neuron replacement therapy for Parkinson's disease.", focus: "Parkinson's Disease", stage: "Phase 1", country: "USA", cellType: "Dopaminergic Neurons" },
+  { name: "Avery Therapeutics", description: "iPSC-derived cell therapeutic for heart failure (MyCardia). Collaborating with I Peace Inc. for GMP-grade iPSCs.", focus: "Heart Failure", stage: "Preclinical", country: "USA", cellType: "Cardiomyocytes" },
+  { name: "BlueRock Therapeutics", description: "Bayer subsidiary developing iPSC-derived cell therapies for Parkinson's disease, heart failure, and ocular diseases.", focus: "Parkinson's, Heart Failure, Ocular", stage: "Phase 1", country: "USA", cellType: "Dopaminergic Neurons, Cardiomyocytes, RPE", ticker: "BAYN (Parent)", url: "https://bluerocktx.com" },
+  { name: "BeiGene", description: "iPSC platform generating gamma-delta or alpha-beta T-cell therapies with enhanced potency, persistence, and specificity.", focus: "Oncology", stage: "Preclinical", country: "China", cellType: "T Cells (gamma-delta, alpha-beta)", ticker: "BGNE" },
+  { name: "Bone Therapeutics", description: "Partnered with Implant Therapeutics to develop allogeneic iPSC-derived MSCs.", focus: "Orthopedics", stage: "Preclinical", country: "Belgium", cellType: "MSCs" },
+  { name: "Brooklyn Immuno Therapeutics", description: "Developing iPSC-derived MSC products with gene editing technology.", focus: "Immunotherapy", stage: "Preclinical", country: "USA", cellType: "MSCs" },
+  { name: "Cartherics", description: "Novel technology for inducing iNK cells from iPSCs with CAR engineering. Pipeline includes iT cells and iMacrophages.", focus: "Oncology", stage: "Preclinical", country: "Australia", cellType: "iNK, iT, iMacrophages" },
+  { name: "CellOrigin Biotech", description: "Co-developing allogeneic iPSC-derived CAR-iMAC with Qilu Pharmaceutical for cancer treatment.", focus: "Oncology", stage: "Preclinical", country: "China", cellType: "CAR-iMAC" },
+  { name: "Cellectis", description: "Partnership with Cytovia for gene-edited iNK cells using TALEN technology.", focus: "Oncology", stage: "Preclinical", country: "France", cellType: "iNK Cells", ticker: "CLLS" },
+  { name: "Cellistic", description: "3D bioreactor Echo platform producing iPSC-derived CAR-NKT cells. Partnership with BrightPath Bio for Phase I multiple myeloma trials.", focus: "Multiple Myeloma", stage: "Phase 1", country: "Belgium", cellType: "CAR-NKT Cells" },
+  { name: "Century Therapeutics", description: "iPSC-derived immune effector cell therapies. Acquired Clade Therapeutics (Apr 2024). CALiPSO-1 Study for lupus.", focus: "Oncology, Autoimmune", stage: "Phase 1", country: "USA", cellType: "iNK, iT Cells", ticker: "IPSC" },
+  { name: "Citius Pharmaceuticals", description: "iPSC-derived MSCs (i-MSCs) from single-donor dermal fibroblast. Completed cGMP i-MSC Master Cell Bank.", focus: "Regenerative Medicine", stage: "Preclinical", country: "USA", cellType: "i-MSCs", ticker: "CTXR" },
+  { name: "Creative Medical Technology Holdings", description: "Generated iPSC-derived Islet Cells producing human insulin. iPSCelz program validated by Greenstone Biosciences.", focus: "Diabetes", stage: "Preclinical", country: "USA", cellType: "Islet Cells", ticker: "CELZ" },
+  { name: "Cuorips Inc.", description: "Osaka University-affiliated. Developed cardiac tissue sheet using iPS cells for coronary artery disease patients.", focus: "Cardiac Disease", stage: "Phase 1", country: "Japan", cellType: "Cardiac Tissue Sheets" },
+  { name: "Cynata Therapeutics", description: "iPSC-derived MSCs via proprietary Cymerus technology. Phase 3 trial (CYP-004) for osteoarthritis with 440 patients. World's first iPSC Phase 3.", focus: "GvHD, Osteoarthritis, CLI, ARDS", stage: "Phase 3", country: "Australia", cellType: "MSCs", ticker: "CYP.AX" },
+  { name: "CytoMed Therapeutics", description: "iPSC-derived gamma delta NKT cell technology. Hybrid 2-in-1 cell type combining NK and T cell receptors.", focus: "Oncology (Solid + Hematological)", stage: "Phase 1", country: "Singapore", cellType: "Gamma Delta NKT Cells", ticker: "GDTC" },
+  { name: "Cytovia Therapeutics", description: "Allogeneic off-the-shelf gene-edited iNK and CAR-iNK cells derived from iPSCs.", focus: "Oncology", stage: "Preclinical", country: "USA", cellType: "iNK, CAR-iNK" },
+  { name: "Edigene Inc.", description: "Developing allogenic iPSC-derived NK cell therapies through joint R&D with Neukio Biotherapeutics.", focus: "Oncology", stage: "Preclinical", country: "China", cellType: "NK Cells" },
+  { name: "Editas Medicine", description: "Genome editing company developing engineered iPSC-derived iNKs for cancer treatment.", focus: "Oncology", stage: "Preclinical", country: "USA", cellType: "iNK Cells", ticker: "EDIT" },
+  { name: "Eterna Therapeutics", description: "Gene-edited iPSC therapeutics promoting enhanced immune responses. Sponsored research with MD Anderson (Nov 2022).", focus: "Oncology, Hematopoietic", stage: "Preclinical", country: "USA", cellType: "iPSC-derived Immune Cells" },
+  { name: "Exacis Biotherapeutics", description: "iPSC-derived NK cells (ExaNK) engineered with mRNA gene-editing to resist immune rejection.", focus: "Oncology", stage: "Preclinical", country: "USA", cellType: "NK Cells (ExaNK)" },
+  { name: "Ernexa Therapeutics", description: "Core technology focuses on engineering iPSCs into induced mesenchymal stem cells (iMSCs).", focus: "Regenerative Medicine", stage: "Preclinical", country: "USA", cellType: "iMSCs" },
+  { name: "Fate Therapeutics", description: "iPSC-derived NK and CAR-T cells for cancer and immune disorders. First iPSC-derived CAR T-cell IND (FT819) cleared by FDA.", focus: "Oncology, Immune Disorders", stage: "Phase 1", country: "USA", cellType: "NK, CAR-T Cells", ticker: "FATE" },
+  { name: "FUJIFILM Cellular Dynamics (FCDI)", description: "$21M cGMP production facility for internal cell therapeutics pipeline and iPSC CDMO services.", focus: "CDMO / Platform", stage: "CDMO", country: "USA", cellType: "Multiple iPSC-derived" },
+  { name: "GC Therapeutics (GCTx)", description: "$65M Series A. TFome platform for rapid iPSC differentiation. Targeting GI, neurological, and immune diseases.", focus: "GI, Neuro, Immune", stage: "Preclinical", country: "USA", cellType: "Multiple" },
+  { name: "Gameto", description: "Fertilo program: iPSC-derived solution to mature eggs outside the body for IVF and egg freezing.", focus: "Reproductive Medicine", stage: "Preclinical", country: "USA", cellType: "Ovarian Support Cells" },
+  { name: "Go Liver Therapeutics", description: "French start-up (2024) developing iPSC-derived liver therapy. Backed by EUR 1.6M French government funding.", focus: "Liver Disease", stage: "Preclinical", country: "France", cellType: "Hepatocytes" },
+  { name: "Greenstone Bio", description: "AI + patient-derived iPSC technology for drug discovery. Largest patient-derived iPSC Biobank. Stanford Research Park.", focus: "Drug Discovery / Platform", stage: "Research", country: "USA", cellType: "Patient-derived iPSCs" },
+  { name: "Heartseed Inc.", description: "iPSC-derived cardiomyocytes (HS-001) for heart failure. Exclusive global rights deal with Novo Nordisk (excl. Japan).", focus: "Heart Failure", stage: "Phase 1", country: "Japan", cellType: "Ventricular Cardiomyocytes" },
+  { name: "Healios K.K.", description: "Allogeneic iPSC-derived retinal cells for AMD. Collaboration with Sumitomo Dainippon Pharma.", focus: "Age-Related Macular Degeneration", stage: "Phase 1", country: "Japan", cellType: "Retinal Cells" },
+  { name: "HeartBeat.bio", description: "Cardioid Drug Discovery Platform using iPSC-derived cardiac organoids for inherited heart disease modeling.", focus: "Drug Discovery / Cardiac", stage: "Research", country: "Austria", cellType: "Cardiac Organoids" },
+  { name: "Hebecell", description: "Allogeneic off-the-shelf iPSC-derived NK cells. Feeder-free 3D-iPSC spheroid platform for scalable production.", focus: "Oncology", stage: "Preclinical", country: "USA", cellType: "NK Cells" },
+  { name: "Hopstem Biotechnology", description: "First iPSC cell therapy company in China. Proprietary neural differentiation platform. Patented iPSC reprogramming.", focus: "Ocular, Neurological", stage: "Preclinical", country: "China", cellType: "Neural Cells, RPE" },
+  { name: "Implant Therapeutics", description: "iPSC-MSC cells with FailSafe and iACT Stealth Cell technologies. Hypo-immunogenic gene therapy vehicles.", focus: "Gene Therapy", stage: "Preclinical", country: "USA", cellType: "iPSC-MSCs" },
+  { name: "IN8bio", description: "Platform reprogramming donor cells into iPSCs, expanding and differentiating into gamma-delta T cells for GMP manufacturing.", focus: "Oncology", stage: "Preclinical", country: "USA", cellType: "Gamma-Delta T Cells", ticker: "INAB" },
+  { name: "I Peace Inc.", description: "Mass production of clinical-grade iPSC lines using miniaturized plate and robotic technology. FDA and PMDA compliant.", focus: "CDMO / Platform", stage: "CDMO", country: "Japan", cellType: "GMP-grade iPSCs" },
+  { name: "IPS HEART", description: "Programs to reprogram iPSCs into skeletal and cardiac muscle for heart failure, Duchenne Cardiomyopathy, and Danon Cardiomyopathy.", focus: "Heart Failure, Muscular Dystrophy", stage: "Preclinical", country: "USA", cellType: "Skeletal/Cardiac Muscle" },
+  { name: "iPSirius SAS", description: "IPVAC 1.0 therapeutic cancer vaccine leveraging antigenic overlap between iPSCs and cancer stem cells.", focus: "Oncology (Cancer Vaccine)", stage: "Preclinical", country: "France", cellType: "iPSC-based Vaccine" },
+  { name: "iRegene Therapeutics", description: "AI + chemical induction platform. NouvNeu001 for Parkinson's in clinical trials at Beijing Hospital and Zhongnan Hospital (2024).", focus: "Parkinson's, Retinal", stage: "Phase 1", country: "China", cellType: "Dopaminergic Neurons" },
+  { name: "Kenai Therapeutics", description: "RNDP-001: iPSC-derived allogeneic dopamine progenitor cell therapy for idiopathic and inherited Parkinson's.", focus: "Parkinson's Disease", stage: "Preclinical", country: "USA", cellType: "Dopamine Progenitors" },
+  { name: "Kiji Therapeutics", description: "Established 2023 with AdBio Partners seed investment. Engineered iPSC-derived MSCs with IL10 and CXCR4.", focus: "Regenerative Medicine", stage: "Preclinical", country: "USA", cellType: "Engineered MSCs" },
+  { name: "Laverock Therapeutics", description: "GEiGS gene editing technology and computational platform for iPSC-derived cell therapies with improved efficacy and safety.", focus: "Platform Technology", stage: "Preclinical", country: "UK", cellType: "Multiple iPSC-derived" },
+  { name: "Mytos", description: "iDEM platform replacing traditional iPSC manufacturing with closed, automated system for GMP-ready cells.", focus: "Manufacturing Platform", stage: "CDMO", country: "USA", cellType: "iPSCs" },
+  { name: "Notch Therapeutics", description: "iPSC-derived T cells for hematological malignancies. Partnership with Allogene Therapeutics.", focus: "Oncology (Hematological)", stage: "Preclinical", country: "Canada", cellType: "T Cells" },
+  { name: "Novo Nordisk", description: "Co-development agreement with Heartseed for HS-001 iPSC-derived ventricular cardiomyocytes for heart failure.", focus: "Heart Failure", stage: "Phase 1", country: "Denmark", cellType: "Cardiomyocytes", ticker: "NVO" },
+  { name: "Pluristyx / panCELLa", description: "Merged Oct 2022. Global leader in clinical-grade, genetically modified, off-the-shelf iPSCs.", focus: "Platform / Cell Bank", stage: "CDMO", country: "Canada", cellType: "Modified iPSCs" },
+  { name: "REPROCELL", description: "Personal iPS service in Japan. iPSCs created from urine or dental pulp using RNA reprogramming. Stored in Japan and US.", focus: "Personal iPSC Banking", stage: "Commercial", country: "Japan", cellType: "Personal iPSCs" },
+  { name: "RheinCell Therapeutics", description: "GMP-compliant iPSCs from HLA-homozygous allogeneic umbilical cord blood. EU GMP certified (Jan 2021).", focus: "Cell Bank / Platform", stage: "CDMO", country: "Germany", cellType: "GMP iPSCs" },
+  { name: "RxCell Inc.", description: "iPSC Master Cell Bank for allogenic therapy. Novel hypoimmunogenic strategy and universal iPSC lines.", focus: "Retinal, Universal Platform", stage: "Preclinical", country: "USA", cellType: "Universal iPSCs, RPE" },
+  { name: "Ryne Biotechnology", description: "RNDP-001 iPSC-derived dopamine neuron progenitor for Parkinson's. $4M CIRM CLIN1 grant for IND submission.", focus: "Parkinson's Disease", stage: "Preclinical", country: "USA", cellType: "Dopamine Neurons" },
+  { name: "Sana Biotechnology", description: "Hypoimmune-modified allogeneic iPSCs to evade immune rejection without immunosuppression. Testing in primates.", focus: "Universal Platform", stage: "Preclinical", country: "USA", cellType: "Hypoimmune iPSCs", ticker: "SANA" },
+  { name: "SCG Cell Therapy", description: "Acquired iPSC technology from A*STAR. Developing off-the-shelf NK cell therapies.", focus: "Oncology", stage: "Preclinical", country: "Singapore", cellType: "NK Cells" },
+  { name: "Semma Therapeutics / Vertex", description: "Acquired by Vertex for $950M (2019). iPSC-derived pancreatic cells for Type 1 diabetes.", focus: "Type 1 Diabetes", stage: "Phase 1", country: "USA", cellType: "Pancreatic Cells", ticker: "VRTX (Parent)" },
+  { name: "Shinobi Therapeutics", description: "Hypo-immune CD8ab iPSC-derived T cells. Katana platform for master cell bank supporting rapid pipeline expansion.", focus: "Oncology", stage: "Preclinical", country: "USA", cellType: "CD8ab T Cells" },
+  { name: "Shoreline Biosciences", description: "Allogeneic off-the-shelf NK and macrophage immunotherapies derived from iPSCs for cancer.", focus: "Oncology", stage: "Preclinical", country: "USA", cellType: "NK, Macrophages" },
+  { name: "SmartCella", description: "Swedish biotech. iPSC-derived midbrain dopaminergic neurons for Parkinson's and iMSC+mRNA for osteoarthritis. In-house cGMP.", focus: "Parkinson's, Osteoarthritis", stage: "Preclinical", country: "Sweden", cellType: "mDA Neurons, iMSCs" },
+  { name: "StemSight", description: "Finnish early-stage biotech developing allogeneic iPSC-based therapies for corneal blindness.", focus: "Corneal Blindness", stage: "Preclinical", country: "Finland", cellType: "Corneal Cells" },
+  { name: "Stemson Therapeutics", description: "Developing therapy for hair loss involving generation of de novo hair follicles from iPSCs.", focus: "Hair Loss / Dermatology", stage: "Preclinical", country: "USA", cellType: "Hair Follicle Cells" },
+  { name: "Thyas Co. Ltd.", description: "iPSC-derived immune cells (T cells, NK cells) for cancer. Lead product: TCR-iPS-T for solid tumors. Kyoto University collaboration.", focus: "Oncology (Solid Tumors)", stage: "Preclinical", country: "Japan", cellType: "iPS-T, iPS-NK" },
+  { name: "Tolerance Bio", description: "Allogeneic iPSC-derived thymus cell therapy platform and pharmacological thymus therapies. $20.2M seed financing.", focus: "Immune-Mediated Diseases", stage: "Preclinical", country: "USA", cellType: "Thymus Cells" },
+  { name: "TreeFrog Therapeutics", description: "13,000 sq ft facility in France for iPSC cell therapy manufacturing scale-up. Own pipeline + co-development programs.", focus: "Manufacturing Platform", stage: "CDMO", country: "France", cellType: "iPSC-derived" },
+  { name: "UniXell Biotechnology", description: "UX-DA001 autologous iPSC-based cell therapy for Parkinson's disease. Phase 1 study initiated 2025.", focus: "Parkinson's Disease", stage: "Phase 1", country: "China", cellType: "Dopaminergic Neurons" },
+  { name: "VCCT Inc.", description: "iPSC-derived retinal regeneration. CEO Masayo Takahashi led world's first iPSC retinal transplant at RIKEN (2014).", focus: "Retinal Diseases", stage: "Phase 1", country: "Japan", cellType: "Retinal Cells" },
+  { name: "Vision Care Group", description: "Founded 2019 by Masayo Takahashi. iPSC-derived retinal cell therapy solutions.", focus: "Retinal Diseases", stage: "Preclinical", country: "Japan", cellType: "Retinal Cells" },
+  { name: "Vita Therapeutics", description: "VTA-100 (autologous) and VTA-200 (hypoimmunogenic) iPSC-derived therapeutics for limb-girdle muscular dystrophy.", focus: "Muscular Dystrophy", stage: "Preclinical", country: "USA", cellType: "Muscle Cells" },
+];
+
+export const ipscStats = {
+  totalCompanies: 66,
+  countryCounts: { USA: 32, Japan: 8, China: 5, France: 3, Canada: 2, Australia: 2, Singapore: 2, Belgium: 2, UK: 1, Germany: 1, Austria: 1, Sweden: 1, Finland: 1, Denmark: 1, "South Korea": 1 },
+  stageCounts: { Preclinical: 38, "Phase 1": 13, "Phase 3": 1, Commercial: 1, Research: 2, CDMO: 6 },
+  topFocus: ["Oncology", "Parkinson's Disease", "Heart Failure", "Retinal Diseases", "Diabetes", "Regenerative Medicine"],
+  source: "BioInformant (March 2026)",
+  sourceUrl: "https://bioinformant.com/ipsc-derived-cell-therapeutics/",
+};

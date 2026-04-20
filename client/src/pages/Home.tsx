@@ -8,6 +8,8 @@ import { RegulatoryReference } from "@/components/RegulatoryReference";
 import { Statistics } from "@/components/Statistics";
 import { StudiesSection } from "@/components/StudiesSection";
 import { FDAEnforcement } from "@/components/FDAEnforcement";
+import { IPSCLandscape } from "@/components/IPSCLandscape";
+import { ExosomeNews } from "@/components/ExosomeNews";
 import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import {
@@ -15,9 +17,11 @@ import {
   Award,
   BookOpen,
   Building2,
+  Dna,
   FileText,
   FlaskConical,
   LayoutDashboard,
+  Newspaper,
   Scale,
   FileWarning,
   Shield,
@@ -27,7 +31,7 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
-type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "dmf" | "compliance" | "enforcement";
+type TabId = "dashboard" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "dmf" | "compliance" | "enforcement" | "ipsc" | "news";
 
 export default function Home() {
   const { filters } = useFilters();
@@ -55,6 +59,8 @@ export default function Home() {
     { id: "dmf", label: "DMF Guide", icon: <FileText className="w-4 h-4" /> },
     { id: "compliance", label: "Compliance", icon: <Shield className="w-4 h-4" /> },
     { id: "enforcement", label: "FDA Enforcement", icon: <FileWarning className="w-4 h-4" /> },
+    { id: "ipsc", label: "iPSC Landscape", icon: <Dna className="w-4 h-4" /> },
+    { id: "news", label: "Industry Intel", icon: <Newspaper className="w-4 h-4" /> },
   ];
 
   return (
@@ -183,6 +189,8 @@ export default function Home() {
         {activeTab === "dmf" && <DMFEducation />}
         {activeTab === "compliance" && <ComplianceCase />}
         {activeTab === "enforcement" && <FDAEnforcement />}
+        {activeTab === "ipsc" && <IPSCLandscape />}
+        {activeTab === "news" && <ExosomeNews />}
       </main>
     </div>
   );
