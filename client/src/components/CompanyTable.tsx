@@ -3,6 +3,7 @@ import { ExosomeCompany } from "@/types";
 import {
   AlertTriangle,
   Award,
+  Building2,
   ChevronRight,
   ExternalLink,
   Globe,
@@ -154,23 +155,31 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                       )}
                     </div>
                     <p className="text-[11px] text-gray-400 mt-0.5 truncate font-medium">{company.source}</p>
-                    {company.website && (
-                      <a
-                        href={
-                          company.website.startsWith("http")
-                            ? company.website
-                            : `https://${company.website}`
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="hidden sm:inline-flex items-center gap-1 text-[11px] text-[#0f62fe] hover:text-[#0043ce] mt-0.5 font-medium transition-colors"
-                      >
-                        <Globe className="w-3 h-3" />
-                        {company.website.replace(/^https?:\/\/(www\.)?/, "")}
-                        <ExternalLink className="w-2.5 h-2.5 opacity-50" />
-                      </a>
-                    )}
+                    <div className="flex items-center gap-3 mt-0.5 flex-wrap">
+                      {company.website && (
+                        <a
+                          href={
+                            company.website.startsWith("http")
+                              ? company.website
+                              : `https://${company.website}`
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-[11px] text-[#0f62fe] hover:text-[#0043ce] font-medium transition-colors"
+                        >
+                          <Globe className="w-3 h-3" />
+                          <span className="hidden sm:inline">{company.website.replace(/^https?:\/\/(www\.)?/, "")}</span>
+                          <ExternalLink className="w-2.5 h-2.5 opacity-50 hidden sm:inline" />
+                        </a>
+                      )}
+                      {company.company_age && company.company_age > 0 && (
+                        <span className="inline-flex items-center gap-1 text-[11px] text-gray-400 font-medium">
+                          <Building2 className="w-3 h-3" />
+                          {company.company_age} {company.company_age === 1 ? 'year' : 'years'} in business
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* Score Ring + Arrow */}
