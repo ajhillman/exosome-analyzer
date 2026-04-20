@@ -13,6 +13,7 @@ import { ExosomeNews } from "@/components/ExosomeNews";
 import { StateChecklist } from "@/components/StateChecklist";
 import LitigationTracker from "@/components/LitigationTracker";
 import { Glossary } from "@/components/Glossary";
+import { HomePage } from "@/components/HomePage";
 import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import {
@@ -163,19 +164,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="max-w-[1400px] mx-auto px-4 md:px-6 py-6 md:py-8">
         {activeTab === "dashboard" && (
-          <div className="space-y-6 md:space-y-8">
-            <div className="animate-fade-in-up">
-              <Statistics companies={filteredCompanies} />
-            </div>
-            <div className="flex flex-col lg:flex-row gap-6">
-              <div className="lg:w-64 shrink-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-                <FilterPanel />
-              </div>
-              <div className="flex-1 animate-fade-in" style={{ animationDelay: '0.15s' }}>
-                <CompanyTable companies={filteredCompanies} />
-              </div>
-            </div>
-          </div>
+          <HomePage onNavigate={(tab) => setActiveTab(tab as TabId)} />
         )}
 
         {activeTab === "companies" && (
