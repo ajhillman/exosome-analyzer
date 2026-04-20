@@ -16,7 +16,7 @@ interface CompanyTableProps {
   companies: ExosomeCompany[];
 }
 
-function ScoreRing({ score, size = 48 }: { score: number; size?: number }) {
+function ScoreRing({ score, size = 44 }: { score: number; size?: number }) {
   const radius = (size - 6) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (score / 100) * circumference;
@@ -85,7 +85,7 @@ export function CompanyTable({ companies }: CompanyTableProps) {
 
   return (
     <>
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {companies.length === 0 ? (
           <div className="text-center py-16 card-premium">
             <p className="text-gray-400 text-base font-medium">No companies match your filters.</p>
@@ -116,121 +116,72 @@ export function CompanyTable({ companies }: CompanyTableProps) {
                 </div>
               )}
 
-              <div className="p-4 md:p-5">
-                {/* Mobile Layout */}
-                <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
-                  <div className="flex items-center gap-3 w-full sm:w-auto">
-                    {/* Logo */}
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 p-1.5">
-                      {company.company_logo_url ? (
-                        <img
-                          src={company.company_logo_url}
-                          alt={company.name}
-                          className="w-full h-full object-contain"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).style.display = "none";
-                            (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-lg font-bold text-gray-300" style="font-family: 'Plus Jakarta Sans', sans-serif">${company.name.charAt(0)}</span>`;
-                          }}
-                        />
-                      ) : (
-                        <span className="text-lg font-bold text-gray-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                          {company.name.charAt(0)}
+              <div className="p-4">
+                {/* Single unified row: Logo | Name+Grade+Source | Score+Arrow */}
+                <div className="flex items-center gap-3">
+                  {/* Logo */}
+                  <div className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 p-1.5">
+                    {company.company_logo_url ? (
+                      <img
+                        src={company.company_logo_url}
+                        alt={company.name}
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = "none";
+                          (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-base font-bold text-gray-300" style="font-family: 'Plus Jakarta Sans', sans-serif">${company.name.charAt(0)}</span>`;
+                        }}
+                      />
+                    ) : (
+                      <span className="text-base font-bold text-gray-300" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                        {company.name.charAt(0)}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Name + Grade + Source */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-sm font-bold text-gray-900 group-hover:text-[#0f62fe] transition-colors truncate" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                        {company.name}
+                      </h3>
+                      <GradeIndicator grade={company.company_grade} />
+                      {company.hasWarningLetter && (
+                        <span className="warning-badge shrink-0">
+                          <AlertTriangle className="w-3 h-3" />
+                          <span className="hidden sm:inline">FDA Warning</span>
+                          <span className="sm:hidden">FDA</span>
                         </span>
                       )}
                     </div>
-
-                    {/* Name + Grade on mobile */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="text-sm sm:text-[15px] font-bold text-gray-900 group-hover:text-[#0f62fe] transition-colors truncate" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                          {company.name}
-                        </h3>
-                        <GradeIndicator grade={company.company_grade} />
-                        {company.hasWarningLetter && (
-                          <span className="warning-badge shrink-0">
-                            <AlertTriangle className="w-3 h-3" />
-                            <span className="hidden sm:inline">FDA Warning</span>
-                            <span className="sm:hidden">FDA</span>
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-[11px] text-gray-400 mt-0.5 truncate font-medium">{company.source}</p>
-                    </div>
-
-                    {/* Score on mobile */}
-                    <div className="flex items-center gap-1 sm:gap-3 shrink-0">
-                      <ScoreRing score={company.regulatoryScore} size={40} />
-                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-200 group-hover:text-[#0f62fe] transition-colors" />
-                    </div>
+                    <p className="text-[11px] text-gray-400 mt-0.5 truncate font-medium">{company.source}</p>
+                    {company.website && (
+                      <a
+                        href={
+                          company.website.startsWith("http")
+                            ? company.website
+                            : `https://${company.website}`
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="hidden sm:inline-flex items-center gap-1 text-[11px] text-[#0f62fe] hover:text-[#0043ce] mt-0.5 font-medium transition-colors"
+                      >
+                        <Globe className="w-3 h-3" />
+                        {company.website.replace(/^https?:\/\/(www\.)?/, "")}
+                        <ExternalLink className="w-2.5 h-2.5 opacity-50" />
+                      </a>
+                    )}
                   </div>
 
-                  {/* Desktop expanded */}
-                  <div className="hidden sm:flex sm:flex-1 sm:flex-col sm:min-w-0">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h3 className="text-[15px] font-bold text-gray-900 group-hover:text-[#0f62fe] transition-colors" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                            {company.name}
-                          </h3>
-                          <GradeIndicator grade={company.company_grade} />
-                          {company.hasWarningLetter && (
-                            <span className="warning-badge">
-                              <AlertTriangle className="w-3 h-3" />
-                              FDA Warning
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-[11px] text-gray-400 mt-0.5 font-medium">{company.source}</p>
-                        {company.website && (
-                          <a
-                            href={
-                              company.website.startsWith("http")
-                                ? company.website
-                                : `https://${company.website}`
-                            }
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="inline-flex items-center gap-1 text-[12px] text-[#0f62fe] hover:text-[#0043ce] mt-1.5 font-medium transition-colors"
-                          >
-                            <Globe className="w-3 h-3" />
-                            {company.website.replace(/^https?:\/\/(www\.)?/, "")}
-                            <ExternalLink className="w-2.5 h-2.5 opacity-50" />
-                          </a>
-                        )}
-                      </div>
-
-                      <div className="flex items-center gap-3 shrink-0">
-                        <ScoreRing score={company.regulatoryScore} />
-                        <ChevronRight className="w-5 h-5 text-gray-200 group-hover:text-[#0f62fe] transition-colors" />
-                      </div>
-                    </div>
+                  {/* Score Ring + Arrow */}
+                  <div className="flex items-center gap-2 shrink-0">
+                    <ScoreRing score={company.regulatoryScore} size={40} />
+                    <ChevronRight className="w-4 h-4 text-gray-200 group-hover:text-[#0f62fe] transition-colors" />
                   </div>
                 </div>
 
-                {/* Website on mobile */}
-                {company.website && (
-                  <div className="sm:hidden mt-1.5">
-                    <a
-                      href={
-                        company.website.startsWith("http")
-                          ? company.website
-                          : `https://${company.website}`
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1 text-[11px] text-[#0f62fe] hover:text-[#0043ce] font-medium"
-                    >
-                      <Globe className="w-3 h-3" />
-                      {company.website.replace(/^https?:\/\/(www\.)?/, "")}
-                      <ExternalLink className="w-2.5 h-2.5 opacity-50" />
-                    </a>
-                  </div>
-                )}
-
-                {/* Badges */}
-                <div className="flex flex-wrap gap-1.5 mt-3">
+                {/* Badges row */}
+                <div className="flex flex-wrap gap-1.5 mt-3 pl-14">
                   {company.section.includes("351(a)") ? (
                     <ComplianceBadge type={company.section.includes("Investigational") ? "351a-inv" : "351a"} label={company.section} size="sm" />
                   ) : (

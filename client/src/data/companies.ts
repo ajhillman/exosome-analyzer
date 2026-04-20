@@ -717,8 +717,18 @@ export const companiesData: ExosomeCompany[] = [
         status: "OPEN",
         parties: ["ROW1 INC d/b/a Regenative Labs", "Michael Russell", "Arian Carney", "Stephen Mesa", "Scott Martin M.D.", "Marcus Russell", "The Regenerative Project LLC d/b/a Platinum Biologics"],
       },
+      {
+        case_name: "Vitti Labs LLC v. U.S. Food and Drug Administration et al",
+        case_number: "4:2025cv00011",
+        filed_date: "2025-01-01",
+        court: "U.S. District Court, Western District of Missouri",
+        allegations: ["Challenge to FDA enforcement authority", "Administrative Procedure Act violations"],
+        status: "OPEN",
+        parties: ["Vitti Labs LLC", "U.S. Food and Drug Administration"],
+        description: "Vitti Labs (Russell's former employer, itself having received an FDA Warning Letter in July 2022) sued the FDA. Relevant to broader regulatory environment surrounding Russell's network of companies and associates.",
+      },
     ],
-    litigation_count: 2,
+    litigation_count: 3,
     fda_warnings_to_physicians: [
       {
         warning_letter_date: "2025-08-15",
@@ -748,17 +758,17 @@ export const companiesData: ExosomeCompany[] = [
     leadership_team: [
       {
         name: "Michael 'Beeben' Russell",
-        title: "CEO/Chairman, Owner",
-        background: "Former VP of Sales for Regenative Labs. Single year of high school education per Regenexx blog. Launched Platinum Biologics after leaving Regenative Labs (which received FDA warning letter). Products marketed as 'cosmetic, research and/or homologous use' but sold to interventional spine physicians for injection. Not registered in FDA Tissue Establishment Registration system.",
-        regulatory_history: "Associated with Medicare billing scheme involving non-covered orthopedic procedures. One of largest CMS clawbacks in Medicare history. Regenative Labs received FDA enforcement actions for unapproved stem cell products. Two active lawsuits: ROW1 INC v. Russell (Escambia County FL, 2023, CONTRACT & INDEBTEDNESS, OPEN) and Vitti Labs v. The Regenerative Project (W.D. Missouri, 2024, dismissed). FDA Warning Letter Aug 2025 (CBER 25-705090). Products classified as unapproved and misbranded drugs per Regenexx analysis.",
+        title: "Chairman of the Board",
+        background: "Attended Hebron High School, Carrollton TX (2006-2007, one year). No college degree. No medical, scientific, or regulatory credentials. Career: In Light Wellness (LED therapy distributor, pre-2020), Wellness Health Systems (course materials, pre-2021), Regenative Labs/Row1 Inc (EVP Sales, May 2021-Mar 2023, directed Medicare Q-code billing scheme resulting in ~$500M CMS clawback), Comparative Biologics (2023, FDA-forced closure within months), Platinum Biologics/The Regenerative Project LLC (Chairman, Mar 2023-present). Also CEO of Russell Distribution Inc, President of Manson Holdings LLC, CEO of Patient Advocate Network. Published LinkedIn attack on DynaCord titled 'Product Review and Company Analysis - Dyna-Cord LLC Fraud?' accusing a 351(a)-pathway company of fraud while operating with no IND, no BLA, no DMF, and an active FDA Warning Letter. Regenexx Blog responded that DynaCord was 'a company trying hard to do it right' being 'abused by sales organizations.' Known associates: Stephen Mesa (ScaleBee JV partner, co-defendant), Marcus Russell (brother, co-defendant), Dr. Scott M. Martin MD (revoked licenses), Arian Carney (co-defendant). Documented 5-phase behavioral cycle: Launch, Scale, Deflect, Collapse, Restart (18-24 month cycle).",
+        regulatory_history: "Regenative Labs Medicare Q-code scandal: Directed sales team to bill Medicare using Q-codes for unapproved Wharton's Jelly products (ProText, CellText) for orthopedic applications. CMS initiated ~$500M clawback across affected provider network. FBI, FDA, HHS, OIG investigations confirmed (Russell posted about 'criminal component for manufacturers' on Facebook). Comparative Biologics: FDA-forced closure (2023). Platinum Biologics: FDA Warning Letter 705090 (Aug 15, 2025). Three lawsuits: ROW1 v. Russell (FL, 2023, OPEN), Vitti Labs v. Regenerative Project (MOWD, 2024, dismissed), Vitti Labs v. FDA (MOWD, 2025). Products classified as unapproved and misbranded drugs.",
         litigation_involved: true,
         pedigree_level: "Low",
       },
       {
         name: "Dr. Scott Matthew Martin, M.D.",
         title: "Senior Product Medical Officer",
-        background: "Board-certified interventional pain physician. Specialization in regenerative medicine.",
-        regulatory_history: "California medical license revoked (2017) with revocation stayed and 3-year probation. Nevada medical license suspended (2014) after admitting to drug use. License suspension stayed with 24-month probation. Failed to report license suspension to CMS within 30 days. History of drug-related incidents.",
+        background: "Named defendant in both Vitti Labs and Row1 litigation alongside Russell. CMS Medicare enrollment revoked for failure to report license actions within 30 days.",
+        regulatory_history: "California medical license revoked (2017), revocation stayed with 3-year probation (California Medical Board). Nevada Board complaint Case 18-43110-1 for non-disclosure of license actions. Nevada medical license suspended (2014) after admitting to drug use, stayed with 24-month probation. CMS Medicare enrollment revoked. Multi-state license revocations documented.",
         litigation_involved: true,
         pedigree_level: "Low",
       },
@@ -819,7 +829,7 @@ export const companiesData: ExosomeCompany[] = [
         summary: "Detailed regulatory analysis concluding Nano PRP Jelly is an unapproved and misbranded drug product. Product disclaimers for cosmetic, research, and homologous use all fail under FDA regulations. Platinum Biologics not registered in FDA Tissue Establishment Registration system. Russell identified as former Regenative Labs VP with single year of high school. Regenative Labs CMS clawback described as one of largest in Medicare history."
       }
     ],
-    negative_press_count: 8,
+    negative_press_count: 9,
   },
   {
     id: "chara-biologics",
