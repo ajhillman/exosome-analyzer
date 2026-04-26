@@ -339,20 +339,8 @@ export default function Home() {
         padding: "0 48px",
       }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            {/* Logo mark */}
-            <svg width="36" height="36" viewBox="0 0 36 36">
-              <circle cx="18" cy="18" r="16" fill="none" stroke="#00ff88" strokeWidth="1.5"/>
-              <circle cx="18" cy="18" r="8" fill="none" stroke="#00ff88" strokeWidth="1" strokeDasharray="3 2"/>
-              <circle cx="18" cy="18" r="3" fill="#00ff88"/>
-              {[0,60,120,180,240,300].map((d,i) => {
-                const r = d*Math.PI/180;
-                return <line key={i} x1={18+Math.cos(r)*8} y1={18+Math.sin(r)*8} x2={18+Math.cos(r)*14} y2={18+Math.sin(r)*14} stroke="#00ff88" strokeWidth="1.5" strokeLinecap="round"/>;
-              })}
-            </svg>
-            <span style={{ fontWeight: 800, fontSize: "18px", letterSpacing: "0.05em", color: "#fff" }}>
-              exo<span style={{ color: "#00ff88" }}>info</span>
-            </span>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/exoinfo-logo_03a8e7fd.png" alt="ExoInfo.org" style={{ height: "40px", width: "auto", filter: "brightness(0) invert(1)" }} />
           </div>
           <div style={{ display: "flex", gap: "32px" }}>
             {["Analysis", "Protocols", "Research", "About"].map(item => (
@@ -687,12 +675,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "48px", marginBottom: "48px" }}>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
-                <svg width="28" height="28" viewBox="0 0 36 36">
-                  <circle cx="18" cy="18" r="16" fill="none" stroke="#00ff88" strokeWidth="1.5"/>
-                  <circle cx="18" cy="18" r="8" fill="none" stroke="#00ff88" strokeWidth="1" strokeDasharray="3 2"/>
-                  <circle cx="18" cy="18" r="3" fill="#00ff88"/>
-                </svg>
-                <span style={{ fontWeight: 800, fontSize: "16px" }}>exo<span style={{ color: "#00ff88" }}>info</span></span>
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/exoinfo-logo_03a8e7fd.png" alt="ExoInfo.org" style={{ height: "36px", width: "auto", filter: "brightness(0) invert(1)" }} />
               </div>
               <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "13px", lineHeight: 1.7, margin: 0 }}>
                 Precision exosome characterization for the next generation of extracellular vesicle research.
