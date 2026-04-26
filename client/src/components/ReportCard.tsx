@@ -10,8 +10,37 @@ import {
   ShieldAlert,
   ShieldCheck,
   XCircle,
+  ZoomIn,
 } from "lucide-react";
 import { useState } from "react";
+
+// CDN URLs for regulatory logos
+const LOGO_CGMP_BADGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/cgmp-badge_5adf14c9.jpeg";
+const LOGO_FDA_CGMP = "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/fda-cgmp_fa0033b2.jpeg";
+const LOGO_FDA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/fda-logo_ed6f68ec.png";
+const LOGO_GMP_CERTIFIED = "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/gmp-certified_bb7a367d.jpeg";
+const LOGO_FDA_CBER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/fda-cber_70e9a747.webp";
+const LOGO_FDA_REGULATION = "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/fda-regulation-flowchart_728cc3e1.png";
+const LOGO_FDA_CRITERIA = "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/fda-criteria-flowchart_ac78eb8e.png";
+
+function ImageLightbox({ src, alt }: { src: string; alt: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <div className="relative group cursor-pointer" onClick={() => setOpen(true)}>
+        <img src={src} alt={alt} className="w-full rounded-lg border border-gray-200 shadow-sm" />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors rounded-lg flex items-center justify-center">
+          <ZoomIn className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
+        </div>
+      </div>
+      {open && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setOpen(false)}>
+          <img src={src} alt={alt} className="max-w-full max-h-[90vh] rounded-lg shadow-2xl" />
+        </div>
+      )}
+    </>
+  );
+}
 
 interface ReportCardProps {
   companies: ExosomeCompany[];
@@ -283,6 +312,34 @@ function CompanyReportCard({ company }: { company: ExosomeCompany }) {
                 </div>
               </div>
 
+              {/* Regulatory Badges */}
+              <div className="flex items-center gap-2 flex-wrap">
+                {is351aRegistered && (
+                  <div className="flex items-center gap-1.5 bg-blue-50/60 rounded-lg px-2.5 py-1.5 border border-blue-100/60">
+                    <img src={LOGO_FDA} alt="FDA" className="h-5 w-auto" />
+                    <span className="text-[10px] font-bold text-blue-700">351(a) Registered</span>
+                  </div>
+                )}
+                {isCGMP && (
+                  <div className="flex items-center gap-1.5 bg-green-50/60 rounded-lg px-2.5 py-1.5 border border-green-100/60">
+                    <img src={LOGO_CGMP_BADGE} alt="cGMP" className="h-6 w-6 rounded-full object-cover" />
+                    <span className="text-[10px] font-bold text-green-700">cGMP Compliant</span>
+                  </div>
+                )}
+                {company.dmf?.includes("Yes") && (
+                  <div className="flex items-center gap-1.5 bg-purple-50/60 rounded-lg px-2.5 py-1.5 border border-purple-100/60">
+                    <FileText className="w-3.5 h-3.5 text-purple-600" />
+                    <span className="text-[10px] font-bold text-purple-700">DMF Type II</span>
+                  </div>
+                )}
+                {company.insurance_provider && (
+                  <div className="flex items-center gap-1.5 bg-amber-50/60 rounded-lg px-2.5 py-1.5 border border-amber-100/60">
+                    <Shield className="w-3.5 h-3.5 text-amber-600" />
+                    <span className="text-[10px] font-bold text-amber-700">{company.insurance_provider}</span>
+                  </div>
+                )}
+              </div>
+
               {/* Quick Facts */}
               <div className="grid grid-cols-2 gap-2">
                 {company.website && (
@@ -341,6 +398,12 @@ export function ReportCard({ companies }: ReportCardProps) {
     <div className="space-y-6">
       {/* Gold Standard Criteria */}
       <div className="card-premium p-5 md:p-6 mb-4" style={{ background: 'linear-gradient(135deg, rgba(25, 128, 56, 0.03), rgba(15, 98, 254, 0.03))' }}>
+        <div className="flex items-center gap-4 mb-4">
+          <img src={LOGO_FDA} alt="FDA" className="h-10 w-auto opacity-80" style={{ filter: 'invert(0)' }} />
+          <img src={LOGO_FDA_CGMP} alt="FDA cGMP" className="h-8 w-auto rounded" />
+          <img src={LOGO_CGMP_BADGE} alt="cGMP Badge" className="h-10 w-10 rounded-full object-cover" />
+          <img src={LOGO_GMP_CERTIFIED} alt="GMP Certified" className="h-10 w-10 rounded-full object-cover" />
+        </div>
         <h2 className="text-lg font-extrabold text-gray-900 mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           Gold Standard Criteria
         </h2>
@@ -368,6 +431,39 @@ export function ReportCard({ companies }: ReportCardProps) {
         </div>
         <div className="mt-3 p-2.5 bg-amber-50/80 rounded-lg border border-amber-200/40">
           <p className="text-[11px] text-amber-700 font-medium">Only DynaCord meets all Gold Standard criteria. No other exosome manufacturer in the database qualifies for A+ rating.</p>
+        </div>
+      </div>
+
+      {/* FDA CBER Banner */}
+      <div className="card-premium overflow-hidden mb-4">
+        <img src={LOGO_FDA_CBER} alt="FDA CBER - Center for Biologics Evaluation and Research" className="w-full h-auto rounded-lg" />
+        <div className="p-4">
+          <p className="text-xs text-gray-500 leading-relaxed">
+            FDA's Center for Biologics Evaluation and Research (CBER) regulates biological products including exosomes under Section 351(a) of the Public Health Service Act. Products manufactured as drugs require an active IND/BLA and must comply with 21 CFR 210/211 cGMP standards.
+          </p>
+        </div>
+      </div>
+
+      {/* FDA Regulatory Flowcharts */}
+      <div className="card-premium p-5 md:p-6 mb-4">
+        <h2 className="text-lg font-extrabold text-gray-900 mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          How the FDA Regulates Cell-Based Products
+        </h2>
+        <p className="text-xs text-gray-500 mb-4">Understanding the regulatory pathways: 21 CFR 1271, 361 HCT/P, 351 HCT/P, and IDE/510K classifications.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p className="text-[11px] font-semibold text-gray-600 mb-2">Product Classification Pathways</p>
+            <ImageLightbox src={LOGO_FDA_REGULATION} alt="How the FDA regulates products - classification flowchart" />
+          </div>
+          <div>
+            <p className="text-[11px] font-semibold text-gray-600 mb-2">4 Criteria for 361 HCT/P Exemption</p>
+            <ImageLightbox src={LOGO_FDA_CRITERIA} alt="Cell Based Therapy must meet 4 basic criteria to be unregulated" />
+          </div>
+        </div>
+        <div className="mt-4 p-3 bg-blue-50/60 rounded-lg border border-blue-100/60">
+          <p className="text-[11px] text-blue-700 font-medium leading-relaxed">
+            Cell-based therapy must meet 4 criteria to qualify as a 361 HCT/P: minimal manipulation, homologous use, no combination with drugs/devices, and no systemic effect. If any criterion fails, the product is regulated as a 351 drug and requires an IND/BLA from FDA CBER.
+          </p>
         </div>
       </div>
 
