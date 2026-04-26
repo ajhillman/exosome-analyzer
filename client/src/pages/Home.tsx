@@ -256,9 +256,18 @@ export default function Home() {
         transition: "all 0.3s ease", padding: "0 24px",
       }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
-          <button onClick={() => navigate("home")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px", padding: 0 }}>
-            <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "38px", width: "auto" }} />
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <button onClick={() => navigate("home")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0 }}>
+              <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "52px", width: "auto" }} />
+            </button>
+            <button onClick={() => navigate("home")} style={{
+              background: activeTab === "home" ? "rgba(168,85,247,0.15)" : "transparent",
+              border: "none", color: activeTab === "home" ? P.primary : P.textMuted,
+              padding: "6px 14px", borderRadius: "6px", fontSize: "13px", fontWeight: 600,
+              cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap",
+              letterSpacing: "0.02em",
+            }}>Home</button>
+          </div>
 
           {/* Desktop nav links */}
           <div style={{ display: "flex", gap: "6px", alignItems: "center" }} className="desktop-nav">
@@ -580,7 +589,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "48px", marginBottom: "48px" }}>
             <div>
               <div style={{ marginBottom: "16px" }}>
-                <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "36px", width: "auto" }} />
+                <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "48px", width: "auto" }} />
               </div>
               <p style={{ color: P.textDim, fontSize: "13px", lineHeight: 1.7, margin: 0 }}>
                 The exosome industry's regulatory intelligence platform. Information and compliance watchdog.
