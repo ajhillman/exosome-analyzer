@@ -90,6 +90,59 @@ export const companiesData: ExosomeCompany[] = [
       }
     ],
     negative_press_count: 0,
+    animal_safety_study: {
+      title: "4-Week Toxicity Study of UC-MSC Exosomes in C57BL/6 Mice",
+      institution: "LSU Health Sciences Center New Orleans (LSU-HSC)",
+      protocol: "IBC #21053 (LSU IBC and IACUC Approved)",
+      duration: "4 weeks, treated twice weekly",
+      model: "C57BL/6 mice (20 total, 4 cohorts of 5)",
+      routes: ["IV injection (tail vein)", "Skin topical", "Vaginal", "Conjunctival (eye drops)"],
+      dose_level: "2 trillion exosomes per 50kg body weight (20x higher than planned human dose of 100 billion per treatment)",
+      results: [
+        "No behavioral abnormalities observed",
+        "No distress, weight loss, vomiting, or diarrhea",
+        "Topical application: no rash or irritation",
+        "Two mice expired (1 female IV cohort before treatment began, 1 female eye drop cohort week 3)"
+      ],
+      histopathology: "Liver histopathology by LADDL (Louisiana Animal Disease Diagnostic Laboratory): No significant lesions found"
+    },
+    angiogenesis_assay: {
+      title: "Effect of UC-MSC Exosome Preparation on Human Endothelial Cell Sprouting in Spheroid-Based Cellular Angiogenesis Assay",
+      lab: "Reaction Biology Europe GmbH, Freiburg, Germany",
+      project_number: "PQ22524",
+      date: "November 03, 2023",
+      test_system: "HUVEC cells (PromoCell, Heidelberg, Germany), passage 3-4, collagen gel matrix",
+      positive_control: "hVEGF-A165 at 25 ng/mL (~300% of basal)",
+      result_summary: "20% v/v exosome preparation increased spheroid sprouting by ~60% vs basal control, corresponding to ~30% of VEGF-A stimulation level",
+      dose_response: [
+        "20% v/v = ~160% of basal (60% increase)",
+        "15% v/v = ~180% of basal",
+        "10% v/v = ~130% of basal",
+        "5% v/v = ~120% of basal"
+      ]
+    },
+    product_comparison: [
+      { category: "Cell of Origin", dynacord: "UC Mesenchymal Wharton's Jelly", amniotic_fluid: "Maternal Epithelial Cell", bone_marrow: "Hematopoietic Stem", florida_labs: "MSC (not third-party verified)" },
+      { category: "Number of Donors", dynacord: "Single (third-party verified)", amniotic_fluid: "Multiple", bone_marrow: "Multiple", florida_labs: "Single (not verified)" },
+      { category: "Risk of Disease Transmission", dynacord: "0 (fully tested by batch)", amniotic_fluid: "1 in 250,000 (not verified)", bone_marrow: "1 in 250,000 (not verified)", florida_labs: "Approaches 0 (not verified)" },
+      { category: "Proteins (growth factors)", dynacord: "100% (third-party tested by batch)", amniotic_fluid: "100% (third-party tested)", bone_marrow: "30% (not verified)", florida_labs: "100% (not verified)" },
+      { category: "FDA Administration Status", dynacord: "First with FDA Master File as Biologic Drug", amniotic_fluid: "None", bone_marrow: "None", florida_labs: "None" },
+      { category: "Exosome Count per Vial", dynacord: "Min 20B/1mL, 40B/2mL, 100B/5mL (verified)", amniotic_fluid: "Unknown/Unverified", bone_marrow: "Unknown/Unverified", florida_labs: "1B/5mL (not verified)" },
+      { category: "COA by Batch", dynacord: "Yes", amniotic_fluid: "No", bone_marrow: "No", florida_labs: "No" },
+      { category: "Endotoxin Report by Batch", dynacord: "Yes", amniotic_fluid: "Unknown", bone_marrow: "Unknown", florida_labs: "Unknown" },
+      { category: "NTA Batch Testing (third-party)", dynacord: "Yes", amniotic_fluid: "Unknown", bone_marrow: "Unknown", florida_labs: "Unknown" },
+      { category: "Growth Factors Report", dynacord: "TGF-b1, IL-10, BMP-2, CD81", amniotic_fluid: "No", bone_marrow: "No", florida_labs: "No" },
+      { category: "Sterility Testing by Batch", dynacord: "Yes", amniotic_fluid: "No", bone_marrow: "No", florida_labs: "No" },
+      { category: "USP 71 Pharmacopeia", dynacord: "Yes", amniotic_fluid: "No", bone_marrow: "No", florida_labs: "No" },
+      { category: "USP 85 Pharmacopeia", dynacord: "Yes", amniotic_fluid: "No", bone_marrow: "No", florida_labs: "No" },
+      { category: "GMP Manufacturing", dynacord: "Yes", amniotic_fluid: "Unknown", bone_marrow: "Unknown", florida_labs: "Unknown" },
+      { category: "Stable at -20C for 3 months", dynacord: "Yes", amniotic_fluid: "No", bone_marrow: "No", florida_labs: "No" },
+      { category: "US Patent on Shelf Stable Exosomes", dynacord: "Yes", amniotic_fluid: "No", bone_marrow: "No", florida_labs: "No" },
+      { category: "Clinical Studies at Major US Medical School", dynacord: "Yes", amniotic_fluid: "Unknown", bone_marrow: "Unknown", florida_labs: "Unknown" },
+      { category: "Safety Studies for IV Administration", dynacord: "Yes", amniotic_fluid: "No", bone_marrow: "No", florida_labs: "No" },
+      { category: "Made in USA", dynacord: "Yes", amniotic_fluid: "Yes", bone_marrow: "Unknown", florida_labs: "Unknown" },
+      { category: "10+ years research, no pre-FDA sales", dynacord: "Yes", amniotic_fluid: "Unknown", bone_marrow: "Unknown", florida_labs: "Unknown" }
+    ],
   },
   {
     id: "direct-biologics",
@@ -1603,18 +1656,18 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "innate-healthcare",
     name: "Innate Healthcare Institute",
+    section: "361 HCT/P (Warning Letter)",
+    manufacturing: "Unknown",
     source: "Umbilical Cord Mesenchymal Stem Cells (UC-MSCs)",
-    particle_count: "Not Disclosed",
-    price: "$150 consultation fee, treatment pricing varies",
     coa: "Not Available",
     dmf: "None",
-    fda_status: "Warning Letter (CBER 25-695592)",
+    fda_status: "Warning Letter (Aug 2025)",
     notes: "FDA Warning Letter issued August 15, 2025 (MARCS-CMS 695592). Cited for misbranding UC-MSC products under Section 301(k) FD&C Act. Products classified as unapproved drugs and unlicensed biological products under Section 351(i) PHS Act. Fails minimal manipulation criterion (21 CFR 1271.10(a)(1)) and homologous use criterion (21 CFR 1271.10(a)(2)). No valid BLA. Also markets exosomes. FDA referenced Public Safety Notification on Exosome Products. Given 15 days to respond or face seizure and/or injunction.",
     regulatoryScore: 5,
     company_grade: "F",
     hasWarningLetter: true,
     facility_location: "Scottsdale, AZ",
-    third_party_testing: "None Disclosed",
+    third_party_testing: "Unknown",
     leadership_experience: "Low",
     legal_status: "FDA Warning Letter Active",
     website: "https://innatehealthcare.org",
@@ -1629,7 +1682,7 @@ export const companiesData: ExosomeCompany[] = [
     years_in_business: 9,
     litigation_count: 0,
     negative_press_count: 3,
-    negative_press: [
+    negative_press_articles: [
       {
         title: "FDA Warning Letter CBER 25-695592 to Innate Healthcare Institute",
         source: "FDA.gov",
@@ -1668,11 +1721,11 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "celularity",
     name: "Celularity Inc.",
+    section: "361 HCT/P (Warning Letter)",
+    manufacturing: "GMP",
     source: "Placental-Derived ECM (Interfyl)",
-    particle_count: "Not Disclosed",
-    price: "Not Disclosed",
     coa: "Not Available",
-    dmf: "None for Interfyl",
+    dmf: "None",
     fda_status: "Warning Letter (Dec 2025)",
     notes: "Nasdaq-traded company (CELU). FDA Warning Letter issued December 2025 regarding placental ECM product Interfyl. Classified as unapproved new drug and unlicensed biologic. Separate NK-cell oncology pipeline has multiple INDs from FDA and is not affected by this warning. Leader Robert Hariri has been outspoken about FDA oversight. Company announced plans to market perinatal cells in Florida based on state stem cell law, though federal law governs drug/biologic regulation.",
     regulatoryScore: 25,
@@ -1681,7 +1734,7 @@ export const companiesData: ExosomeCompany[] = [
     facility_location: "Florham Park, NJ",
     third_party_testing: "Internal",
     leadership_experience: "High",
-    legal_status: "FDA Warning Letter Active (Interfyl)",
+    legal_status: "FDA Warning Letter Active",
     website: "https://www.celularity.com",
     company_location: "Florham Park, NJ",
     company_address: "Florham Park, NJ",
@@ -1694,7 +1747,7 @@ export const companiesData: ExosomeCompany[] = [
     years_in_business: 9,
     litigation_count: 0,
     negative_press_count: 1,
-    negative_press: [
+    negative_press_articles: [
       {
         title: "iPSCell.com: Celularity & 2 Other Perinatal Biologics Firms Get FDA Warnings",
         source: "iPSCell.com (Paul Knoepfler)",
@@ -1718,9 +1771,9 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "lux-therapeutics",
     name: "Lux Therapeutics (dba Ponya)",
+    section: "361 HCT/P (Warning Letter)",
+    manufacturing: "Unknown",
     source: "Dehydrated Amniotic Membrane (TheraMend)",
-    particle_count: "Not Applicable",
-    price: "Not Disclosed",
     coa: "Not Available",
     dmf: "None",
     fda_status: "Warning Letter (Dec 2025)",
@@ -1744,7 +1797,7 @@ export const companiesData: ExosomeCompany[] = [
     years_in_business: 8,
     litigation_count: 0,
     negative_press_count: 1,
-    negative_press: [
+    negative_press_articles: [
       {
         title: "iPSCell.com: Celularity & 2 Other Perinatal Biologics Firms Get FDA Warnings",
         source: "iPSCell.com (Paul Knoepfler)",
@@ -1768,9 +1821,9 @@ export const companiesData: ExosomeCompany[] = [
   {
     id: "bioxtek",
     name: "BioXTek",
+    section: "361 HCT/P (Warning Letter)",
+    manufacturing: "Unknown",
     source: "Amniotic Membrane-Derived (Sanoplast ECM, Sanoplast Duo)",
-    particle_count: "Not Disclosed",
-    price: "Not Disclosed",
     coa: "Not Available",
     dmf: "None",
     fda_status: "Warning Letter (Dec 2025)",
@@ -1794,7 +1847,7 @@ export const companiesData: ExosomeCompany[] = [
     years_in_business: 7,
     litigation_count: 0,
     negative_press_count: 1,
-    negative_press: [
+    negative_press_articles: [
       {
         title: "iPSCell.com: Celularity & 2 Other Perinatal Biologics Firms Get FDA Warnings",
         source: "iPSCell.com (Paul Knoepfler)",

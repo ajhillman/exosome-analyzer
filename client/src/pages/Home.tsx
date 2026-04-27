@@ -339,7 +339,7 @@ export default function Home() {
                   cursor: "pointer", transition: "all 0.2s",
                   borderRadius: activeTab === tab.id ? "8px" : "0",
                 }}>
-                  <span style={{ fontSize: "18px" }}>{tab.icon}</span>
+                  <span style={{ fontSize: "18px" }}>{"📋"}</span>
                   <span>{tab.label}</span>
                   {activeTab === tab.id && <span style={{ marginLeft: "auto", width: "6px", height: "6px", borderRadius: "50%", background: P.primary, boxShadow: `0 0 8px ${P.primary}` }}/>}
                 </button>

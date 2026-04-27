@@ -43,12 +43,12 @@ export interface LeadershipMember {
 export interface ExosomeCompany {
   id: string;
   name: string;
-  section: "351(a)" | "361 HCT/P (Tissue Bank)" | "351(a) (Investigational)" | "361 HCT/P (FDA Disputes)" | "361 HCT/P (Cosmetic)" | "Autologous (Practice of Medicine)";
-  manufacturing: "cGMP" | "cGMP (TRUE - Current, Verified, Documented)" | "GMP" | "GMP (Cited for violations)" | "GMP (FDA cited cGMP deviations)" | "GMP (with cGMP deviations)" | "GMP (Non-Compliant)" | "Point-of-Care Processing";
-  fda_status: "No Warning Letters" | "Warning Letter (Sept 2023)" | "Warning Letter (Jan 2025)" | "Warning Letter (Sept 2025)" | "Warning Letter (July 2022)" | "Warning Letter (Aug 2025)" | "No Warning Letters (Settled FDA litigation)";
-  coa: "Yes (Batch-by-batch)" | "Yes (Batch-by-batch Eurofins - ONLY COMPANY WITH THIS STANDARD)" | "Yes (Internal)" | "Yes" | "No/Unclear" | "Yes (Patient-specific)";
+  section: "351(a)" | "361 HCT/P (Tissue Bank)" | "351(a) (Investigational)" | "361 HCT/P (FDA Disputes)" | "361 HCT/P (Cosmetic)" | "Autologous (Practice of Medicine)" | "361 HCT/P (Warning Letter)";
+  manufacturing: "cGMP" | "cGMP (TRUE - Current, Verified, Documented)" | "GMP" | "GMP (Cited for violations)" | "GMP (FDA cited cGMP deviations)" | "GMP (with cGMP deviations)" | "GMP (Non-Compliant)" | "Point-of-Care Processing" | "Unknown";
+  fda_status: "No Warning Letters" | "Warning Letter (Sept 2023)" | "Warning Letter (Jan 2025)" | "Warning Letter (Sept 2025)" | "Warning Letter (July 2022)" | "Warning Letter (Aug 2025)" | "Warning Letter (Dec 2025)" | "No Warning Letters (Settled FDA litigation)";
+  coa: "Yes (Batch-by-batch)" | "Yes (Batch-by-batch Eurofins - ONLY COMPANY WITH THIS STANDARD)" | "Yes (Internal)" | "Yes" | "No/Unclear" | "Yes (Patient-specific)" | "Not Available";
   source: string;
-  dmf: "Yes" | "Yes (IND for ExoFlo)" | "Yes (IND for Zofin)" | "No" | "No (In process for IND)" | "Yes (EA-IND for TBI)" | "N/A (Autologous approach)";
+  dmf: "Yes" | "Yes (IND for ExoFlo)" | "Yes (IND for Zofin)" | "No" | "No (In process for IND)" | "Yes (EA-IND for TBI)" | "N/A (Autologous approach)" | "None";
   notes: string;
   hasWarningLetter: boolean;
   regulatoryScore: number;
@@ -58,13 +58,13 @@ export interface ExosomeCompany {
   container_type?: "Glass Vials" | "Plastic Vials" | "Cryogenic Bags" | "Mixed" | "N/A (Autologous)" | "Unknown";
   facility_owned?: boolean;
   facility_location?: string;
-  third_party_testing?: "Eurofins" | "Eurofins BioPharma (Independent)" | "Eurofins BioPharma (Independent - BATCH-BY-BATCH TESTING - ONLY COMPANY WITH THIS STANDARD)" | "Zen Bio" | "Other" | "Internal Only" | "Internal" | "N/A (Patient-Specific)" | "Unknown";
+  third_party_testing?: "Eurofins" | "Eurofins BioPharma (Independent)" | "Eurofins BioPharma (Independent - BATCH-BY-BATCH TESTING - ONLY COMPANY WITH THIS STANDARD)" | "Zen Bio" | "Other" | "Internal Only" | "Internal" | "N/A (Patient-Specific)" | "Unknown" | "Not Disclosed";
   post_thaw_viability?: string;
   mesenchymal_source_detail?: string;
   leadership_experience?: "High" | "Medium" | "Low" | "Unknown";
   insurance_coverage?: boolean;
   delivery_methods?: string[];
-  legal_status?: "FDA-Approved" | "IND Active" | "361 HCT/P Compliant" | "Disputed" | "Illegal" | "Practice of Medicine Exemption" | "Unknown";
+  legal_status?: "FDA-Approved" | "IND Active" | "361 HCT/P Compliant" | "Disputed" | "Illegal" | "Practice of Medicine Exemption" | "Unknown" | "FDA Warning Letter Active";
   // Company History
   founded_year?: number;
   company_age?: number;
@@ -100,7 +100,7 @@ export interface ExosomeCompany {
   years_in_business?: number;
   american_owned_operated?: boolean;
   company_grade?: "A+" | "A" | "B" | "C" | "D" | "F";
-  regulatory_risk_level?: "Lowest" | "Low" | "Moderate" | "High" | "Extreme";
+  regulatory_risk_level?: "Lowest" | "Low" | "Moderate" | "High" | "Extreme" | "Critical";
   regulatory_classification?: string;
   dmf_received_date?: string;
   mesenchymal_viability_rank?: string;
@@ -109,6 +109,35 @@ export interface ExosomeCompany {
   insurance_coverage_amount?: string;
   coa_bioactive_markers?: string[];
   coa_testing_methodology?: string;
+  // DynaCord-Specific Study Data
+  animal_safety_study?: {
+    title: string;
+    institution: string;
+    protocol: string;
+    duration: string;
+    model: string;
+    routes: string[];
+    dose_level: string;
+    results: string[];
+    histopathology: string;
+  };
+  angiogenesis_assay?: {
+    title: string;
+    lab: string;
+    project_number: string;
+    date: string;
+    test_system: string;
+    positive_control: string;
+    result_summary: string;
+    dose_response: string[];
+  };
+  product_comparison?: {
+    category: string;
+    dynacord: string;
+    amniotic_fluid: string;
+    bone_marrow: string;
+    florida_labs: string;
+  }[];
 }
 
 export interface FilterState {

@@ -409,6 +409,109 @@ export function CompanyDetailModal({ company, onClose }: CompanyDetailModalProps
             </div>
           )}
 
+          {/* Animal Safety Study (DynaCord) */}
+          {company.animal_safety_study && (
+            <div>
+              <h3 className="text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                <Shield className="w-4 h-4 text-emerald-600" />
+                Animal Safety Study
+              </h3>
+              <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4 space-y-2">
+                <p className="text-xs font-bold text-emerald-900">{company.animal_safety_study.title}</p>
+                <div className="grid grid-cols-2 gap-2 text-xs text-emerald-800">
+                  <div><span className="font-semibold">Institution:</span> {company.animal_safety_study.institution}</div>
+                  <div><span className="font-semibold">Protocol:</span> {company.animal_safety_study.protocol}</div>
+                  <div><span className="font-semibold">Duration:</span> {company.animal_safety_study.duration}</div>
+                  <div><span className="font-semibold">Model:</span> {company.animal_safety_study.model}</div>
+                </div>
+                <div className="text-xs text-emerald-800">
+                  <span className="font-semibold">Routes:</span> {company.animal_safety_study.routes.join(", ")}
+                </div>
+                <div className="text-xs text-emerald-800">
+                  <span className="font-semibold">Dose Level:</span> {company.animal_safety_study.dose_level}
+                </div>
+                <div className="mt-2 pt-2 border-t border-emerald-200">
+                  <p className="text-xs font-semibold text-emerald-900 mb-1">Results:</p>
+                  {company.animal_safety_study.results.map((r, i) => (
+                    <p key={i} className="text-xs text-emerald-800 flex items-start gap-1">
+                      <CheckCircle className="w-3 h-3 text-emerald-600 mt-0.5 shrink-0" />
+                      {r}
+                    </p>
+                  ))}
+                </div>
+                <p className="text-xs text-emerald-800 mt-1">
+                  <span className="font-semibold">Histopathology:</span> {company.animal_safety_study.histopathology}
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Angiogenesis Assay (DynaCord) */}
+          {company.angiogenesis_assay && (
+            <div>
+              <h3 className="text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                <Star className="w-4 h-4 text-purple-600" />
+                Angiogenesis Assay
+              </h3>
+              <div className="bg-purple-50 border border-purple-100 rounded-xl p-4 space-y-2">
+                <p className="text-xs font-bold text-purple-900">{company.angiogenesis_assay.title}</p>
+                <div className="grid grid-cols-2 gap-2 text-xs text-purple-800">
+                  <div><span className="font-semibold">Lab:</span> {company.angiogenesis_assay.lab}</div>
+                  <div><span className="font-semibold">Project:</span> {company.angiogenesis_assay.project_number}</div>
+                  <div><span className="font-semibold">Date:</span> {company.angiogenesis_assay.date}</div>
+                  <div><span className="font-semibold">Test System:</span> {company.angiogenesis_assay.test_system}</div>
+                </div>
+                <div className="text-xs text-purple-800">
+                  <span className="font-semibold">Positive Control:</span> {company.angiogenesis_assay.positive_control}
+                </div>
+                <div className="bg-purple-100 rounded-lg p-2 mt-2">
+                  <p className="text-xs font-semibold text-purple-900">Result:</p>
+                  <p className="text-xs text-purple-800">{company.angiogenesis_assay.result_summary}</p>
+                </div>
+                <div className="mt-2">
+                  <p className="text-xs font-semibold text-purple-900 mb-1">Dose-Response:</p>
+                  {company.angiogenesis_assay.dose_response.map((d, i) => (
+                    <p key={i} className="text-xs text-purple-800">- {d}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Product Comparison (DynaCord) */}
+          {company.product_comparison && company.product_comparison.length > 0 && (
+            <div>
+              <h3 className="text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                <Award className="w-4 h-4 text-blue-600" />
+                Product Comparison
+              </h3>
+              <div className="overflow-x-auto rounded-xl border border-gray-200">
+                <table className="w-full text-xs">
+                  <thead>
+                    <tr className="bg-blue-50">
+                      <th className="text-left p-2 font-semibold text-blue-900 border-b border-blue-100">Category</th>
+                      <th className="text-left p-2 font-semibold text-blue-900 border-b border-blue-100">DynaCord</th>
+                      <th className="text-left p-2 font-semibold text-gray-600 border-b border-blue-100">Amniotic Fluid</th>
+                      <th className="text-left p-2 font-semibold text-gray-600 border-b border-blue-100">Bone Marrow</th>
+                      <th className="text-left p-2 font-semibold text-gray-600 border-b border-blue-100">FL Labs</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {company.product_comparison.map((row, i) => (
+                      <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                        <td className="p-2 font-medium text-gray-900 border-b border-gray-100">{row.category}</td>
+                        <td className="p-2 text-emerald-700 font-medium border-b border-gray-100">{row.dynacord}</td>
+                        <td className="p-2 text-gray-600 border-b border-gray-100">{row.amniotic_fluid}</td>
+                        <td className="p-2 text-gray-600 border-b border-gray-100">{row.bone_marrow}</td>
+                        <td className="p-2 text-gray-600 border-b border-gray-100">{row.florida_labs}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
           {/* Notes */}
           <div>
             <h3 className="text-sm font-bold text-gray-700 mb-2">Notes</h3>
