@@ -106,7 +106,6 @@ export interface ExosomeCompany {
   mesenchymal_viability_rank?: string;
   // Insurance & COA Details
   insurance_provider?: string;
-  insurance_policy_number?: string;
   insurance_coverage_amount?: string;
   coa_bioactive_markers?: string[];
   coa_testing_methodology?: string;

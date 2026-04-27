@@ -427,7 +427,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   // ── Business / Industry Terms ─────────────────────────────────────
   {
     term: "CNA Liability Insurance",
-    definition: "Professional liability insurance provided by CNA Financial Corporation (A.M. Best Rating: A), one of the largest commercial insurers in the United States. DynaCord carries $20M in CNA Life Sciences Liability coverage (Policy ADT 7017740208), providing protection for product liability claims. Most exosome companies carry no liability insurance.",
+    definition: "Professional liability insurance provided by CNA Financial Corporation (A.M. Best Rating: A), one of the largest commercial insurers in the United States. DynaCord carries $20M in CNA Life Sciences Liability coverage, providing protection for product liability claims. Most exosome companies carry no liability insurance.",
     category: "business",
     relatedTerms: ["DynaCord"],
   },

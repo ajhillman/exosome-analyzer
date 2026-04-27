@@ -277,9 +277,6 @@ export function CompanyDetailModal({ company, onClose }: CompanyDetailModalProps
                 {company.insurance_coverage_amount && (
                   <p className="text-sm text-green-700 ml-6">Coverage: {company.insurance_coverage_amount}</p>
                 )}
-                {company.insurance_policy_number && (
-                  <p className="text-xs text-green-600 ml-6 mt-0.5">Policy: {company.insurance_policy_number}</p>
-                )}
               </div>
             </div>
           )}

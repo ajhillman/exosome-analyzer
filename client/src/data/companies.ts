@@ -18,7 +18,6 @@ export const companiesData: ExosomeCompany[] = [
     website: "dyna-cord.com",
     company_logo_url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/dynacord-official-logo_478aa354.png",
     insurance_provider: "CNA Life Sciences Liability (A.M. Best Rating: A)",
-    insurance_policy_number: "ADT 7017740208",
     insurance_coverage_amount: "$20M",
     coa_bioactive_markers: [
       "CD81 Exosomal Marker: 2.24 x 10^10 exosomes/mL (22.4 billion/mL)",
