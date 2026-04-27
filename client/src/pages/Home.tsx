@@ -15,6 +15,7 @@ import { StateChecklist } from "@/components/StateChecklist";
 import LitigationTracker from "@/components/LitigationTracker";
 import { Glossary } from "@/components/Glossary";
 import { Disclaimers } from "@/components/Disclaimers";
+import { InformedConsent } from "@/components/InformedConsent";
 import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import { useMemo } from "react";
@@ -184,7 +185,7 @@ function DataTicker() {
 }
 
 // ── Tab definitions ─────────────────────────────────────────────────────────
-type TabId = "home" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "litigation" | "ipsc" | "news" | "glossary" | "disclaimers";
+type TabId = "home" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "litigation" | "ipsc" | "news" | "glossary" | "disclaimers" | "consent";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "home", label: "Home" },
@@ -202,11 +203,13 @@ const TABS: { id: TabId; label: string }[] = [
   { id: "news", label: "Industry Intel" },
   { id: "glossary", label: "Glossary" },
   { id: "disclaimers", label: "Disclaimers" },
+  { id: "consent", label: "Informed Consent" },
 ];
 
 // ── Main Component ──────────────────────────────────────────────────────────
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [showTopBtn, setShowTopBtn] = useState(false);
   const [activeTab, setActiveTab] = useState<TabId>("home");
   const [mobileNav, setMobileNav] = useState(false);
   const [mobileDrawer, setMobileDrawer] = useState(false);
@@ -221,7 +224,7 @@ export default function Home() {
   }, [filters]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => { setScrolled(window.scrollY > 40); setShowTopBtn(window.scrollY > 600); };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -636,6 +639,7 @@ export default function Home() {
       {activeTab === "news" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><ExosomeNews /></div>}
       {activeTab === "glossary" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><Glossary /></div>}
       {activeTab === "disclaimers" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><Disclaimers /></div>}
+      {activeTab === "consent" && <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "80px 24px 40px" }}><InformedConsent /></div>}
 
       {/* ── Footer ── */}
       <footer style={{ background: P.bgSection, borderTop: `1px solid ${P.borderLight}`, padding: "60px 24px 40px" }}>
@@ -692,6 +696,22 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Back to top button */}
+      {showTopBtn && (
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} style={{
+          position: "fixed", bottom: "32px", right: "32px", zIndex: 1001,
+          width: "48px", height: "48px", borderRadius: "50%",
+          background: P.primary, border: "none", cursor: "pointer",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          boxShadow: `0 4px 20px rgba(168,85,247,0.5)`,
+          transition: "all 0.3s ease", animation: "fadeIn 0.3s ease",
+        }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 16V4M10 4L4 10M10 4L16 10" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      )}
 
       {/* Responsive styles */}
       <style>{`
