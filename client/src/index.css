@@ -422,3 +422,49 @@
     gap: 36px !important;
   }
 }
+
+/* ── ADA Accessibility Widget Styles ──────────────────────────────── */
+
+/* High Contrast Mode */
+.ada-high-contrast {
+  filter: contrast(1.4) !important;
+}
+.ada-high-contrast * {
+  border-color: rgba(255,255,255,0.5) !important;
+}
+
+/* Dyslexia-Friendly Font */
+.ada-dyslexia-font,
+.ada-dyslexia-font * {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', 'Arial', sans-serif !important;
+}
+
+/* Reduced Motion */
+.ada-reduced-motion,
+.ada-reduced-motion * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Highlight Links */
+.ada-highlight-links a,
+.ada-highlight-links button {
+  outline: 2px solid #22d3ee !important;
+  outline-offset: 2px !important;
+}
+
+/* Increased Text Spacing */
+.ada-text-spacing {
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+  line-height: 1.8 !important;
+}
+.ada-text-spacing p,
+.ada-text-spacing li,
+.ada-text-spacing span,
+.ada-text-spacing div {
+  letter-spacing: 0.08em !important;
+  word-spacing: 0.12em !important;
+}
