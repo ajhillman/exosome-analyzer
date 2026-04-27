@@ -626,10 +626,10 @@ export default function Home() {
           </div>
         </div>
       )}
-      {activeTab === "reportcard" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><ReportCard companies={filteredCompanies} /></div>}
-      {activeTab === "studies" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><StudiesSection /></div>}
+      {activeTab === "reportcard" && <div style={{ position: "relative" }}><div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/exosome-bg-reportcard-N8zygDvNcAMFVGRtWDNRDo.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", opacity: 0.08, pointerEvents: "none" }} /><div style={{ position: "relative", maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><ReportCard companies={filteredCompanies} /></div></div>}
+      {activeTab === "studies" && <div style={{ position: "relative" }}><div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/exosome-bg-studies-iDAx3mcCAupAbgjQDeKJyh.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", opacity: 0.1, pointerEvents: "none" }} /><div style={{ position: "relative", maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><StudiesSection /></div></div>}
       {activeTab === "dosing" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><DosingGuides /></div>}
-      {activeTab === "regulatory" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><RegulatoryReference /></div>}
+      {activeTab === "regulatory" && <div style={{ position: "relative" }}><div style={{ position: "absolute", inset: 0, backgroundImage: "url(https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/exosome-bg-regulatory-FrJ5zwREB3X4fdMRHi73cK.webp)", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed", opacity: 0.08, pointerEvents: "none" }} /><div style={{ position: "relative", maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><RegulatoryReference /></div></div>}
       {activeTab === "statechecklist" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><StateChecklist /></div>}
       {activeTab === "dmf" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><DMFEducation /></div>}
       {activeTab === "compliance" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><ComplianceCase /></div>}
