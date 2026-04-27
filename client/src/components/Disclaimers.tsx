@@ -196,15 +196,15 @@ export function Disclaimers() {
       <div style={{
         background: `linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(232,121,249,0.04) 100%)`,
         border: `1px solid ${P.border}`,
-        borderRadius: "16px",
-        padding: "40px",
-        marginBottom: "32px",
+        borderRadius: "10px",
+        padding: "20px",
+        marginBottom: "16px",
       }}>
-        <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", marginBottom: "16px" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "8px" }}>
           <div style={{
-            width: "48px", height: "48px", borderRadius: "12px",
+            width: "32px", height: "32px", borderRadius: "8px",
             background: P.primaryDim, display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: "24px", flexShrink: 0,
+            fontSize: "16px", flexShrink: 0,
           }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={P.primary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -214,13 +214,13 @@ export function Disclaimers() {
             </svg>
           </div>
           <div>
-            <h2 style={{ fontSize: "28px", fontWeight: 700, margin: "0 0 8px", color: P.text }}>
+            <h2 style={{ fontSize: "18px", fontWeight: 700, margin: "0 0 4px", color: P.text }}>
               FDA / CBER Regulatory Disclaimer Framework
             </h2>
-            <p style={{ color: P.textMuted, fontSize: "15px", margin: "0 0 4px", lineHeight: 1.6 }}>
+            <p style={{ color: P.textMuted, fontSize: "12px", margin: "0 0 2px", lineHeight: 1.5 }}>
               Mesenchymal Exosome Products and Regenerative Medicine Services
             </p>
-            <p style={{ color: P.textDim, fontSize: "13px", margin: 0 }}>
+            <p style={{ color: P.textDim, fontSize: "11px", margin: 0 }}>
               Prepared by Office of Regulatory Counsel | Effective April 26, 2026
             </p>
           </div>
@@ -231,21 +231,21 @@ export function Disclaimers() {
       <div style={{
         background: P.warningDim,
         border: `1px solid rgba(245,158,11,0.25)`,
-        borderRadius: "12px",
-        padding: "24px",
-        marginBottom: "32px",
+        borderRadius: "8px",
+        padding: "14px",
+        marginBottom: "16px",
       }}>
-        <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={P.warning} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: "2px" }}>
+        <div style={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={P.warning} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: "2px" }}>
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
             <line x1="12" y1="9" x2="12" y2="13" />
             <line x1="12" y1="17" x2="12.01" y2="17" />
           </svg>
           <div>
-            <h3 style={{ fontSize: "15px", fontWeight: 700, color: P.warning, margin: "0 0 8px" }}>
+            <h3 style={{ fontSize: "12px", fontWeight: 700, color: P.warning, margin: "0 0 4px" }}>
               ATTORNEY NOTICE AND USE LIMITATIONS
             </h3>
-            <p style={{ color: P.text, fontSize: "14px", lineHeight: 1.7, margin: 0 }}>
+            <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
               This document provides template disclaimer language for review and customization by qualified FDA regulatory counsel of record. The content does not constitute legal advice. No attorney-client relationship is formed by access to or use of this material. Each entity should engage retained counsel to review, customize, and approve every disclaimer before deployment in commerce, clinical practice, marketing, or patient-facing communications. Disclaimer language reinforces operational compliance. It does not substitute for it.
             </p>
           </div>
@@ -256,21 +256,21 @@ export function Disclaimers() {
       <div style={{
         background: P.bgCard,
         border: `1px solid ${P.border}`,
-        borderRadius: "12px",
-        padding: "28px",
-        marginBottom: "32px",
+        borderRadius: "8px",
+        padding: "16px",
+        marginBottom: "16px",
       }}>
-        <h3 style={{ fontSize: "18px", fontWeight: 700, color: P.primary, margin: "0 0 16px", letterSpacing: "0.04em" }}>
+        <h3 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, margin: "0 0 8px", letterSpacing: "0.04em" }}>
           REGULATORY REALITY
         </h3>
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          <p style={{ color: P.text, fontSize: "14px", lineHeight: 1.8, margin: 0 }}>
+          <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
             As of the date above, the United States Food and Drug Administration has approved zero exosome products for therapeutic use in humans. Wharton's Jelly mesenchymal stem cell-derived exosomes intended for systemic administration, injection, implantation, or any therapeutic indication fall within the definition of a biological product under Section 351(a) of the Public Health Service Act, 42 U.S.C. § 262(i). Distribution in interstate commerce without an approved Biologics License Application is unlawful.
           </p>
-          <p style={{ color: P.text, fontSize: "14px", lineHeight: 1.8, margin: 0 }}>
+          <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
             A Drug Master File on file with the FDA does not equate to product approval. A DMF is a confidential reference document that supports a future BLA submission. It does not authorize commercial distribution.
           </p>
-          <p style={{ color: P.text, fontSize: "14px", lineHeight: 1.8, margin: 0 }}>
+          <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
             Disclaimer language reduces but does not eliminate enforcement risk. Disclaimers do not immunize unlawful marketing, off-label promotion of unapproved drugs, or distribution of unlicensed biological products. Pair the language below with strict operational compliance: IND-authorized clinical investigation, IRB oversight where applicable, Right to Try or Expanded Access pathways, or genuine practice of medicine confined to the treating physician.
           </p>
         </div>
@@ -278,12 +278,12 @@ export function Disclaimers() {
 
       {/* Expand/Collapse All */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-        <h3 style={{ fontSize: "20px", fontWeight: 700, color: P.text, margin: 0 }}>
+        <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.text, margin: 0 }}>
           10 Disclaimers
         </h3>
         <button onClick={toggleAll} style={{
           background: P.primaryDim, border: `1px solid ${P.border}`, color: P.primary,
-          padding: "8px 16px", borderRadius: "8px", fontSize: "13px", fontWeight: 600,
+          padding: "5px 12px", borderRadius: "6px", fontSize: "11px", fontWeight: 600,
           cursor: "pointer", transition: "all 0.2s",
         }}>
           {expandAll ? "Collapse All" : "Expand All"}
@@ -291,7 +291,7 @@ export function Disclaimers() {
       </div>
 
       {/* Disclaimer Cards */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "40px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "20px" }}>
         {DISCLAIMERS.map((d) => (
           <div key={d.number} style={{
             background: isExpanded(d.number) ? P.bgCard : P.bgSection,
@@ -302,23 +302,23 @@ export function Disclaimers() {
           }}>
             {/* Header row */}
             <button onClick={() => toggleDisclaimer(d.number)} style={{
-              width: "100%", display: "flex", alignItems: "center", gap: "16px",
-              padding: "20px 24px", background: "none", border: "none", cursor: "pointer",
+              width: "100%", display: "flex", alignItems: "center", gap: "10px",
+              padding: "10px 14px", background: "none", border: "none", cursor: "pointer",
               textAlign: "left",
             }}>
               <span style={{
-                width: "36px", height: "36px", borderRadius: "8px",
+                width: "24px", height: "24px", borderRadius: "5px",
                 background: isExpanded(d.number) ? P.primary : P.primaryDim,
                 color: isExpanded(d.number) ? "#fff" : P.primary,
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "14px", fontWeight: 700, flexShrink: 0,
+                fontSize: "11px", fontWeight: 700, flexShrink: 0,
                 transition: "all 0.3s",
               }}>
                 {d.number}
               </span>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: "16px", fontWeight: 600, color: P.text }}>{d.title}</div>
-                <div style={{ fontSize: "12px", color: P.textDim, marginTop: "4px" }}>{d.intendedUse}</div>
+                <div style={{ fontSize: "12px", fontWeight: 600, color: P.text }}>{d.title}</div>
+                <div style={{ fontSize: "10px", color: P.textDim, marginTop: "2px" }}>{d.intendedUse}</div>
               </div>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={P.textMuted} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{
                 transform: isExpanded(d.number) ? "rotate(180deg)" : "rotate(0deg)",
@@ -332,19 +332,19 @@ export function Disclaimers() {
             {/* Expanded body */}
             {isExpanded(d.number) && (
               <div style={{
-                padding: "0 24px 24px 76px",
+                padding: "0 14px 14px 48px",
                 borderTop: `1px solid ${P.borderLight}`,
               }}>
-                <div style={{ paddingTop: "20px" }}>
+                <div style={{ paddingTop: "10px" }}>
                   <div style={{
                     display: "inline-block",
                     background: P.primaryDim,
                     color: P.primary,
-                    fontSize: "11px",
+                    fontSize: "9px",
                     fontWeight: 600,
-                    padding: "4px 10px",
-                    borderRadius: "4px",
-                    marginBottom: "16px",
+                    padding: "2px 6px",
+                    borderRadius: "3px",
+                    marginBottom: "8px",
                     letterSpacing: "0.04em",
                   }}>
                     INTENDED USE: {d.intendedUse}
@@ -352,16 +352,16 @@ export function Disclaimers() {
                   {d.body.map((para, i) => (
                     <p key={i} style={{
                       color: P.text,
-                      fontSize: "14px",
-                      lineHeight: 1.8,
-                      margin: i < d.body.length - 1 ? "0 0 12px" : "0",
+                      fontSize: "11px",
+                      lineHeight: 1.6,
+                      margin: i < d.body.length - 1 ? "0 0 6px" : "0",
                       whiteSpace: para.includes("____") ? "pre-line" : undefined,
                     }}>
                       {para}
                     </p>
                   ))}
                   {/* Copy to Clipboard */}
-                  <div style={{ marginTop: "20px", paddingTop: "16px", borderTop: `1px solid ${P.borderLight}` }}>
+                  <div style={{ marginTop: "10px", paddingTop: "8px", borderTop: `1px solid ${P.borderLight}` }}>
                     <button
                       onClick={(e) => { e.stopPropagation(); copyToClipboard(d); }}
                       style={{
@@ -369,7 +369,7 @@ export function Disclaimers() {
                         background: copiedId === d.number ? "rgba(34,197,94,0.12)" : P.primaryDim,
                         border: `1px solid ${copiedId === d.number ? "rgba(34,197,94,0.3)" : P.border}`,
                         color: copiedId === d.number ? "#22c55e" : P.primary,
-                        padding: "8px 16px", borderRadius: "8px", fontSize: "13px", fontWeight: 600,
+                        padding: "4px 10px", borderRadius: "5px", fontSize: "10px", fontWeight: 600,
                         cursor: "pointer", transition: "all 0.2s",
                       }}
                     >
@@ -397,11 +397,11 @@ export function Disclaimers() {
       <div style={{
         background: P.bgCard,
         border: `1px solid ${P.border}`,
-        borderRadius: "12px",
-        padding: "28px",
-        marginBottom: "32px",
+        borderRadius: "8px",
+        padding: "16px",
+        marginBottom: "16px",
       }}>
-        <h3 style={{ fontSize: "18px", fontWeight: 700, color: P.primary, margin: "0 0 20px", letterSpacing: "0.04em" }}>
+        <h3 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, margin: "0 0 10px", letterSpacing: "0.04em" }}>
           OPERATIONAL DEPLOYMENT GUIDANCE
         </h3>
         <div style={{ overflowX: "auto" }}>
@@ -410,9 +410,9 @@ export function Disclaimers() {
               <tr>
                 {["Disclaimer", "Where It Goes", "Trigger to Add"].map((h) => (
                   <th key={h} style={{
-                    textAlign: "left", padding: "12px 16px",
+                    textAlign: "left", padding: "6px 10px",
                     borderBottom: `2px solid ${P.border}`,
-                    color: P.textMuted, fontWeight: 600, fontSize: "11px",
+                    color: P.textMuted, fontWeight: 600, fontSize: "9px",
                     letterSpacing: "0.06em", textTransform: "uppercase",
                   }}>{h}</th>
                 ))}
@@ -421,12 +421,12 @@ export function Disclaimers() {
             <tbody>
               {DEPLOYMENT_TABLE.map((row, i) => (
                 <tr key={i} style={{ borderBottom: `1px solid ${P.borderLight}` }}>
-                  <td style={{ padding: "12px 16px", color: P.text, fontWeight: 600 }}>{row.disclaimer}</td>
-                  <td style={{ padding: "12px 16px", color: P.textMuted }}>{row.where}</td>
-                  <td style={{ padding: "12px 16px" }}>
+                  <td style={{ padding: "6px 10px", color: P.text, fontWeight: 600, fontSize: "11px" }}>{row.disclaimer}</td>
+                  <td style={{ padding: "6px 10px", color: P.textMuted, fontSize: "11px" }}>{row.where}</td>
+                  <td style={{ padding: "6px 10px" }}>
                     <span style={{
                       background: P.primaryDim, color: P.primary,
-                      padding: "3px 8px", borderRadius: "4px", fontSize: "12px", fontWeight: 500,
+                      padding: "2px 6px", borderRadius: "3px", fontSize: "10px", fontWeight: 500,
                     }}>{row.trigger}</span>
                   </td>
                 </tr>
@@ -440,17 +440,17 @@ export function Disclaimers() {
       <div style={{
         background: P.dangerDim,
         border: `1px solid rgba(239,68,68,0.2)`,
-        borderRadius: "12px",
-        padding: "28px",
-        marginBottom: "32px",
+        borderRadius: "8px",
+        padding: "16px",
+        marginBottom: "16px",
       }}>
-        <h3 style={{ fontSize: "18px", fontWeight: 700, color: P.danger, margin: "0 0 16px", letterSpacing: "0.04em" }}>
+        <h3 style={{ fontSize: "13px", fontWeight: 700, color: P.danger, margin: "0 0 8px", letterSpacing: "0.04em" }}>
           WHAT DISCLAIMERS DO NOT FIX
         </h3>
-        <p style={{ color: P.text, fontSize: "14px", lineHeight: 1.7, margin: "0 0 16px" }}>
+        <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: "0 0 8px" }}>
           Disclaimer language does not authorize any of the following. Do not rely on disclaimers as a substitute for the underlying lawful pathway.
         </p>
-        <ul style={{ margin: 0, padding: "0 0 0 20px", display: "flex", flexDirection: "column", gap: "10px" }}>
+        <ul style={{ margin: 0, padding: "0 0 0 16px", display: "flex", flexDirection: "column", gap: "4px" }}>
           {[
             "Interstate distribution of unlicensed biological products under Section 351(a) of the Public Health Service Act.",
             "Promotion of unapproved drugs for therapeutic indications under Section 502(f) of the Federal Food, Drug, and Cosmetic Act.",
@@ -458,7 +458,7 @@ export function Disclaimers() {
             "Marketing of cell or exosome products as cures or treatments outside an approved BLA, an active IND, or a state hospital exemption pathway.",
             "Off-label promotion that exceeds the bounds of physician scientific exchange under FDAMA Section 114 and First Amendment jurisprudence (Caronia, Amarin, Pacira).",
           ].map((item, i) => (
-            <li key={i} style={{ color: P.text, fontSize: "14px", lineHeight: 1.7 }}>{item}</li>
+            <li key={i} style={{ color: P.text, fontSize: "11px", lineHeight: 1.5 }}>{item}</li>
           ))}
         </ul>
       </div>
@@ -467,26 +467,26 @@ export function Disclaimers() {
       <div style={{
         background: P.bgCard,
         border: `1px solid ${P.border}`,
-        borderRadius: "12px",
-        padding: "28px",
-        marginBottom: "32px",
+        borderRadius: "8px",
+        padding: "16px",
+        marginBottom: "16px",
       }}>
-        <h3 style={{ fontSize: "18px", fontWeight: 700, color: P.danger, margin: "0 0 8px", letterSpacing: "0.04em" }}>
+        <h3 style={{ fontSize: "13px", fontWeight: 700, color: P.danger, margin: "0 0 4px", letterSpacing: "0.04em" }}>
           LANGUAGE THAT TRIGGERS WARNING LETTERS
         </h3>
-        <p style={{ color: P.textMuted, fontSize: "13px", margin: "0 0 20px", lineHeight: 1.6 }}>
+        <p style={{ color: P.textMuted, fontSize: "10px", margin: "0 0 10px", lineHeight: 1.5 }}>
           The following terms appear repeatedly in FDA Warning Letters issued to clinics and manufacturers marketing exosome products. Remove every instance from product literature, social media, and physician communications regardless of whether disclaimers are present.
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
           {WARNING_TERMS.map((wt, i) => (
             <div key={i} style={{
               display: "grid", gridTemplateColumns: "1fr 2fr", gap: "16px",
-              padding: "14px 16px",
+              padding: "8px 10px",
               background: i % 2 === 0 ? "rgba(239,68,68,0.04)" : "transparent",
               borderRadius: "8px",
             }}>
-              <div style={{ color: P.danger, fontWeight: 600, fontSize: "14px" }}>{wt.term}</div>
-              <div style={{ color: P.textMuted, fontSize: "13px", lineHeight: 1.6 }}>{wt.reason}</div>
+              <div style={{ color: P.danger, fontWeight: 600, fontSize: "11px" }}>{wt.term}</div>
+              <div style={{ color: P.textMuted, fontSize: "10px", lineHeight: 1.5 }}>{wt.reason}</div>
             </div>
           ))}
         </div>
@@ -496,26 +496,26 @@ export function Disclaimers() {
       <div style={{
         background: P.bgCard,
         border: `1px solid ${P.border}`,
-        borderRadius: "12px",
-        padding: "28px",
-        marginBottom: "16px",
+        borderRadius: "8px",
+        padding: "16px",
+        marginBottom: "10px",
       }}>
-        <h3 style={{ fontSize: "18px", fontWeight: 700, color: P.primary, margin: "0 0 16px", letterSpacing: "0.04em" }}>
+        <h3 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, margin: "0 0 8px", letterSpacing: "0.04em" }}>
           AUTHORITY REFERENCES
         </h3>
         <div style={{
-          display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "8px",
+          display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "4px",
         }}>
           {AUTHORITY_REFS.map((ref, i) => (
             <div key={i} style={{
               display: "flex", gap: "10px", alignItems: "flex-start",
-              padding: "8px 12px", borderRadius: "6px",
+              padding: "4px 8px", borderRadius: "4px",
               background: i % 2 === 0 ? "rgba(168,85,247,0.04)" : "transparent",
             }}>
               <span style={{ color: P.primary, fontSize: "12px", marginTop: "2px", flexShrink: 0 }}>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
               </span>
-              <span style={{ color: P.textMuted, fontSize: "13px", lineHeight: 1.5 }}>{ref}</span>
+              <span style={{ color: P.textMuted, fontSize: "10px", lineHeight: 1.4 }}>{ref}</span>
             </div>
           ))}
         </div>
@@ -524,9 +524,9 @@ export function Disclaimers() {
       {/* End notice */}
       <div style={{
         textAlign: "center",
-        padding: "24px",
+        padding: "12px",
         color: P.textDim,
-        fontSize: "13px",
+        fontSize: "10px",
         fontStyle: "italic",
       }}>
         End of Disclaimer Framework. Customize and execute under counsel of record before deployment.
