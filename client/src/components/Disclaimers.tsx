@@ -134,7 +134,6 @@ const WARNING_TERMS = [
   { term: '"FDA Registered" or "FDA Listed"', reason: "Establishment registration is not approval. FDA treats this as deceptive." },
   { term: '"Cures" or "Reverses" any disease', reason: "Establishes drug intent. Triggers BLA requirement under 351(a)." },
   { term: '"Anti-aging" or "Tissue regeneration"', reason: "Disease claim. Triggers Unapproved New Drug status." },
-  { term: '"Live stem cells" in acellular product', reason: "Fraudulent. Recent studies show off-the-shelf products contain zero living cells." },
   { term: '"Safe and effective" without approval', reason: "False efficacy claim. Section 502(a) misbranding." },
   { term: '"Treats COVID, Alzheimer\'s, autism, etc."', reason: "Non-homologous use. Documented in 2019 and 2024 Warning Letters." },
   { term: '"Administered by chiropractor / naturopath"', reason: "Outside scope of biologic administration. Triggers state board referral." },
@@ -224,55 +223,6 @@ export function Disclaimers() {
               Prepared by Office of Regulatory Counsel | Effective April 26, 2026
             </p>
           </div>
-        </div>
-      </div>
-
-      {/* Attorney Notice */}
-      <div style={{
-        background: P.warningDim,
-        border: `1px solid rgba(245,158,11,0.25)`,
-        borderRadius: "8px",
-        padding: "14px",
-        marginBottom: "16px",
-      }}>
-        <div style={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={P.warning} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: "2px" }}>
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-            <line x1="12" y1="9" x2="12" y2="13" />
-            <line x1="12" y1="17" x2="12.01" y2="17" />
-          </svg>
-          <div>
-            <h3 style={{ fontSize: "12px", fontWeight: 700, color: P.warning, margin: "0 0 4px" }}>
-              ATTORNEY NOTICE AND USE LIMITATIONS
-            </h3>
-            <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
-              This document provides template disclaimer language for review and customization by qualified FDA regulatory counsel of record. The content does not constitute legal advice. No attorney-client relationship is formed by access to or use of this material. Each entity should engage retained counsel to review, customize, and approve every disclaimer before deployment in commerce, clinical practice, marketing, or patient-facing communications. Disclaimer language reinforces operational compliance. It does not substitute for it.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Regulatory Reality */}
-      <div style={{
-        background: P.bgCard,
-        border: `1px solid ${P.border}`,
-        borderRadius: "8px",
-        padding: "16px",
-        marginBottom: "16px",
-      }}>
-        <h3 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, margin: "0 0 8px", letterSpacing: "0.04em" }}>
-          REGULATORY REALITY
-        </h3>
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
-            As of the date above, the United States Food and Drug Administration has approved zero exosome products for therapeutic use in humans. Wharton's Jelly mesenchymal stem cell-derived exosomes intended for systemic administration, injection, implantation, or any therapeutic indication fall within the definition of a biological product under Section 351(a) of the Public Health Service Act, 42 U.S.C. § 262(i). Distribution in interstate commerce without an approved Biologics License Application is unlawful.
-          </p>
-          <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
-            A Drug Master File on file with the FDA does not equate to product approval. A DMF is a confidential reference document that supports a future BLA submission. It does not authorize commercial distribution.
-          </p>
-          <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
-            Disclaimer language reduces but does not eliminate enforcement risk. Disclaimers do not immunize unlawful marketing, off-label promotion of unapproved drugs, or distribution of unlicensed biological products. Pair the language below with strict operational compliance: IND-authorized clinical investigation, IRB oversight where applicable, Right to Try or Expanded Access pathways, or genuine practice of medicine confined to the treating physician.
-          </p>
         </div>
       </div>
 
@@ -436,6 +386,32 @@ export function Disclaimers() {
         </div>
       </div>
 
+      {/* ── DISCLAIMERS MOVED TO BOTTOM ── */}
+
+      {/* Regulatory Reality */}
+      <div style={{
+        background: P.bgCard,
+        border: `1px solid ${P.border}`,
+        borderRadius: "8px",
+        padding: "16px",
+        marginBottom: "16px",
+      }}>
+        <h3 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, margin: "0 0 8px", letterSpacing: "0.04em" }}>
+          REGULATORY REALITY
+        </h3>
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
+            As of the date above, the United States Food and Drug Administration has approved zero exosome products for therapeutic use in humans. Wharton's Jelly mesenchymal stem cell-derived exosomes intended for systemic administration, injection, implantation, or any therapeutic indication fall within the definition of a biological product under Section 351(a) of the Public Health Service Act, 42 U.S.C. § 262(i). Distribution in interstate commerce without an approved Biologics License Application is unlawful.
+          </p>
+          <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
+            A Drug Master File on file with the FDA does not equate to product approval. A DMF is a confidential reference document that supports a future BLA submission. It does not authorize commercial distribution.
+          </p>
+          <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
+            Disclaimer language reduces but does not eliminate enforcement risk. Disclaimers do not immunize unlawful marketing, off-label promotion of unapproved drugs, or distribution of unlicensed biological products. Pair the language below with strict operational compliance: IND-authorized clinical investigation, IRB oversight where applicable, Right to Try or Expanded Access pathways, or genuine practice of medicine confined to the treating physician.
+          </p>
+        </div>
+      </div>
+
       {/* What Disclaimers Do Not Fix */}
       <div style={{
         background: P.dangerDim,
@@ -489,6 +465,31 @@ export function Disclaimers() {
               <div style={{ color: P.textMuted, fontSize: "10px", lineHeight: 1.5 }}>{wt.reason}</div>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Attorney Notice */}
+      <div style={{
+        background: P.warningDim,
+        border: `1px solid rgba(245,158,11,0.25)`,
+        borderRadius: "8px",
+        padding: "14px",
+        marginBottom: "16px",
+      }}>
+        <div style={{ display: "flex", gap: "8px", alignItems: "flex-start" }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={P.warning} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: "2px" }}>
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          <div>
+            <h3 style={{ fontSize: "12px", fontWeight: 700, color: P.warning, margin: "0 0 4px" }}>
+              ATTORNEY NOTICE AND USE LIMITATIONS
+            </h3>
+            <p style={{ color: P.text, fontSize: "11px", lineHeight: 1.6, margin: 0 }}>
+              This document provides template disclaimer language for review and customization by qualified FDA regulatory counsel of record. The content does not constitute legal advice. No attorney-client relationship is formed by access to or use of this material. Each entity should engage retained counsel to review, customize, and approve every disclaimer before deployment in commerce, clinical practice, marketing, or patient-facing communications. Disclaimer language reinforces operational compliance. It does not substitute for it.
+            </p>
+          </div>
         </div>
       </div>
 

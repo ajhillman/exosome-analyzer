@@ -19,167 +19,120 @@ const P = {
 interface FormData {
   clinicName: string;
   clinicAddress: string;
+  clinicCityStateZip: string;
   patientName: string;
   dob: string;
   mrn: string;
   patientSignDate: string;
-  patientSignTime: string;
   witnessSignDate: string;
+  witnessName: string;
   physicianSignDate: string;
   physicianName: string;
   physicianLicense: string;
+  guardianName: string;
+  guardianRelationship: string;
+  guardianDate: string;
 }
 
 const SECTIONS = [
   {
     num: "1",
-    title: "Product Identification",
-    items: [
-      "WJ-MSC derived exosomes, biologic product",
-      "Regulated under Section 351(a) of the Public Health Service Act",
-      "FDA Drug Master File on record with the manufacturer",
-      "Manufactured under cGMP (21 CFR 210/211, 21 CFR 600 series)",
-      "Investigational status, not FDA-approved for any indication",
+    title: "Description of Treatment",
+    paragraphs: [
+      "Exosome Therapy uses exosomes derived from Wharton's Jelly mesenchymal stem cells (WJ-MSCs). Exosomes are small signaling vesicles that carry growth factors, proteins, and genetic material. They are produced under pharmaceutical-grade cGMP manufacturing conditions. The product is administered by your physician via intravenous (IV) infusion or direct injection, depending on your treatment plan.",
+      "Standard therapeutic dose: 5 mL containing 100 billion exosomes (20 billion per mL).",
     ],
   },
   {
     num: "2",
-    title: "Nature of Treatment",
-    items: [
-      "Acellular biologic containing extracellular vesicles",
-      "Routes of administration as ordered by the treating physician",
-      "Dose, frequency, and duration documented in the chart",
-      "Treatment is elective",
+    title: "Goals of Treatment",
+    paragraphs: [
+      "The goal is to support your body's natural repair and anti-inflammatory processes. Outcomes vary. No physician or staff member is authorized to guarantee results. Any representation of guaranteed outcomes is unauthorized and should be reported to your treating physician immediately.",
     ],
   },
   {
     num: "3",
-    title: "Investigational Disclosure",
-    items: [
-      "The product has not received a Biologics License Application (BLA) approval",
-      "Long-term safety and efficacy are not fully characterized",
-      "Outcomes vary between patients",
-      "No therapeutic benefit is guaranteed",
+    title: "Known Risks and Possible Adverse Effects",
+    subsections: [
+      {
+        heading: "Common Reactions (Reported in Clinical Experience)",
+        items: [
+          "Mild fatigue lasting 24-72 hours",
+          "Low-grade fever (under 101\u00B0F) within 24 hours of infusion",
+          "Redness, bruising, or soreness at the infusion site",
+          "Temporary nausea or headache",
+        ],
+      },
+      {
+        heading: "Less Common but Serious Risks",
+        items: [
+          "Allergic or hypersensitivity reaction, including anaphylaxis",
+          "Infection at the administration site",
+          "Systemic immune response (fever, chills, rigors)",
+          "Unknown long-term effects: This therapy is not FDA approved for this indication. Long-term safety data is limited.",
+        ],
+      },
+      {
+        heading: "Theoretical Risks Under Investigation",
+        items: [
+          "Potential interaction with existing medications or active inflammatory conditions",
+          "Immunogenicity: unknown response in patients with autoimmune disorders",
+          "Risks specific to your medical history as identified by your physician",
+        ],
+      },
     ],
+    emergencyNote: "EMERGENCY CONTACT: If you experience difficulty breathing, severe swelling, chest pain, or loss of consciousness following treatment, call 911 immediately and then notify your treating physician.",
   },
   {
     num: "4",
-    title: "Known and Possible Risks",
+    title: "Alternatives to Treatment",
+    paragraphs: ["You are not required to receive Exosome Therapy. Alternatives include:"],
     items: [
-      "Pain, redness, swelling, or bruising at the administration site",
-      "Allergic or hypersensitivity reaction, including anaphylaxis",
-      "Infection",
-      "Fever, chills, headache, fatigue, nausea",
-      "Inflammatory or immune response",
-      "Vascular events with intravenous administration",
-      "Unknown long-term risks",
-      "Theoretical risk of tumorigenicity, not observed in published WJ-MSC exosome literature",
+      "Continued conservative management (physical therapy, medication, pain management)",
+      "Other interventional procedures as recommended by your physician",
+      "Watchful waiting with no active intervention",
+      "Referral to another specialist for a second opinion",
     ],
+    footnote: "Choosing not to receive this therapy will not affect the quality of other care you receive at this practice.",
   },
   {
     num: "5",
-    title: "Possible Benefits",
-    items: [
-      "Potential reduction in tissue inflammation",
-      "Potential support of tissue repair processes",
-      "Potential symptom relief",
-      "Benefits are not guaranteed",
+    title: "Voluntary Consent and Right to Withdraw",
+    paragraphs: [
+      "Your participation is entirely voluntary. You withdraw consent at any time before the therapy begins without penalty or impact on your care. You cannot withdraw consent after administration has started.",
+      "Once you sign this form, your physician will review it with you before proceeding. Ask all questions before signing.",
     ],
   },
   {
     num: "6",
-    title: "Alternatives",
-    items: [
-      "Standard pharmacologic therapy",
-      "Surgical intervention",
-      "Physical therapy and rehabilitation",
-      "Pain management",
-      "No treatment",
+    title: "Financial Disclosure",
+    paragraphs: [
+      "Exosome Therapy is not covered by Medicare, Medicaid, or most commercial insurance plans. Payment is your responsibility. Fees were disclosed to you in a separate financial agreement. Signing this consent does not waive any financial obligation already agreed to in writing.",
+      "If you are receiving treatment through a personal injury lien program, the terms of your Letter of Protection govern your financial obligations to this practice.",
     ],
   },
   {
     num: "7",
-    title: "Voluntary Nature",
-    items: [
-      "Participation is voluntary",
-      "Refusal will not affect access to other medical care",
-      "Withdrawal is permitted before administration",
-      "Once administered, the product cannot be retrieved",
+    title: "Privacy and HIPAA Authorization",
+    paragraphs: [
+      "Your protected health information (PHI) is handled under the practice's HIPAA Notice of Privacy Practices, which you received separately. De-identified outcome data from your treatment is used for internal quality improvement. No identifiable information is shared with third parties without your written authorization.",
+      "If your treatment is related to a personal injury claim, you authorize disclosure of treatment records to your attorney of record and their designated insurers solely for purposes of your legal claim.",
     ],
   },
   {
     num: "8",
-    title: "Financial Terms",
+    title: "Patient Acknowledgments",
+    paragraphs: ["By signing below, you confirm that:"],
     items: [
-      "Treatment is self-pay unless documented otherwise",
-      "Insurance reimbursement is not guaranteed",
-      "Total cost has been disclosed in writing",
-      "No federal healthcare program funds are billed for this service in compliance with 42 USC 1320a-7b (Anti-Kickback Statute) and 42 USC 1395nn (Stark Law)",
+      "You received and read this consent form.",
+      "Your physician explained the procedure, risks, benefits, and alternatives.",
+      "You had the opportunity to ask questions and received satisfactory answers.",
+      "You are 18 years of age or older, or your authorized representative has signed below.",
+      "You are not under duress and are signing voluntarily.",
+      "You understand this therapy is not FDA-approved for your specific condition.",
+      "You understand no outcomes have been guaranteed to you.",
     ],
   },
-  {
-    num: "9",
-    title: "Privacy and HIPAA",
-    items: [
-      "Health information is protected under 45 CFR 160 and 164",
-      "De-identified outcome data are used for quality assurance, registry, and internal research",
-      "Identifiable disclosures require separate written authorization",
-    ],
-  },
-  {
-    num: "10",
-    title: "Treatment-Related Injury",
-    items: [
-      "The provider will coordinate medical care for any treatment-related injury",
-      "No automatic financial compensation is offered",
-      "Patient retains all legal rights under state and federal law",
-      "This consent does not waive claims for gross negligence or willful misconduct",
-    ],
-  },
-  {
-    num: "11",
-    title: "New Information",
-    items: [
-      "Patient will be notified of new findings affecting willingness to continue",
-      "Updated FDA guidance affecting product classification will be communicated",
-    ],
-  },
-  {
-    num: "12",
-    title: "Right to Ask Questions",
-    items: [
-      "Questions have been answered by the treating physician",
-      "Patient has been given written and verbal information",
-      "Patient confirms understanding before signing",
-    ],
-  },
-];
-
-const ATTESTATION_PATIENT = [
-  "I am at least 18 years of age and legally competent",
-  "I have read or had read to me this consent",
-  "I have had the opportunity to ask questions",
-  "I voluntarily consent to WJ-MSC exosome administration",
-];
-
-const ATTESTATION_PHYSICIAN = [
-  "I have personally explained the nature, risks, benefits, and alternatives",
-  "The patient demonstrated understanding",
-  "I have answered all questions",
-];
-
-const REGULATORY_REFS = [
-  "21 CFR Part 50 (Informed Consent)",
-  "21 CFR Part 1271 (HCT/P Regulations)",
-  "21 CFR Part 312 (Investigational New Drug Application, where applicable)",
-  "45 CFR Part 46 (Common Rule)",
-  "45 CFR Parts 160 and 164 (HIPAA)",
-  "Section 351(a), Public Health Service Act",
-  "42 USC 1320a-7b (Anti-Kickback Statute)",
-  "42 USC 1395nn (Stark Law)",
-  "Texas Health and Safety Code Chapter 241",
-  "Texas Medical Disclosure Panel, 25 TAC Chapter 601",
-  "Texas Occupations Code Chapter 164",
 ];
 
 function generatePDF(form: FormData) {
@@ -193,150 +146,222 @@ function generatePDF(form: FormData) {
   const addPage = () => { doc.addPage(); y = 50; };
   const checkPage = (needed: number) => { if (y + needed > 720) addPage(); };
 
-  // Clinic branding
+  // Header / Clinic branding
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(14);
+  const headerLine1 = "INFORMED CONSENT FOR EXOSOME THERAPY";
+  doc.text(headerLine1, W / 2, y, { align: "center" });
+  y += 18;
+
   if (form.clinicName) {
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(14);
-    doc.text(form.clinicName.toUpperCase(), W / 2, y, { align: "center" });
-    y += 16;
-    if (form.clinicAddress) {
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(9);
-      doc.text(form.clinicAddress, W / 2, y, { align: "center" });
-      y += 14;
-    }
-    doc.setDrawColor(168, 85, 247);
-    doc.setLineWidth(0.5);
-    doc.line(marginL + 80, y, W - marginR - 80, y);
-    y += 16;
+    doc.setFontSize(11);
+    doc.text(form.clinicName, W / 2, y, { align: "center" });
+    y += 14;
+  } else {
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text("Dallas International Center of Excellence", W / 2, y, { align: "center" });
+    y += 14;
   }
 
-  // Title
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(16);
-  doc.text("PATIENT INFORMED CONSENT", W / 2, y, { align: "center" });
-  y += 20;
-  doc.setFontSize(11);
-  doc.setFont("helvetica", "normal");
-  doc.text("Wharton's Jelly Mesenchymal Stem Cell (WJ-MSC) Exosome Administration", W / 2, y, { align: "center" });
-  y += 28;
+  doc.setFont("helvetica", "italic");
+  doc.setFontSize(9);
+  doc.text("Mesenchymal Stem Cell-Derived Exosomes", W / 2, y, { align: "center" });
+  y += 14;
 
-  // Patient info
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "bold");
-  doc.text(`Patient Name: `, marginL, y);
-  doc.setFont("helvetica", "normal");
-  doc.text(form.patientName || "____________________", marginL + 80, y);
+  if (form.clinicAddress) {
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    const fullAddr = form.clinicCityStateZip ? `${form.clinicAddress}, ${form.clinicCityStateZip}` : form.clinicAddress;
+    doc.text(fullAddr, W / 2, y, { align: "center" });
+    y += 14;
+  } else {
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.text("901 Main St, Suite 3220, Dallas, TX 75202", W / 2, y, { align: "center" });
+    y += 14;
+  }
 
-  doc.setFont("helvetica", "bold");
-  doc.text(`DOB: `, marginL + 280, y);
-  doc.setFont("helvetica", "normal");
-  doc.text(form.dob || "___________", marginL + 305, y);
-
-  doc.setFont("helvetica", "bold");
-  doc.text(`MRN: `, marginL + 420, y);
-  doc.setFont("helvetica", "normal");
-  doc.text(form.mrn || "___________", marginL + 448, y);
-  y += 24;
-
-  // Horizontal line
   doc.setDrawColor(168, 85, 247);
   doc.setLineWidth(1);
   doc.line(marginL, y, W - marginR, y);
+  y += 18;
+
+  // Patient Information
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10);
+  doc.text("PATIENT INFORMATION", marginL, y);
   y += 16;
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.text(`Patient Full Name: ${form.patientName || "____________________________________"}`, marginL, y);
+  y += 14;
+  doc.text(`Date of Birth: ${form.dob || "_______________"}     Medical Record / Case No.: ${form.mrn || "_______________"}`, marginL, y);
+  y += 18;
+
+  // Regulatory Notice
+  doc.setDrawColor(168, 85, 247);
+  doc.setLineWidth(0.5);
+  doc.line(marginL, y, W - marginR, y);
+  y += 14;
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10);
+  doc.text("REGULATORY NOTICE", marginL, y);
+  y += 14;
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8.5);
+  const regNotice = "Exosome Therapy is a biologic product manufactured under cGMP standards and registered with the FDA under a Drug Master File (Section 351(a) of the Public Health Service Act). This therapy has not received FDA approval for treatment of your specific condition. Your physician has determined, in their independent clinical judgment, that this therapy may benefit you. You have the right to ask questions before signing this consent.";
+  const regLines = doc.splitTextToSize(regNotice, maxW);
+  doc.text(regLines, marginL, y);
+  y += regLines.length * 11 + 12;
 
   // Sections
   SECTIONS.forEach((section) => {
     checkPage(80);
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(11);
-    doc.text(`${section.num}. ${section.title}`, marginL, y);
-    y += 16;
+    doc.setFontSize(10);
+    doc.text(`${section.num}. ${section.title.toUpperCase()}`, marginL, y);
+    y += 14;
 
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(9);
-    section.items.forEach((item) => {
+    if (section.paragraphs) {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8.5);
+      section.paragraphs.forEach((para) => {
+        checkPage(40);
+        const lines = doc.splitTextToSize(para, maxW);
+        doc.text(lines, marginL, y);
+        y += lines.length * 11 + 6;
+      });
+    }
+
+    if ((section as any).subsections) {
+      (section as any).subsections.forEach((sub: any) => {
+        checkPage(40);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(8.5);
+        doc.text(sub.heading, marginL + 10, y);
+        y += 12;
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(8.5);
+        sub.items.forEach((item: string) => {
+          checkPage(24);
+          const lines = doc.splitTextToSize(`\u2022  ${item}`, maxW - 20);
+          doc.text(lines, marginL + 16, y);
+          y += lines.length * 11 + 2;
+        });
+        y += 4;
+      });
+    }
+
+    if ((section as any).emergencyNote) {
       checkPage(30);
-      const lines = doc.splitTextToSize(`\u2022  ${item}`, maxW - 10);
-      doc.text(lines, marginL + 10, y);
-      y += lines.length * 12 + 2;
-    });
-    y += 8;
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(8.5);
+      const eLines = doc.splitTextToSize((section as any).emergencyNote, maxW);
+      doc.text(eLines, marginL, y);
+      y += eLines.length * 11 + 6;
+    }
+
+    if (section.items) {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8.5);
+      section.items.forEach((item) => {
+        checkPage(24);
+        const lines = doc.splitTextToSize(`\u2022  ${item}`, maxW - 10);
+        doc.text(lines, marginL + 10, y);
+        y += lines.length * 11 + 2;
+      });
+      y += 4;
+    }
+
+    if ((section as any).footnote) {
+      checkPage(20);
+      doc.setFont("helvetica", "italic");
+      doc.setFontSize(8);
+      const fLines = doc.splitTextToSize((section as any).footnote, maxW);
+      doc.text(fLines, marginL, y);
+      y += fLines.length * 10 + 6;
+    }
+
+    y += 4;
   });
 
-  // Patient Attestation
-  checkPage(100);
+  // SIGNATURES
+  checkPage(120);
   doc.setDrawColor(168, 85, 247);
+  doc.setLineWidth(1);
   doc.line(marginL, y, W - marginR, y);
   y += 16;
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
-  doc.text("Patient Attestation", marginL, y);
+  doc.text("SIGNATURES", marginL, y);
+  y += 20;
+
+  // Patient or Authorized Representative
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(9);
+  doc.text("Patient or Authorized Representative", marginL, y);
   y += 16;
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
-  ATTESTATION_PATIENT.forEach((item) => {
-    checkPage(20);
-    doc.text(`\u2022  ${item}`, marginL + 10, y);
-    y += 14;
-  });
-  y += 12;
+  doc.text(`Patient / Authorized Representative Signature: _____________________________     Date: ${form.patientSignDate || "___________"}`, marginL, y);
+  y += 16;
+  doc.text(`Printed Name: ${form.patientName || "_____________________________"}`, marginL, y);
+  y += 16;
+  doc.text("Relationship to Patient (if Authorized Representative): _____________________________", marginL, y);
+  y += 22;
 
-  // Patient signature
+  // Witness
   checkPage(60);
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(10);
-  doc.text("Patient Signature: _______________________", marginL, y);
-  doc.text(`Date: ${form.patientSignDate || "___________"}`, marginL + 280, y);
-  doc.text(`Time: ${form.patientSignTime || "_______"}`, marginL + 400, y);
-  y += 20;
-  doc.text("Witness Signature: ______________________", marginL, y);
-  doc.text(`Date: ${form.witnessSignDate || "___________"}`, marginL + 280, y);
-  y += 24;
-
-  // Physician Attestation
-  checkPage(100);
-  doc.setDrawColor(168, 85, 247);
-  doc.line(marginL, y, W - marginR, y);
-  y += 16;
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(11);
-  doc.text("Physician Attestation", marginL, y);
+  doc.setFontSize(9);
+  doc.text("Witness", marginL, y);
   y += 16;
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(9);
-  ATTESTATION_PHYSICIAN.forEach((item) => {
-    checkPage(20);
-    doc.text(`\u2022  ${item}`, marginL + 10, y);
-    y += 14;
-  });
-  y += 12;
+  doc.text(`Witness Signature: _____________________________     Date: ${form.witnessSignDate || "___________"}`, marginL, y);
+  y += 16;
+  doc.text(`Printed Name of Witness: ${form.witnessName || "_____________________________"}`, marginL, y);
+  y += 22;
 
-  checkPage(60);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(10);
-  doc.text("Physician Signature: _____________________", marginL, y);
-  doc.text(`Date: ${form.physicianSignDate || "___________"}`, marginL + 280, y);
-  y += 20;
-  doc.text(`Printed Name and Texas Medical License #: ${form.physicianName || "_____________________"} ${form.physicianLicense || ""}`, marginL, y);
-  y += 28;
-
-  // Regulatory Authority
+  // Treating Physician
   checkPage(80);
-  doc.setDrawColor(168, 85, 247);
-  doc.line(marginL, y, W - marginR, y);
-  y += 16;
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(11);
-  doc.text("Regulatory Authority", marginL, y);
+  doc.setFontSize(9);
+  doc.text("Treating Physician", marginL, y);
+  y += 14;
+  doc.setFont("helvetica", "italic");
+  doc.setFontSize(8);
+  doc.text("I have explained the nature of this procedure, the risks, the benefits, and the available alternatives to the", marginL, y);
+  y += 11;
+  doc.text("patient. I have answered all questions to the best of my ability.", marginL, y);
   y += 16;
   doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.text(`Physician Signature: _____________________________     Date: ${form.physicianSignDate || "___________"}`, marginL, y);
+  y += 16;
+  doc.text(`Physician Printed Name and License No.: ${form.physicianName || "_______________"} ${form.physicianLicense || "_______________"}`, marginL, y);
+  y += 22;
+
+  // Minor Patient Section
+  checkPage(60);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(9);
+  doc.text("Minor Patient Section (Complete Only If Patient Is Under 18)", marginL, y);
+  y += 14;
+  doc.setFont("helvetica", "italic");
   doc.setFontSize(8);
-  REGULATORY_REFS.forEach((ref) => {
-    checkPage(16);
-    doc.text(`\u2022  ${ref}`, marginL + 10, y);
-    y += 12;
-  });
+  const minorNote = "This section must be completed if the patient is a minor (under 18 years of age). A parent or legal guardian with authority to consent to medical treatment must sign above as the Authorized Representative and complete this section.";
+  const minorLines = doc.splitTextToSize(minorNote, maxW);
+  doc.text(minorLines, marginL, y);
+  y += minorLines.length * 10 + 10;
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.text(`Parent / Legal Guardian Printed Name: ${form.guardianName || "_____________________________"}     Date: ${form.guardianDate || "___________"}`, marginL, y);
+  y += 16;
+  doc.text(`Relationship to Minor: ${form.guardianRelationship || "_____________________________"}`, marginL, y);
+  y += 20;
 
   // Footer on each page
   const totalPages = doc.getNumberOfPages();
@@ -345,27 +370,53 @@ function generatePDF(form: FormData) {
     doc.setFontSize(7);
     doc.setFont("helvetica", "normal");
     doc.setTextColor(150);
-    doc.text(`ExoInfo.org - Patient Informed Consent - Page ${i} of ${totalPages}`, W / 2, 760, { align: "center" });
-    doc.text(`Generated ${new Date().toLocaleDateString()}`, W / 2, 772, { align: "center" });
+    const footerClinic = form.clinicName || "Dallas International Center of Excellence";
+    const footerAddr = form.clinicAddress ? `${form.clinicAddress}${form.clinicCityStateZip ? ", " + form.clinicCityStateZip : ""}` : "901 Main St Suite 3220, Dallas TX 75202";
+    doc.text(`Version 1.0 | ${footerClinic} | ${footerAddr}`, W / 2, 755, { align: "center" });
+    doc.text(`This form is reviewed annually for compliance with applicable federal and state law. | Page ${i} of ${totalPages}`, W / 2, 765, { align: "center" });
     doc.setTextColor(0);
   }
 
   doc.save(`Informed_Consent_${form.patientName ? form.patientName.replace(/\s+/g, "_") : "Blank"}_${new Date().toISOString().slice(0, 10)}.pdf`);
 }
 
-export function InformedConsent() {
-  const [form, setForm] = useState<FormData>({
+function clearForm(setForm: React.Dispatch<React.SetStateAction<FormData>>) {
+  setForm({
     clinicName: "",
     clinicAddress: "",
+    clinicCityStateZip: "",
     patientName: "",
     dob: "",
     mrn: "",
     patientSignDate: "",
-    patientSignTime: "",
     witnessSignDate: "",
+    witnessName: "",
     physicianSignDate: "",
     physicianName: "",
     physicianLicense: "",
+    guardianName: "",
+    guardianRelationship: "",
+    guardianDate: "",
+  });
+}
+
+export function InformedConsent() {
+  const [form, setForm] = useState<FormData>({
+    clinicName: "",
+    clinicAddress: "",
+    clinicCityStateZip: "",
+    patientName: "",
+    dob: "",
+    mrn: "",
+    patientSignDate: "",
+    witnessSignDate: "",
+    witnessName: "",
+    physicianSignDate: "",
+    physicianName: "",
+    physicianLicense: "",
+    guardianName: "",
+    guardianRelationship: "",
+    guardianDate: "",
   });
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(SECTIONS.map(s => s.num)));
   const [allExpanded, setAllExpanded] = useState(true);
@@ -431,16 +482,16 @@ export function InformedConsent() {
           </div>
           <div>
             <h2 style={{ fontSize: "24px", fontWeight: 800, margin: 0, letterSpacing: "-0.02em" }}>
-              Patient Informed Consent
+              Informed Consent for Exosome Therapy
             </h2>
             <p style={{ fontSize: "13px", color: P.textMuted, margin: "2px 0 0 0" }}>
-              WJ-MSC Exosome Administration, 21 CFR Part 50 Compliant
+              Mesenchymal Stem Cell-Derived Exosomes, 21 CFR Part 50 Compliant
             </p>
           </div>
         </div>
       </div>
 
-      {/* Patient Info Form */}
+      {/* Clinic / Practice Info */}
       <div style={{
         background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: "12px",
         padding: "28px", marginBottom: "24px",
@@ -448,22 +499,27 @@ export function InformedConsent() {
         <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.primary, marginBottom: "20px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
           Clinic / Practice Information
         </h3>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "20px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginBottom: "20px" }}>
           <div>
             <label style={labelStyle}>Clinic / Practice Name</label>
-            <input style={inputStyle} value={form.clinicName} onChange={e => update("clinicName", e.target.value)} placeholder="e.g. Advanced Regenerative Medicine" />
+            <input style={inputStyle} value={form.clinicName} onChange={e => update("clinicName", e.target.value)} placeholder="e.g. Dallas International Center of Excellence" />
           </div>
           <div>
-            <label style={labelStyle}>Clinic Address (optional)</label>
-            <input style={inputStyle} value={form.clinicAddress} onChange={e => update("clinicAddress", e.target.value)} placeholder="e.g. 123 Main St, Austin, TX 78701" />
+            <label style={labelStyle}>Street Address</label>
+            <input style={inputStyle} value={form.clinicAddress} onChange={e => update("clinicAddress", e.target.value)} placeholder="e.g. 901 Main St, Suite 3220" />
+          </div>
+          <div>
+            <label style={labelStyle}>City, State, ZIP</label>
+            <input style={inputStyle} value={form.clinicCityStateZip} onChange={e => update("clinicCityStateZip", e.target.value)} placeholder="e.g. Dallas, TX 75202" />
           </div>
         </div>
+
         <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.primary, marginBottom: "20px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
           Patient Information
         </h3>
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "16px" }}>
           <div>
-            <label style={labelStyle}>Patient Name</label>
+            <label style={labelStyle}>Patient Full Name</label>
             <input style={inputStyle} value={form.patientName} onChange={e => update("patientName", e.target.value)} placeholder="Full legal name" />
           </div>
           <div>
@@ -471,33 +527,74 @@ export function InformedConsent() {
             <input style={inputStyle} type="date" value={form.dob} onChange={e => update("dob", e.target.value)} />
           </div>
           <div>
-            <label style={labelStyle}>MRN</label>
-            <input style={inputStyle} value={form.mrn} onChange={e => update("mrn", e.target.value)} placeholder="Medical Record #" />
+            <label style={labelStyle}>Medical Record / Case No.</label>
+            <input style={inputStyle} value={form.mrn} onChange={e => update("mrn", e.target.value)} placeholder="MRN or Case #" />
           </div>
         </div>
       </div>
 
+      {/* Regulatory Notice */}
+      <div style={{
+        background: "rgba(168,85,247,0.06)",
+        border: `1px solid rgba(168,85,247,0.25)`,
+        borderRadius: "10px",
+        padding: "20px",
+        marginBottom: "24px",
+      }}>
+        <h3 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, margin: "0 0 10px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+          Regulatory Notice
+        </h3>
+        <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.75)", lineHeight: 1.7, margin: 0 }}>
+          Exosome Therapy is a biologic product manufactured under cGMP standards and registered with the FDA under a Drug Master File (Section 351(a) of the Public Health Service Act). This therapy has not received FDA approval for treatment of your specific condition. Your physician has determined, in their independent clinical judgment, that this therapy benefits you. You have the right to ask questions before signing this consent.
+        </p>
+      </div>
+
       {/* Controls */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px", flexWrap: "wrap", gap: "12px" }}>
         <button onClick={toggleAll} style={{
           background: "transparent", border: `1px solid ${P.border}`, color: P.textMuted,
           padding: "8px 16px", borderRadius: "6px", fontSize: "12px", cursor: "pointer",
         }}>
           {allExpanded ? "Collapse All" : "Expand All"} Sections
         </button>
-        <button onClick={() => generatePDF(form)} style={{
-          background: `linear-gradient(135deg, ${P.primary}, ${P.accent})`,
-          border: "none", color: "#fff", padding: "10px 24px", borderRadius: "8px",
-          fontSize: "13px", fontWeight: 600, cursor: "pointer", boxShadow: P.glow,
-          display: "flex", alignItems: "center", gap: "8px",
-        }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Download PDF
-        </button>
+        <div style={{ display: "flex", gap: "12px" }}>
+          <button onClick={() => window.print()} style={{
+            background: "transparent", border: `1px solid ${P.border}`, color: P.textMuted,
+            padding: "10px 20px", borderRadius: "8px", fontSize: "13px", fontWeight: 600, cursor: "pointer",
+            display: "flex", alignItems: "center", gap: "8px",
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"/>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+              <rect x="6" y="14" width="12" height="8"/>
+            </svg>
+            Print
+          </button>
+          <button onClick={() => clearForm(setForm)} style={{
+            background: "transparent", border: `1px solid rgba(239,68,68,0.3)`, color: "rgba(239,68,68,0.8)",
+            padding: "10px 20px", borderRadius: "8px", fontSize: "13px", fontWeight: 600, cursor: "pointer",
+            display: "flex", alignItems: "center", gap: "8px",
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+            Clear Form
+          </button>
+          <button onClick={() => generatePDF(form)} style={{
+            background: `linear-gradient(135deg, ${P.primary}, ${P.accent})`,
+            border: "none", color: "#fff", padding: "10px 24px", borderRadius: "8px",
+            fontSize: "13px", fontWeight: 600, cursor: "pointer", boxShadow: P.glow,
+            display: "flex", alignItems: "center", gap: "8px",
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download PDF
+          </button>
+        </div>
       </div>
 
       {/* Consent Sections */}
@@ -529,98 +626,150 @@ export function InformedConsent() {
           </button>
           {expandedSections.has(section.num) && (
             <div style={{ padding: "0 20px 16px 60px" }}>
-              {section.items.map((item, i) => (
+              {section.paragraphs && section.paragraphs.map((para, i) => (
+                <p key={`p-${i}`} style={{
+                  fontSize: "13px", color: "rgba(255,255,255,0.75)", lineHeight: 1.7,
+                  margin: i < section.paragraphs!.length - 1 ? "0 0 10px" : section.items || (section as any).subsections ? "0 0 10px" : "0",
+                }}>
+                  {para}
+                </p>
+              ))}
+              {(section as any).subsections && (section as any).subsections.map((sub: any, si: number) => (
+                <div key={`sub-${si}`} style={{ marginBottom: "12px" }}>
+                  <div style={{ fontSize: "13px", fontWeight: 600, color: P.primaryLight, marginBottom: "6px" }}>{sub.heading}</div>
+                  {sub.items.map((item: string, ii: number) => (
+                    <div key={ii} style={{
+                      display: "flex", alignItems: "flex-start", gap: "10px",
+                      padding: "4px 0", fontSize: "13px", color: "rgba(255,255,255,0.75)", lineHeight: 1.6,
+                    }}>
+                      <span style={{ color: P.primary, marginTop: "2px", flexShrink: 0 }}>{"\u2022"}</span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+              {(section as any).emergencyNote && (
+                <div style={{
+                  background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)",
+                  borderRadius: "8px", padding: "12px 16px", marginTop: "8px",
+                }}>
+                  <p style={{ fontSize: "12px", fontWeight: 600, color: "#ef4444", lineHeight: 1.6, margin: 0 }}>
+                    {(section as any).emergencyNote}
+                  </p>
+                </div>
+              )}
+              {section.items && section.items.map((item, i) => (
                 <div key={i} style={{
                   display: "flex", alignItems: "flex-start", gap: "10px",
-                  padding: "6px 0", fontSize: "13px", color: "rgba(255,255,255,0.75)", lineHeight: 1.6,
+                  padding: "4px 0", fontSize: "13px", color: "rgba(255,255,255,0.75)", lineHeight: 1.6,
                 }}>
                   <span style={{ color: P.primary, marginTop: "2px", flexShrink: 0 }}>{"\u2022"}</span>
                   <span>{item}</span>
                 </div>
               ))}
+              {(section as any).footnote && (
+                <p style={{ fontSize: "12px", color: P.textMuted, fontStyle: "italic", marginTop: "8px", marginBottom: 0 }}>
+                  {(section as any).footnote}
+                </p>
+              )}
             </div>
           )}
         </div>
       ))}
 
-      {/* Patient Attestation */}
+      {/* Signatures Section */}
       <div style={{
         background: P.bgCard, border: `1px solid rgba(168,85,247,0.3)`, borderRadius: "12px",
         padding: "28px", marginTop: "24px", marginBottom: "16px",
       }}>
-        <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.primary, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          Patient Attestation
+        <h3 style={{ fontSize: "16px", fontWeight: 700, color: P.text, marginBottom: "24px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          Signatures
         </h3>
-        {ATTESTATION_PATIENT.map((item, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px", padding: "5px 0", fontSize: "13px", color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>
-            <span style={{ color: P.accent, marginTop: "2px" }}>{"\u2022"}</span>
-            <span>{item}</span>
-          </div>
-        ))}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginTop: "20px" }}>
-          <div>
-            <label style={labelStyle}>Patient Signature Date</label>
-            <input style={inputStyle} type="date" value={form.patientSignDate} onChange={e => update("patientSignDate", e.target.value)} />
-          </div>
-          <div>
-            <label style={labelStyle}>Time</label>
-            <input style={inputStyle} type="time" value={form.patientSignTime} onChange={e => update("patientSignTime", e.target.value)} />
-          </div>
-          <div>
-            <label style={labelStyle}>Witness Signature Date</label>
-            <input style={inputStyle} type="date" value={form.witnessSignDate} onChange={e => update("witnessSignDate", e.target.value)} />
-          </div>
-        </div>
-      </div>
 
-      {/* Physician Attestation */}
-      <div style={{
-        background: P.bgCard, border: `1px solid rgba(168,85,247,0.3)`, borderRadius: "12px",
-        padding: "28px", marginBottom: "16px",
-      }}>
-        <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.primary, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          Physician Attestation
-        </h3>
-        {ATTESTATION_PHYSICIAN.map((item, i) => (
-          <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px", padding: "5px 0", fontSize: "13px", color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>
-            <span style={{ color: P.accent, marginTop: "2px" }}>{"\u2022"}</span>
-            <span>{item}</span>
-          </div>
-        ))}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginTop: "20px" }}>
-          <div>
-            <label style={labelStyle}>Physician Signature Date</label>
-            <input style={inputStyle} type="date" value={form.physicianSignDate} onChange={e => update("physicianSignDate", e.target.value)} />
-          </div>
-          <div>
-            <label style={labelStyle}>Printed Name</label>
-            <input style={inputStyle} value={form.physicianName} onChange={e => update("physicianName", e.target.value)} placeholder="Full name" />
-          </div>
-          <div>
-            <label style={labelStyle}>TX Medical License #</label>
-            <input style={inputStyle} value={form.physicianLicense} onChange={e => update("physicianLicense", e.target.value)} placeholder="License number" />
-          </div>
-        </div>
-      </div>
-
-      {/* Regulatory Authority */}
-      <div style={{
-        background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: "12px",
-        padding: "28px", marginBottom: "24px",
-      }}>
-        <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.textMuted, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-          Regulatory Authority
-        </h3>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px 24px" }}>
-          {REGULATORY_REFS.map((ref, i) => (
-            <div key={i} style={{ fontSize: "12px", color: P.textDim, padding: "4px 0", lineHeight: 1.5 }}>
-              {"\u2022"} {ref}
+        {/* Patient or Authorized Representative */}
+        <div style={{ marginBottom: "24px", paddingBottom: "24px", borderBottom: `1px solid ${P.borderLight}` }}>
+          <h4 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+            Patient or Authorized Representative
+          </h4>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+            <div>
+              <label style={labelStyle}>Patient / Authorized Rep Signature Date</label>
+              <input style={inputStyle} type="date" value={form.patientSignDate} onChange={e => update("patientSignDate", e.target.value)} />
             </div>
-          ))}
+            <div>
+              <label style={labelStyle}>Printed Name</label>
+              <input style={inputStyle} value={form.patientName} onChange={e => update("patientName", e.target.value)} placeholder="Full legal name" readOnly />
+            </div>
+          </div>
+        </div>
+
+        {/* Witness */}
+        <div style={{ marginBottom: "24px", paddingBottom: "24px", borderBottom: `1px solid ${P.borderLight}` }}>
+          <h4 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+            Witness
+          </h4>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+            <div>
+              <label style={labelStyle}>Witness Signature Date</label>
+              <input style={inputStyle} type="date" value={form.witnessSignDate} onChange={e => update("witnessSignDate", e.target.value)} />
+            </div>
+            <div>
+              <label style={labelStyle}>Printed Name of Witness</label>
+              <input style={inputStyle} value={form.witnessName} onChange={e => update("witnessName", e.target.value)} placeholder="Witness full name" />
+            </div>
+          </div>
+        </div>
+
+        {/* Treating Physician */}
+        <div style={{ marginBottom: "24px", paddingBottom: "24px", borderBottom: `1px solid ${P.borderLight}` }}>
+          <h4 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+            Treating Physician
+          </h4>
+          <p style={{ fontSize: "12px", color: P.textMuted, fontStyle: "italic", margin: "0 0 16px", lineHeight: 1.6 }}>
+            I have explained the nature of this procedure, the risks, the benefits, and the available alternatives to the patient. I have answered all questions to the best of my ability.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" }}>
+            <div>
+              <label style={labelStyle}>Physician Signature Date</label>
+              <input style={inputStyle} type="date" value={form.physicianSignDate} onChange={e => update("physicianSignDate", e.target.value)} />
+            </div>
+            <div>
+              <label style={labelStyle}>Physician Printed Name</label>
+              <input style={inputStyle} value={form.physicianName} onChange={e => update("physicianName", e.target.value)} placeholder="Full name" />
+            </div>
+            <div>
+              <label style={labelStyle}>License No.</label>
+              <input style={inputStyle} value={form.physicianLicense} onChange={e => update("physicianLicense", e.target.value)} placeholder="License number" />
+            </div>
+          </div>
+        </div>
+
+        {/* Minor Patient Section */}
+        <div>
+          <h4 style={{ fontSize: "13px", fontWeight: 700, color: P.accent, marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+            Minor Patient Section (Under 18 Only)
+          </h4>
+          <p style={{ fontSize: "12px", color: P.textMuted, fontStyle: "italic", margin: "0 0 16px", lineHeight: 1.6 }}>
+            This section must be completed if the patient is a minor (under 18 years of age). A parent or legal guardian with authority to consent to medical treatment must sign above as the Authorized Representative and complete this section.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" }}>
+            <div>
+              <label style={labelStyle}>Parent / Legal Guardian Name</label>
+              <input style={inputStyle} value={form.guardianName} onChange={e => update("guardianName", e.target.value)} placeholder="Full name" />
+            </div>
+            <div>
+              <label style={labelStyle}>Relationship to Minor</label>
+              <input style={inputStyle} value={form.guardianRelationship} onChange={e => update("guardianRelationship", e.target.value)} placeholder="e.g. Parent, Legal Guardian" />
+            </div>
+            <div>
+              <label style={labelStyle}>Date</label>
+              <input style={inputStyle} type="date" value={form.guardianDate} onChange={e => update("guardianDate", e.target.value)} />
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Download CTA */}
+      {/* Download / Print / Clear CTA */}
       <div style={{
         background: `linear-gradient(135deg, rgba(168,85,247,0.1), rgba(232,121,249,0.08))`,
         border: `1px solid ${P.border}`, borderRadius: "12px",
@@ -629,21 +778,46 @@ export function InformedConsent() {
         <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", margin: "0 0 16px 0" }}>
           Fill in the fields above, then download a formatted PDF ready for signatures.
         </p>
-        <button onClick={() => generatePDF(form)} style={{
-          background: `linear-gradient(135deg, ${P.primary}, ${P.accent})`,
-          border: "none", color: "#fff", padding: "14px 40px", borderRadius: "10px",
-          fontSize: "15px", fontWeight: 700, cursor: "pointer", boxShadow: P.glow,
-          display: "inline-flex", alignItems: "center", gap: "10px",
-        }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Download Informed Consent PDF
-        </button>
+        <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
+          <button onClick={() => window.print()} style={{
+            background: "transparent", border: `1px solid ${P.border}`, color: P.textMuted,
+            padding: "14px 32px", borderRadius: "10px", fontSize: "15px", fontWeight: 600, cursor: "pointer",
+            display: "inline-flex", alignItems: "center", gap: "10px",
+          }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"/>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+              <rect x="6" y="14" width="12" height="8"/>
+            </svg>
+            Print
+          </button>
+          <button onClick={() => clearForm(setForm)} style={{
+            background: "transparent", border: `1px solid rgba(239,68,68,0.3)`, color: "rgba(239,68,68,0.8)",
+            padding: "14px 32px", borderRadius: "10px", fontSize: "15px", fontWeight: 600, cursor: "pointer",
+            display: "inline-flex", alignItems: "center", gap: "10px",
+          }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+            Clear Form
+          </button>
+          <button onClick={() => generatePDF(form)} style={{
+            background: `linear-gradient(135deg, ${P.primary}, ${P.accent})`,
+            border: "none", color: "#fff", padding: "14px 40px", borderRadius: "10px",
+            fontSize: "15px", fontWeight: 700, cursor: "pointer", boxShadow: P.glow,
+            display: "inline-flex", alignItems: "center", gap: "10px",
+          }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download Informed Consent PDF
+          </button>
+        </div>
         <p style={{ fontSize: "11px", color: P.textDim, margin: "12px 0 0 0" }}>
-          PDF generated client-side. No patient data is transmitted or stored.
+          Version 1.0 | PDF generated client-side. No patient data is transmitted or stored. This form is reviewed annually for compliance with applicable federal and state law.
         </p>
       </div>
     </div>
