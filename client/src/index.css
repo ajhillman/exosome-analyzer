@@ -407,3 +407,18 @@
   .hamburger-btn { display: flex !important; }
   .search-btn-desktop { display: none !important; }
 }
+
+/* ── Responsive Footer ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px !important;
+  }
+}

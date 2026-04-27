@@ -640,7 +640,7 @@ export default function Home() {
       {/* ── Footer ── */}
       <footer style={{ background: P.bgSection, borderTop: `1px solid ${P.borderLight}`, padding: "60px 24px 40px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "48px", marginBottom: "48px" }}>
+          <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "48px", marginBottom: "48px" }}>
             <div>
               <div style={{ marginBottom: "16px" }}>
                 <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "40px", width: "auto", borderRadius: "8px" }} />
