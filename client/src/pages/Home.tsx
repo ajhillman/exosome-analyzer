@@ -14,6 +14,7 @@ import { ExosomeNews } from "@/components/ExosomeNews";
 import { StateChecklist } from "@/components/StateChecklist";
 import LitigationTracker from "@/components/LitigationTracker";
 import { Glossary } from "@/components/Glossary";
+import { Disclaimers } from "@/components/Disclaimers";
 import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import { useMemo } from "react";
@@ -183,7 +184,7 @@ function DataTicker() {
 }
 
 // ── Tab definitions ─────────────────────────────────────────────────────────
-type TabId = "home" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "litigation" | "ipsc" | "news" | "glossary";
+type TabId = "home" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "litigation" | "ipsc" | "news" | "glossary" | "disclaimers";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "home", label: "Home" },
@@ -200,6 +201,7 @@ const TABS: { id: TabId; label: string }[] = [
   { id: "ipsc", label: "iPSC Landscape" },
   { id: "news", label: "Industry Intel" },
   { id: "glossary", label: "Glossary" },
+  { id: "disclaimers", label: "Disclaimers" },
 ];
 
 // ── Main Component ──────────────────────────────────────────────────────────
@@ -582,6 +584,7 @@ export default function Home() {
       {activeTab === "ipsc" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><IPSCLandscape /></div>}
       {activeTab === "news" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><ExosomeNews /></div>}
       {activeTab === "glossary" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><Glossary /></div>}
+      {activeTab === "disclaimers" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><Disclaimers /></div>}
 
       {/* ── Footer ── */}
       <footer style={{ background: P.bgSection, borderTop: `1px solid ${P.borderLight}`, padding: "60px 24px 40px" }}>
@@ -598,7 +601,7 @@ export default function Home() {
             {[
               { title: "Platform", links: [{ l: "Companies", t: "companies" as TabId }, { l: "Report Card", t: "reportcard" as TabId }, { l: "Regulatory", t: "regulatory" as TabId }, { l: "Glossary", t: "glossary" as TabId }] },
               { title: "Research", links: [{ l: "Clinical Studies", t: "studies" as TabId }, { l: "iPSC Landscape", t: "ipsc" as TabId }, { l: "DMF Guide", t: "dmf" as TabId }, { l: "Industry Intel", t: "news" as TabId }] },
-              { title: "Compliance", links: [{ l: "FDA Enforcement", t: "enforcement" as TabId }, { l: "Litigation", t: "litigation" as TabId }, { l: "State Laws", t: "statechecklist" as TabId }, { l: "Compliance", t: "compliance" as TabId }] },
+              { title: "Compliance", links: [{ l: "FDA Enforcement", t: "enforcement" as TabId }, { l: "Litigation", t: "litigation" as TabId }, { l: "State Laws", t: "statechecklist" as TabId }, { l: "Disclaimers", t: "disclaimers" as TabId }] },
             ].map(col => (
               <div key={col.title}>
                 <div style={{ color: P.primary, fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px", fontFamily: "monospace" }}>{col.title}</div>
@@ -616,13 +619,25 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          {/* Disclaimer 4: Website Footer */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "20px", marginBottom: "20px" }}>
+            <p style={{ color: P.textDim, fontSize: "11px", lineHeight: 1.7, margin: 0, maxWidth: "900px" }}>
+              The information on this website describes biological research products and services rendered under the supervision of licensed physicians. Statements have not been evaluated by the FDA. Products discussed are not approved, licensed, or cleared by the FDA for the diagnosis, treatment, cure, mitigation, or prevention of disease. Content presented is for general informational purposes and does not constitute medical advice. Reliance on any information for medical decisions is at the user's own risk. Consult a licensed physician for diagnosis and treatment.
+            </p>
+          </div>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <span style={{ fontFamily: "monospace", fontSize: "12px", color: P.textDim }}>
               &copy; 2026 ExoInfo.org. All rights reserved. Information and compliance watchdog.
             </span>
-            <span style={{ fontFamily: "monospace", fontSize: "11px", color: "rgba(168,85,247,0.4)" }}>
-              v2.1.0
-            </span>
+            <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+              <button onClick={() => navigate("disclaimers")} style={{
+                background: "none", border: "none", color: P.textDim, fontSize: "11px",
+                cursor: "pointer", padding: 0, textDecoration: "underline",
+              }}>Full Disclaimers</button>
+              <span style={{ fontFamily: "monospace", fontSize: "11px", color: "rgba(168,85,247,0.4)" }}>
+                v2.1.0
+              </span>
+            </div>
           </div>
         </div>
       </footer>
