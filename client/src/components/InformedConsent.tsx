@@ -17,6 +17,8 @@ const P = {
 };
 
 interface FormData {
+  clinicName: string;
+  clinicAddress: string;
   patientName: string;
   dob: string;
   mrn: string;
@@ -191,6 +193,24 @@ function generatePDF(form: FormData) {
   const addPage = () => { doc.addPage(); y = 50; };
   const checkPage = (needed: number) => { if (y + needed > 720) addPage(); };
 
+  // Clinic branding
+  if (form.clinicName) {
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text(form.clinicName.toUpperCase(), W / 2, y, { align: "center" });
+    y += 16;
+    if (form.clinicAddress) {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9);
+      doc.text(form.clinicAddress, W / 2, y, { align: "center" });
+      y += 14;
+    }
+    doc.setDrawColor(168, 85, 247);
+    doc.setLineWidth(0.5);
+    doc.line(marginL + 80, y, W - marginR - 80, y);
+    y += 16;
+  }
+
   // Title
   doc.setFont("helvetica", "bold");
   doc.setFontSize(16);
@@ -335,6 +355,8 @@ function generatePDF(form: FormData) {
 
 export function InformedConsent() {
   const [form, setForm] = useState<FormData>({
+    clinicName: "",
+    clinicAddress: "",
     patientName: "",
     dob: "",
     mrn: "",
@@ -423,6 +445,19 @@ export function InformedConsent() {
         background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: "12px",
         padding: "28px", marginBottom: "24px",
       }}>
+        <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.primary, marginBottom: "20px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          Clinic / Practice Information
+        </h3>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "20px" }}>
+          <div>
+            <label style={labelStyle}>Clinic / Practice Name</label>
+            <input style={inputStyle} value={form.clinicName} onChange={e => update("clinicName", e.target.value)} placeholder="e.g. Advanced Regenerative Medicine" />
+          </div>
+          <div>
+            <label style={labelStyle}>Clinic Address (optional)</label>
+            <input style={inputStyle} value={form.clinicAddress} onChange={e => update("clinicAddress", e.target.value)} placeholder="e.g. 123 Main St, Austin, TX 78701" />
+          </div>
+        </div>
         <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.primary, marginBottom: "20px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
           Patient Information
         </h3>
