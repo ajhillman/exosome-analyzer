@@ -88,6 +88,31 @@ export const enforcementActions: EnforcementAction[] = [
     sourceLabel: "FDA CBER Enforcement",
   },
 
+  {
+    id: "wl-2025-005",
+    year: 2025,
+    date: "August 15, 2025",
+    entity: "Platinum Biologics LLC (The Regenerative Project LLC)",
+    location: "Florida",
+    type: "Warning Letter",
+    cberReference: "705090",
+    description: "FDA Warning Letter 705090 to Beeben Russell / Platinum Biologics for marketing Nano PRP Jelly, Nano Flex (umbilical cord derived), NanoEx, and Nano Xsomes (exosome products) as unapproved new drugs under Section 505(a) FD&C Act 21 U.S.C. 355(a) and unlicensed biological products under Section 351 PHS Act. Products failed minimal manipulation and homologous use standards for 361 HCT/P exemption. No FDA inspection conducted. Prof. Paul Knoepfler (The Niche) and Don Buford (LinkedIn) documented the enforcement action. Russell identified as former VP of Sales at Regenative Labs (prior FDA warning recipient). Located in Florida where state stem cell law conflicts with federal preemption.",
+    sourceUrl: "https://ipscell.com/2025/09/2-fda-warnings-to-perinatal-firms-including-platinum-biologics-paradoxically-provide-hope/",
+    sourceLabel: "The Niche (Prof. Paul Knoepfler, Ph.D.)",
+  },
+  {
+    id: "wl-2025-006",
+    year: 2025,
+    date: "2025",
+    entity: "Innate Healthcare Institute",
+    location: "",
+    type: "Warning Letter",
+    cberReference: "",
+    description: "FDA Warning Letter to Travis Whitney, NMD / Innate Healthcare Institute for marketing umbilical cord mesenchymal stem cells (UC-MSCs) and UC-MSC therapy as misbranded products under Section 301(k) FD&C Act 21 U.S.C. 331(k). Concerning marketing included statements about autism treatment. FDA also noted potentially problematic exosome marketing. No FDA inspection conducted.",
+    sourceUrl: "https://ipscell.com/2025/09/2-fda-warnings-to-perinatal-firms-including-platinum-biologics-paradoxically-provide-hope/",
+    sourceLabel: "The Niche (Prof. Paul Knoepfler, Ph.D.)",
+  },
+
   // === 2024 ===
   {
     id: "wl-2024-001",

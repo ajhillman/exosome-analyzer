@@ -785,11 +785,12 @@ export const companiesData: ExosomeCompany[] = [
         summary: "Detailed Beeben Russell's regulatory history and connection to Regenative Labs with FDA enforcement actions."
       },
       {
-        title: "2 FDA warnings to perinatal firms including Platinum Biologics",
-        source: "IPS Cell",
+        title: "2 FDA warnings to perinatal firms including Platinum Biologics paradoxically provide hope",
+        source: "The Niche (Prof. Paul Knoepfler, Ph.D.)",
+        url: "https://ipscell.com/2025/09/2-fda-warnings-to-perinatal-firms-including-platinum-biologics-paradoxically-provide-hope/",
         date: "2025-09-09",
         category: "FDA Enforcement",
-        summary: "Documented FDA enforcement action against Platinum Biologics for unapproved drug marketing."
+        summary: "Prof. Paul Knoepfler documented FDA Warning Letter to Platinum Biologics citing Nano PRP Jelly, Nano Flex (umbilical cord derived), NanoEx, and Nano Xsomes (exosome products) as unapproved new drugs under Section 505(a) FD&C Act and unlicensed biological products under Section 351. Products failed minimal manipulation and homologous use standards for 361 HCT/P. Don Buford stated on LinkedIn: 'The FDA has just put Platinum Biologics on notice for marketing and selling products that are drugs without getting FDA approval. All of the doctors, chiropractors and clinics that bought these products and injected them in people now have additional significant legal risk.' Beeben Russell identified as former VP of sales for Regenative Labs, which itself previously received an FDA warning. Knoepfler called the letter a hopeful signal that Makary's FDA will continue perinatal firm oversight despite RFK Jr. being a fan of perinatal stem cells. Also noted the Florida state law conflict with federal preemption. No FDA inspection was mentioned in the letter, which Knoepfler noted as a positive sign that the agency does not require in-person visits for marketing violations visible on the web."
       },
       {
         title: "Platinum Biologics LLC - 705090 - 08/15/2025",
