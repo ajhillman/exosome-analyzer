@@ -260,7 +260,7 @@ export default function Home() {
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button onClick={() => navigate("home")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0 }}>
-              <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "52px", width: "auto" }} />
+              <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "44px", width: "auto", borderRadius: "10px", background: "rgba(168,85,247,0.08)", padding: "4px 8px", border: `1px solid rgba(168,85,247,0.2)`, filter: "brightness(1.1) saturate(0.9)", boxShadow: "0 0 12px rgba(168,85,247,0.15)" }} />
             </button>
           </div>
 
@@ -320,7 +320,7 @@ export default function Home() {
               position: "absolute", inset: 0,
               backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/exosome-microscopy-hero-a43j5b3Y6ZMgKTqc3H7u75.webp)`,
               backgroundSize: "cover", backgroundPosition: "center",
-              opacity: 0.35, pointerEvents: "none",
+              opacity: 0.5, pointerEvents: "none",
             }}/>
             {/* Dark gradient overlay for text readability */}
             <div style={{
@@ -597,7 +597,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "48px", marginBottom: "48px" }}>
             <div>
               <div style={{ marginBottom: "16px" }}>
-                <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "48px", width: "auto" }} />
+                <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "40px", width: "auto", borderRadius: "10px", background: "rgba(168,85,247,0.08)", padding: "4px 8px", border: `1px solid rgba(168,85,247,0.2)`, filter: "brightness(1.1) saturate(0.9)", boxShadow: "0 0 12px rgba(168,85,247,0.15)" }} />
               </div>
               <p style={{ color: P.textDim, fontSize: "13px", lineHeight: 1.7, margin: 0 }}>
                 The exosome industry's regulatory intelligence platform. Information and compliance watchdog.
