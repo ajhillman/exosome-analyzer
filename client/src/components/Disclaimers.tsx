@@ -164,6 +164,15 @@ const AUTHORITY_REFS = [
 export function Disclaimers() {
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [expandAll, setExpandAll] = useState(false);
+  const [copiedId, setCopiedId] = useState<number | null>(null);
+
+  const copyToClipboard = (d: Disclaimer) => {
+    const text = `DISCLAIMER ${d.number}: ${d.title.toUpperCase()}\n\nIntended Use: ${d.intendedUse}\n\n${d.body.join("\n\n")}`;
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedId(d.number);
+      setTimeout(() => setCopiedId(null), 2000);
+    });
+  };
 
   const toggleDisclaimer = (num: number) => {
     if (expandAll) {
@@ -351,6 +360,32 @@ export function Disclaimers() {
                       {para}
                     </p>
                   ))}
+                  {/* Copy to Clipboard */}
+                  <div style={{ marginTop: "20px", paddingTop: "16px", borderTop: `1px solid ${P.borderLight}` }}>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); copyToClipboard(d); }}
+                      style={{
+                        display: "inline-flex", alignItems: "center", gap: "8px",
+                        background: copiedId === d.number ? "rgba(34,197,94,0.12)" : P.primaryDim,
+                        border: `1px solid ${copiedId === d.number ? "rgba(34,197,94,0.3)" : P.border}`,
+                        color: copiedId === d.number ? "#22c55e" : P.primary,
+                        padding: "8px 16px", borderRadius: "8px", fontSize: "13px", fontWeight: 600,
+                        cursor: "pointer", transition: "all 0.2s",
+                      }}
+                    >
+                      {copiedId === d.number ? (
+                        <>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                          Copied
+                        </>
+                      ) : (
+                        <>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                          Copy to Clipboard
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
