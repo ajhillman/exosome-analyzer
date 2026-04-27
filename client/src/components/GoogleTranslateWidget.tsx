@@ -127,6 +127,7 @@ export function GoogleTranslateWidget() {
           <div
             role="dialog"
             aria-label="Translate Page"
+            className="translate-widget-panel"
             style={{
               position: "fixed",
               bottom: "92px",

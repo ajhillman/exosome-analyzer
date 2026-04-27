@@ -170,6 +170,7 @@ export function AccessibilityWidget() {
           <div
             role="dialog"
             aria-label="Accessibility Settings"
+            className="ada-widget-panel"
             style={{
               position: "fixed",
               bottom: "152px",

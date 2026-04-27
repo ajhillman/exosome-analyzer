@@ -468,3 +468,108 @@
   letter-spacing: 0.08em !important;
   word-spacing: 0.12em !important;
 }
+
+/* ── Global Mobile Responsive Overrides ──────────────────────────── */
+
+/* InformedConsent form grids */
+@media (max-width: 640px) {
+  .consent-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .consent-grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Disclaimers warning terms grid */
+@media (max-width: 640px) {
+  .disclaimer-term-grid {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+}
+
+/* CompanyDetailModal regulatory status grid */
+@media (max-width: 480px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ComplianceCase wide tables: scroll hint */
+@media (max-width: 768px) {
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+  }
+  .overflow-x-auto::after {
+    content: "← Scroll →";
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    padding: 6px 0 2px;
+    font-family: monospace;
+  }
+}
+
+/* Floating widgets: mobile positioning */
+@media (max-width: 640px) {
+  /* Make floating widget panels fit mobile screens */
+  .ada-widget-panel {
+    width: calc(100vw - 32px) !important;
+    left: 16px !important;
+    right: 16px !important;
+    max-height: 60vh !important;
+  }
+  .translate-widget-panel {
+    width: calc(100vw - 32px) !important;
+    left: 16px !important;
+    right: 16px !important;
+  }
+}
+
+/* Content tab padding reduction on mobile */
+@media (max-width: 768px) {
+  [style*="padding: \"80px 24px 40px\""],
+  [style*="padding:80px 24px 40px"] {
+    padding-top: 72px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+/* Back-to-top button: smaller on mobile */
+@media (max-width: 640px) {
+  button[style*="position: fixed"][style*="bottom: \"32px\""][style*="right: \"32px\""] {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+/* Table overflow on mobile */
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+  td, th {
+    padding: 6px 8px !important;
+  }
+}
+
+/* Company cards: reduce badge indent on mobile */
+@media (max-width: 640px) {
+  .pl-14 {
+    padding-left: 0 !important;
+  }
+}
+
+/* FilterPanel: not sticky on mobile */
+@media (max-width: 1023px) {
+  .sticky.top-24 {
+    position: relative !important;
+    top: auto !important;
+  }
+}

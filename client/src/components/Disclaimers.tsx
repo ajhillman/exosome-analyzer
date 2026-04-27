@@ -455,7 +455,7 @@ export function Disclaimers() {
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
           {WARNING_TERMS.map((wt, i) => (
-            <div key={i} style={{
+            <div key={i} className="disclaimer-term-grid" style={{
               display: "grid", gridTemplateColumns: "1fr 2fr", gap: "16px",
               padding: "8px 10px",
               background: i % 2 === 0 ? "rgba(239,68,68,0.04)" : "transparent",

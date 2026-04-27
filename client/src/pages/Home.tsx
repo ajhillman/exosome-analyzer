@@ -428,7 +428,7 @@ export default function Home() {
 
           {/* Stats */}
           <section style={{ background: P.bgSection, borderBottom: `1px solid ${P.borderLight}` }}>
-            <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
+            <div className="stats-grid" style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
               {[
                 { value: "28", label: "Companies Tracked", sub: "Across the US exosome market" },
                 { value: "0", label: "FDA-Approved Products", sub: "No exosome has BLA approval" },
@@ -463,7 +463,7 @@ export default function Home() {
                 ))}
               </div>
               {analyzerTab === "markers" && (
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
+                <div className="analyzer-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
                   <div>
                     {markerData.map(m => (
                       <div key={m.name} style={{ marginBottom: "20px" }}>
@@ -506,7 +506,7 @@ export default function Home() {
                 </div>
               )}
               {analyzerTab === "cargo" && (
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "16px" }}>
+                <div className="cargo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "16px" }}>
                   {[
                     { name: "miR-21-5p", type: "miRNA", level: "High", c: P.primary },
                     { name: "miR-126", type: "miRNA", level: "Medium", c: P.accent },
@@ -531,7 +531,7 @@ export default function Home() {
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               <span style={{ fontFamily: "monospace", fontSize: "11px", color: P.primary, letterSpacing: "0.12em", textTransform: "uppercase" }}>// Capabilities</span>
               <h2 style={{ fontSize: "38px", fontWeight: 800, margin: "12px 0 48px 0" }}>Powered by <span style={{ color: P.primary }}>Precision Science</span></h2>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "2px" }}>
+              <div className="features-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "2px" }}>
                 {[
                   { icon: "🎯", tag: "DETECTION", title: "Biomarker Fingerprinting", desc: "147 surface markers detected simultaneously via multi-channel flow cytometry and NTA cross-validation." },
                   { icon: "📐", tag: "SIZING", title: "Nanoparticle Sizing", desc: "Sub-nanometer resolution from 20nm to 1um. PDI, mode, mean, and full distribution curves in one pass." },
@@ -562,8 +562,8 @@ export default function Home() {
             <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
               <span style={{ fontFamily: "monospace", fontSize: "11px", color: P.primary, letterSpacing: "0.12em", textTransform: "uppercase" }}>// Workflow</span>
               <h2 style={{ fontSize: "38px", fontWeight: 800, margin: "12px 0 56px 0" }}>Three Steps to <span style={{ color: P.primary }}>Full Characterization</span></h2>
-              <div style={{ display: "flex", gap: "0", position: "relative" }}>
-                <div style={{ position: "absolute", top: "36px", left: "calc(16.7% + 36px)", right: "calc(16.7% + 36px)", height: "1px", background: `linear-gradient(90deg, ${P.primary}, ${P.accent}, ${P.primary})`, opacity: 0.3 }}/>
+              <div className="workflow-steps" style={{ display: "flex", gap: "0", position: "relative" }}>
+                <div className="workflow-line" style={{ position: "absolute", top: "36px", left: "calc(16.7% + 36px)", right: "calc(16.7% + 36px)", height: "1px", background: `linear-gradient(90deg, ${P.primary}, ${P.accent}, ${P.primary})`, opacity: 0.3 }}/>
                 {[
                   { n: "01", title: "Submit Sample", desc: "Upload your NTA data, flow cytometry output, or raw particle measurements in any major format." },
                   { n: "02", title: "AI Analysis", desc: "Our engine cross-references against 2,400+ characterized samples, applies MISEV standards, and scores purity." },
@@ -600,7 +600,7 @@ export default function Home() {
               <p style={{ color: P.textMuted, fontSize: "16px", lineHeight: 1.7, margin: "0 0 36px 0" }}>
                 Join 340 research groups using ExoInfo to validate and characterize extracellular vesicles.
               </p>
-              <div style={{ display: "flex", gap: "14px", justifyContent: "center" }}>
+              <div className="cta-buttons" style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
                 <button onClick={() => navigate("companies")} style={{
                   background: P.primary, color: "#fff", padding: "14px 36px", borderRadius: "6px",
                   fontSize: "15px", fontWeight: 700, border: "none", cursor: "pointer",
@@ -680,7 +680,7 @@ export default function Home() {
               The information on this website describes biological research products and services rendered under the supervision of licensed physicians. Statements have not been evaluated by the FDA. Products discussed are not approved, licensed, or cleared by the FDA for the diagnosis, treatment, cure, mitigation, or prevention of disease. Content presented is for general informational purposes and does not constitute medical advice. Reliance on any information for medical decisions is at the user's own risk. Consult a licensed physician for diagnosis and treatment.
             </p>
           </div>
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div className="footer-bottom" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
             <span style={{ fontFamily: "monospace", fontSize: "12px", color: P.textDim }}>
               &copy; 2026 ExoInfo.org. All rights reserved. Information and compliance watchdog.
             </span>
@@ -715,9 +715,28 @@ export default function Home() {
 
       {/* Responsive styles */}
       <style>{`
+        .hamburger-btn { display: none !important; }
+        .search-btn-desktop { display: inline-flex !important; }
         @media (max-width: 768px) {
           .radar-hide-mobile { display: none !important; }
           .desktop-nav { display: none !important; }
+          .search-btn-desktop { display: none !important; }
+          .hamburger-btn { display: flex !important; }
+          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .analyzer-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+          .cargo-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+          .features-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+          .workflow-steps { flex-direction: column !important; gap: 32px !important; }
+          .workflow-line { display: none !important; }
+          .cta-buttons { flex-direction: column !important; align-items: center !important; }
+          .cta-buttons > * { width: 100% !important; text-align: center !important; justify-content: center !important; }
+          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+          .footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+        }
+        @media (max-width: 480px) {
+          .stats-grid { grid-template-columns: 1fr 1fr !important; }
+          .cargo-grid { grid-template-columns: 1fr !important; }
+          .footer-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
         }
       `}</style>
     </div>

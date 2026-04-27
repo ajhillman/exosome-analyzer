@@ -499,7 +499,7 @@ export function InformedConsent() {
         <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.primary, marginBottom: "20px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
           Clinic / Practice Information
         </h3>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginBottom: "20px" }}>
+        <div className="consent-grid-3" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px", marginBottom: "20px" }}>
           <div>
             <label style={labelStyle}>Clinic / Practice Name</label>
             <input style={inputStyle} value={form.clinicName} onChange={e => update("clinicName", e.target.value)} placeholder="e.g. Dallas International Center of Excellence" />
@@ -517,7 +517,7 @@ export function InformedConsent() {
         <h3 style={{ fontSize: "14px", fontWeight: 700, color: P.primary, marginBottom: "20px", textTransform: "uppercase", letterSpacing: "0.08em" }}>
           Patient Information
         </h3>
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "16px" }}>
+        <div className="consent-grid-3" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: "16px" }}>
           <div>
             <label style={labelStyle}>Patient Full Name</label>
             <input style={inputStyle} value={form.patientName} onChange={e => update("patientName", e.target.value)} placeholder="Full legal name" />
@@ -691,7 +691,7 @@ export function InformedConsent() {
           <h4 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
             Patient or Authorized Representative
           </h4>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+          <div className="consent-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
             <div>
               <label style={labelStyle}>Patient / Authorized Rep Signature Date</label>
               <input style={inputStyle} type="date" value={form.patientSignDate} onChange={e => update("patientSignDate", e.target.value)} />
@@ -708,7 +708,7 @@ export function InformedConsent() {
           <h4 style={{ fontSize: "13px", fontWeight: 700, color: P.primary, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
             Witness
           </h4>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+          <div className="consent-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
             <div>
               <label style={labelStyle}>Witness Signature Date</label>
               <input style={inputStyle} type="date" value={form.witnessSignDate} onChange={e => update("witnessSignDate", e.target.value)} />
@@ -728,7 +728,7 @@ export function InformedConsent() {
           <p style={{ fontSize: "12px", color: P.textMuted, fontStyle: "italic", margin: "0 0 16px", lineHeight: 1.6 }}>
             I have explained the nature of this procedure, the risks, the benefits, and the available alternatives to the patient. I have answered all questions to the best of my ability.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" }}>
+          <div className="consent-grid-3" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" }}>
             <div>
               <label style={labelStyle}>Physician Signature Date</label>
               <input style={inputStyle} type="date" value={form.physicianSignDate} onChange={e => update("physicianSignDate", e.target.value)} />
@@ -752,7 +752,7 @@ export function InformedConsent() {
           <p style={{ fontSize: "12px", color: P.textMuted, fontStyle: "italic", margin: "0 0 16px", lineHeight: 1.6 }}>
             This section must be completed if the patient is a minor (under 18 years of age). A parent or legal guardian with authority to consent to medical treatment must sign above as the Authorized Representative and complete this section.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" }}>
+          <div className="consent-grid-3" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" }}>
             <div>
               <label style={labelStyle}>Parent / Legal Guardian Name</label>
               <input style={inputStyle} value={form.guardianName} onChange={e => update("guardianName", e.target.value)} placeholder="Full name" />
