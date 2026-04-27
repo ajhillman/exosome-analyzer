@@ -262,18 +262,11 @@ export default function Home() {
             <button onClick={() => navigate("home")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0 }}>
               <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "52px", width: "auto" }} />
             </button>
-            <button onClick={() => navigate("home")} style={{
-              background: activeTab === "home" ? "rgba(168,85,247,0.15)" : "transparent",
-              border: "none", color: activeTab === "home" ? P.primary : P.textMuted,
-              padding: "6px 14px", borderRadius: "6px", fontSize: "13px", fontWeight: 600,
-              cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap",
-              letterSpacing: "0.02em",
-            }}>Home</button>
           </div>
 
           {/* Desktop nav links */}
           <div style={{ display: "flex", gap: "6px", alignItems: "center" }} className="desktop-nav">
-            {TABS.slice(0, 8).map(tab => (
+            {TABS.filter(t => t.id !== "home").slice(0, 8).map(tab => (
               <button key={tab.id} onClick={() => navigate(tab.id)} style={{
                 background: activeTab === tab.id ? "rgba(168,85,247,0.15)" : "transparent",
                 border: "none", color: activeTab === tab.id ? P.primary : P.textMuted,
@@ -292,7 +285,7 @@ export default function Home() {
                   background: P.bgCard, border: `1px solid ${P.border}`, borderRadius: "8px",
                   padding: "8px", minWidth: "180px", boxShadow: P.glow, zIndex: 100,
                 }}>
-                  {TABS.slice(8).map(tab => (
+                  {TABS.filter(t => t.id !== "home").slice(8).map(tab => (
                     <button key={tab.id} onClick={() => navigate(tab.id)} style={{
                       display: "block", width: "100%", textAlign: "left",
                       background: activeTab === tab.id ? "rgba(168,85,247,0.15)" : "transparent",
@@ -320,8 +313,20 @@ export default function Home() {
           <section style={{
             minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px 24px 60px",
             position: "relative", overflow: "hidden",
-            background: `radial-gradient(ellipse at 60% 50%, rgba(168,85,247,0.06) 0%, ${P.bg} 60%)`,
+            background: P.bg,
           }}>
+            {/* Exosome microscopy background */}
+            <div style={{
+              position: "absolute", inset: 0,
+              backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/exosome-microscopy-hero-a43j5b3Y6ZMgKTqc3H7u75.webp)`,
+              backgroundSize: "cover", backgroundPosition: "center",
+              opacity: 0.35, pointerEvents: "none",
+            }}/>
+            {/* Dark gradient overlay for text readability */}
+            <div style={{
+              position: "absolute", inset: 0, pointerEvents: "none",
+              background: `linear-gradient(135deg, rgba(10,10,15,0.85) 0%, rgba(10,10,15,0.5) 50%, rgba(10,10,15,0.75) 100%)`,
+            }}/>
             <ParticleField/>
             <div style={{
               position: "absolute", inset: 0, pointerEvents: "none",
