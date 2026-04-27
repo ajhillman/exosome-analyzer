@@ -396,3 +396,14 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.25);
 }
+
+/* ── Mobile Navigation ─────────────────────────────────────────────── */
+.desktop-nav { display: flex !important; }
+.hamburger-btn { display: none !important; }
+.search-btn-desktop { display: block !important; }
+
+@media (max-width: 1024px) {
+  .desktop-nav { display: none !important; }
+  .hamburger-btn { display: flex !important; }
+  .search-btn-desktop { display: none !important; }
+}

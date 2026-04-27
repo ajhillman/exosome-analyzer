@@ -38,7 +38,7 @@ const P = {
   glowStrong: "0 0 40px rgba(168,85,247,0.4)",
 };
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/exoinfo-logo_03a8e7fd.png";
+const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663126495647/FDJ5hrYjuWWT9pWZoFgQus/exoinfo-logo-purple-PkTMUAmd36ugmBCGHRXWi8.png";
 
 // ── Radar SVG ───────────────────────────────────────────────────────────────
 function RadarVisualization() {
@@ -209,6 +209,7 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState<TabId>("home");
   const [mobileNav, setMobileNav] = useState(false);
+  const [mobileDrawer, setMobileDrawer] = useState(false);
   const { filters } = useFilters();
 
   const filteredCompanies = useMemo(() => {
@@ -260,7 +261,7 @@ export default function Home() {
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button onClick={() => navigate("home")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0 }}>
-              <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "44px", width: "auto", borderRadius: "10px", background: "rgba(168,85,247,0.08)", padding: "4px 8px", border: `1px solid rgba(168,85,247,0.2)`, filter: "brightness(1.1) saturate(0.9)", boxShadow: "0 0 12px rgba(168,85,247,0.15)" }} />
+              <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "44px", width: "auto", borderRadius: "8px" }} />
             </button>
           </div>
 
@@ -298,12 +299,57 @@ export default function Home() {
             </div>
           </div>
 
-          <button onClick={() => navigate("companies")} style={{
+          <button onClick={() => navigate("companies")} className="search-btn-desktop" style={{
             background: P.primary, border: "none", color: "#fff", padding: "8px 20px",
             borderRadius: "6px", fontSize: "13px", fontWeight: 600, cursor: "pointer",
             letterSpacing: "0.03em", transition: "all 0.2s", boxShadow: P.glow,
           }}>Search Companies</button>
+
+          {/* Hamburger button for mobile */}
+          <button className="hamburger-btn" onClick={() => setMobileDrawer(!mobileDrawer)} style={{
+            background: "none", border: "none", cursor: "pointer", padding: "8px",
+            display: "flex", flexDirection: "column", gap: "5px", alignItems: "center", justifyContent: "center",
+          }}>
+            <span style={{ display: "block", width: "22px", height: "2px", background: mobileDrawer ? P.primary : P.textMuted, borderRadius: "2px", transition: "all 0.3s", transform: mobileDrawer ? "rotate(45deg) translateY(7px)" : "none" }}/>
+            <span style={{ display: "block", width: "22px", height: "2px", background: mobileDrawer ? "transparent" : P.textMuted, borderRadius: "2px", transition: "all 0.3s" }}/>
+            <span style={{ display: "block", width: "22px", height: "2px", background: mobileDrawer ? P.primary : P.textMuted, borderRadius: "2px", transition: "all 0.3s", transform: mobileDrawer ? "rotate(-45deg) translateY(-7px)" : "none" }}/>
+          </button>
         </div>
+
+        {/* Mobile drawer */}
+        {mobileDrawer && (
+          <div style={{
+            position: "fixed", top: "64px", left: 0, right: 0, bottom: 0,
+            background: "rgba(10,10,15,0.98)", backdropFilter: "blur(20px)",
+            zIndex: 999, overflowY: "auto", padding: "16px 24px 32px",
+            animation: "fadeIn 0.2s ease",
+          }}>
+            <style>{`@keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }`}</style>
+            <div style={{ maxWidth: "400px", margin: "0 auto" }}>
+              {TABS.filter(t => t.id !== "home").map((tab, i) => (
+                <button key={tab.id} onClick={() => { navigate(tab.id); setMobileDrawer(false); }} style={{
+                  display: "flex", alignItems: "center", gap: "12px", width: "100%", textAlign: "left",
+                  background: activeTab === tab.id ? "rgba(168,85,247,0.12)" : "transparent",
+                  border: "none", borderBottom: `1px solid ${P.borderLight}`,
+                  color: activeTab === tab.id ? P.primary : "rgba(255,255,255,0.7)",
+                  padding: "16px 12px", fontSize: "15px", fontWeight: activeTab === tab.id ? 600 : 400,
+                  cursor: "pointer", transition: "all 0.2s",
+                  borderRadius: activeTab === tab.id ? "8px" : "0",
+                }}>
+                  <span style={{ fontSize: "18px" }}>{tab.icon}</span>
+                  <span>{tab.label}</span>
+                  {activeTab === tab.id && <span style={{ marginLeft: "auto", width: "6px", height: "6px", borderRadius: "50%", background: P.primary, boxShadow: `0 0 8px ${P.primary}` }}/>}
+                </button>
+              ))}
+              <button onClick={() => { navigate("companies"); setMobileDrawer(false); }} style={{
+                display: "block", width: "100%", marginTop: "20px",
+                background: P.primary, border: "none", color: "#fff", padding: "14px 20px",
+                borderRadius: "8px", fontSize: "15px", fontWeight: 600, cursor: "pointer",
+                letterSpacing: "0.03em", boxShadow: P.glow, textAlign: "center",
+              }}>Search Companies</button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* ── HOME TAB ── */}
@@ -597,7 +643,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "48px", marginBottom: "48px" }}>
             <div>
               <div style={{ marginBottom: "16px" }}>
-                <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "40px", width: "auto", borderRadius: "10px", background: "rgba(168,85,247,0.08)", padding: "4px 8px", border: `1px solid rgba(168,85,247,0.2)`, filter: "brightness(1.1) saturate(0.9)", boxShadow: "0 0 12px rgba(168,85,247,0.15)" }} />
+                <img src={LOGO_URL} alt="ExoInfo.org" style={{ height: "40px", width: "auto", borderRadius: "8px" }} />
               </div>
               <p style={{ color: P.textDim, fontSize: "13px", lineHeight: 1.7, margin: 0 }}>
                 The exosome industry's regulatory intelligence platform. Information and compliance watchdog.
