@@ -192,7 +192,7 @@ const TABS: { id: TabId; label: string }[] = [
   { id: "companies", label: "Companies" },
   { id: "reportcard", label: "Report Card" },
   { id: "studies", label: "Clinical Studies" },
-  { id: "dosing", label: "Dosing Protocols" },
+  { id: "dosing", label: "Research Protocols" },
   { id: "regulatory", label: "Regulatory" },
   { id: "statechecklist", label: "State Laws" },
   { id: "dmf", label: "DMF Guide" },

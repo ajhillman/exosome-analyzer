@@ -190,15 +190,15 @@ export function DosingGuides() {
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
           <Syringe className="w-5 h-5 text-blue-600" />
-          hUCMSC-Exos / WJ-MSC Dosing Protocols
+          hUCMSC-Exos / WJ-MSC Research and Investigational Consented Protocols
         </h2>
         <p className="text-sm text-gray-500 mt-1">
-          Aggressive dosing guidelines for hUCMSC-Exos (Wharton's Jelly mesenchymal stem cell-derived exosomes) across {dosingGuides.length} delivery routes. Based on published human clinical data.
+          Research and investigational consented protocols for hUCMSC-Exos (Wharton's Jelly mesenchymal stem cell-derived exosomes) across {dosingGuides.length} delivery routes. Based on published human clinical data.
         </p>
         <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl p-3 flex items-start gap-2">
           <AlertCircle className="w-4 h-4 text-amber-600 mt-0.5 shrink-0" />
           <p className="text-xs text-amber-800">
-            These protocols are compiled from peer-reviewed clinical studies for educational reference. All dosing decisions should be made by qualified physicians based on individual patient assessment. Aggressive protocols represent the upper range of published dosing data.
+            These protocols are compiled from peer-reviewed clinical studies for research and investigational use under informed consent. All dosing decisions should be made by qualified physicians based on individual patient assessment. Protocols represent published dosing data from consented clinical investigations.
           </p>
         </div>
       </div>
