@@ -43,12 +43,12 @@ export interface LeadershipMember {
 export interface ExosomeCompany {
   id: string;
   name: string;
-  section: "351(a)" | "361 HCT/P (Tissue Bank)" | "351(a) (Investigational)" | "361 HCT/P (FDA Disputes)" | "361 HCT/P (Cosmetic)" | "Autologous (Practice of Medicine)" | "361 HCT/P (Warning Letter)";
+  section: "351(a)" | "361 HCT/P (Tissue Bank)" | "351(a) (Investigational)" | "361 HCT/P (FDA Disputes)" | "361 HCT/P (Cosmetic)" | "Autologous (Practice of Medicine)" | "361 HCT/P (Warning Letter)" | "Preclinical (IND Planned)" | "Bankrupt";
   manufacturing: "cGMP" | "cGMP (TRUE - Current, Verified, Documented)" | "GMP" | "GMP (Cited for violations)" | "GMP (FDA cited cGMP deviations)" | "GMP (with cGMP deviations)" | "GMP (Non-Compliant)" | "Point-of-Care Processing" | "Unknown";
-  fda_status: "No Warning Letters" | "Warning Letter (Sept 2023)" | "Warning Letter (Jan 2025)" | "Warning Letter (Sept 2025)" | "Warning Letter (July 2022)" | "Warning Letter (Aug 2025)" | "Warning Letter (Dec 2025)" | "No Warning Letters (Settled FDA litigation)";
+  fda_status: "No Warning Letters" | "Warning Letter (Sept 2023)" | "Warning Letter (Jan 2025)" | "Warning Letter (Sept 2025)" | "Warning Letter (July 2022)" | "Warning Letter (Aug 2025)" | "Warning Letter (Dec 2025)" | "No Warning Letters (Settled FDA litigation)" | "N/A (Bankrupt)";
   coa: "Yes (Batch-by-batch)" | "Yes (Batch-by-batch Eurofins - ONLY COMPANY WITH THIS STANDARD)" | "Yes (Internal)" | "Yes" | "No/Unclear" | "Yes (Patient-specific)" | "Not Available";
   source: string;
-  dmf: "Yes" | "Yes (IND for ExoFlo)" | "Yes (IND for Zofin)" | "No" | "No (In process for IND)" | "Yes (EA-IND for TBI)" | "N/A (Autologous approach)" | "None";
+  dmf: "Yes" | "Yes (IND for ExoFlo)" | "Yes (IND for Zofin)" | "No" | "No (In process for IND)" | "Yes (EA-IND for TBI)" | "N/A (Autologous approach)" | "None" | "N/A (Bankrupt)";
   notes: string;
   hasWarningLetter: boolean;
   regulatoryScore: number;
@@ -64,7 +64,7 @@ export interface ExosomeCompany {
   leadership_experience?: "High" | "Medium" | "Low" | "Unknown";
   insurance_coverage?: boolean;
   delivery_methods?: string[];
-  legal_status?: "FDA-Approved" | "IND Active" | "361 HCT/P Compliant" | "Disputed" | "Illegal" | "Practice of Medicine Exemption" | "Unknown" | "FDA Warning Letter Active";
+  legal_status?: "FDA-Approved" | "IND Active" | "361 HCT/P Compliant" | "Disputed" | "Illegal" | "Practice of Medicine Exemption" | "Unknown" | "FDA Warning Letter Active" | "Bankrupt (Chapter 11)" | "Preclinical";
   // Company History
   founded_year?: number;
   company_age?: number;
