@@ -146,6 +146,7 @@ export interface FilterState {
   fda_status: string[];
   coa: string[];
   dmf: string[];
+  companyType: string[];
   iso_cleanroom?: string[];
   storage_method?: string[];
   third_party_testing?: string[];

@@ -2036,6 +2036,23 @@ export const getCompanyById = (id: string): ExosomeCompany | undefined => {
   return companiesData.find((company) => company.id === id);
 };
 
+// Company type classifier based on source description
+export const getCompanyType = (company: ExosomeCompany): string => {
+  const src = company.source.toLowerCase();
+  const notes = company.notes.toLowerCase();
+  if (src.includes("engineered") || src.includes("engex") || src.includes("deliverex") || src.includes("hybridosome") || notes.includes("engineered exosome")) return "Engineered Platform";
+  if (src.includes("diagnostic") || src.includes("hemopurifier") || notes.includes("diagnostic")) return "Diagnostic / Device";
+  if (src.includes("conditioned media") || src.includes("growth factors")) return "Conditioned Media";
+  if (src.includes("platelet")) return "Platelet-Derived";
+  if (src.includes("bone marrow")) return "Bone Marrow MSC";
+  if (src.includes("adipose") || src.includes("fat tissue")) return "Adipose MSC";
+  if (src.includes("neural")) return "Neural Stem Cell";
+  if (src.includes("cardiosphere")) return "Cardiac-Derived";
+  if (src.includes("amniotic") || src.includes("placental")) return "Amniotic / Placental";
+  if (src.includes("umbilical") || src.includes("hucmsc") || src.includes("wharton")) return "Umbilical Cord MSC";
+  return "Other";
+};
+
 export const filterCompanies = (
   companies: ExosomeCompany[],
   filters: {
@@ -2044,6 +2061,7 @@ export const filterCompanies = (
     fda_status?: string[];
     coa?: string[];
     dmf?: string[];
+    companyType?: string[];
     iso_cleanroom?: string[];
     storage_method?: string[];
     third_party_testing?: string[];
@@ -2074,6 +2092,10 @@ export const filterCompanies = (
     }
     if (filters.third_party_testing && filters.third_party_testing.length > 0 && company.third_party_testing && !filters.third_party_testing.includes(company.third_party_testing)) {
       return false;
+    }
+    if (filters.companyType && filters.companyType.length > 0) {
+      const type = getCompanyType(company);
+      if (!filters.companyType.includes(type)) return false;
     }
     if (filters.searchTerm && filters.searchTerm.length > 0) {
       const term = filters.searchTerm.toLowerCase();

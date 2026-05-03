@@ -16,6 +16,7 @@ const defaultFilters: FilterState = {
   fda_status: [],
   coa: [],
   dmf: [],
+  companyType: [],
   searchTerm: "",
 };
 

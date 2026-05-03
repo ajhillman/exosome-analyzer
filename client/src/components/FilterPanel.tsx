@@ -1,7 +1,8 @@
 import { useFilters } from "@/contexts/FilterContext";
 import { Search, X, SlidersHorizontal } from "lucide-react";
 
-const SECTION_OPTIONS = ["351(a)", "361 HCT/P (Tissue Bank)", "351(a) (Investigational)", "361 HCT/P (FDA Disputes)", "361 HCT/P (Cosmetic)", "Autologous (Practice of Medicine)"];
+const SECTION_OPTIONS = ["351(a)", "361 HCT/P (Tissue Bank)", "351(a) (Investigational)", "361 HCT/P (FDA Disputes)", "361 HCT/P (Cosmetic)", "361 HCT/P (Warning Letter)", "Autologous (Practice of Medicine)", "Preclinical (IND Planned)", "Bankrupt"];
+const COMPANY_TYPE_OPTIONS = ["Umbilical Cord MSC", "Bone Marrow MSC", "Adipose MSC", "Amniotic / Placental", "Platelet-Derived", "Engineered Platform", "Cardiac-Derived", "Neural Stem Cell", "Conditioned Media", "Diagnostic / Device"];
 const MANUFACTURING_OPTIONS = ["cGMP", "GMP"];
 const FDA_STATUS_OPTIONS = ["No Warning Letters", "Warning Letter"];
 const COA_OPTIONS = ["Yes", "No/Unclear"];
@@ -54,6 +55,7 @@ export function FilterPanel() {
     filters.fda_status.length > 0 ||
     filters.coa.length > 0 ||
     filters.dmf.length > 0 ||
+    filters.companyType.length > 0 ||
     filters.searchTerm.length > 0;
 
   const toggleFilter = (key: keyof typeof filters, value: string) => {
@@ -122,6 +124,12 @@ export function FilterPanel() {
         options={DMF_OPTIONS}
         selected={filters.dmf}
         onToggle={(v) => toggleFilter("dmf", v)}
+      />
+      <FilterGroup
+        label="Company Type"
+        options={COMPANY_TYPE_OPTIONS}
+        selected={filters.companyType}
+        onToggle={(v) => toggleFilter("companyType", v)}
       />
     </div>
   );
