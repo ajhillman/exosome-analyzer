@@ -5,6 +5,7 @@ import { ReportCard } from "@/components/ReportCard";
 import { DosingGuides } from "@/components/DosingGuides";
 import { FilterPanel } from "@/components/FilterPanel";
 import { ActiveFiltersBar } from "@/components/ActiveFiltersBar";
+import { SortDropdown, SortField, SortDirection } from "@/components/SortDropdown";
 import { DMFEducation } from "@/components/DMFEducation";
 import { RegulatoryReference } from "@/components/RegulatoryReference";
 import { Statistics } from "@/components/Statistics";
@@ -216,13 +217,32 @@ export default function Home() {
   const [mobileDrawer, setMobileDrawer] = useState(false);
   const { filters } = useFilters();
 
+  const [sortField, setSortField] = useState<SortField>("regulatoryScore");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
+
   const filteredCompanies = useMemo(() => {
-    return filterCompanies(companiesData, {
+    const filtered = filterCompanies(companiesData, {
       section: filters.section, manufacturing: filters.manufacturing,
       fda_status: filters.fda_status, coa: filters.coa,
       dmf: filters.dmf, companyType: filters.companyType, searchTerm: filters.searchTerm,
     });
-  }, [filters]);
+
+    const gradeOrder: Record<string, number> = { "A+": 1, "A": 2, "B": 3, "C": 4, "D": 5, "F": 6 };
+
+    return [...filtered].sort((a, b) => {
+      let comparison = 0;
+      if (sortField === "regulatoryScore") {
+        comparison = (a.regulatoryScore || 0) - (b.regulatoryScore || 0);
+      } else if (sortField === "name") {
+        comparison = a.name.localeCompare(b.name);
+      } else if (sortField === "years_in_business") {
+        comparison = (a.years_in_business || 0) - (b.years_in_business || 0);
+      } else if (sortField === "company_grade") {
+        comparison = (gradeOrder[a.company_grade || "F"] || 6) - (gradeOrder[b.company_grade || "F"] || 6);
+      }
+      return sortDirection === "asc" ? comparison : -comparison;
+    });
+  }, [filters, sortField, sortDirection]);
 
   useEffect(() => {
     const onScroll = () => { setScrolled(window.scrollY > 40); setShowTopBtn(window.scrollY > 600); };
@@ -623,7 +643,7 @@ export default function Home() {
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}>
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="lg:w-64 shrink-0"><FilterPanel /></div>
-            <div className="flex-1"><ActiveFiltersBar /><CompanyTable companies={filteredCompanies} /></div>
+            <div className="flex-1"><ActiveFiltersBar /><SortDropdown sortField={sortField} sortDirection={sortDirection} onSortChange={(f, d) => { setSortField(f); setSortDirection(d); }} totalCount={filteredCompanies.length} /><CompanyTable companies={filteredCompanies} /></div>
           </div>
         </div>
       )}
