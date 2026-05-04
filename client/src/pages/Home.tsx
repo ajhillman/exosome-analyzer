@@ -4,6 +4,7 @@ import ComplianceCase from "@/components/ComplianceCase";
 import { ReportCard } from "@/components/ReportCard";
 import { DosingGuides } from "@/components/DosingGuides";
 import { FilterPanel } from "@/components/FilterPanel";
+import { ActiveFiltersBar } from "@/components/ActiveFiltersBar";
 import { DMFEducation } from "@/components/DMFEducation";
 import { RegulatoryReference } from "@/components/RegulatoryReference";
 import { Statistics } from "@/components/Statistics";
@@ -622,7 +623,7 @@ export default function Home() {
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}>
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="lg:w-64 shrink-0"><FilterPanel /></div>
-            <div className="flex-1"><CompanyTable companies={filteredCompanies} /></div>
+            <div className="flex-1"><ActiveFiltersBar /><CompanyTable companies={filteredCompanies} /></div>
           </div>
         </div>
       )}
