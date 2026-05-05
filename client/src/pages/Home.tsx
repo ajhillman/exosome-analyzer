@@ -18,6 +18,7 @@ import LitigationTracker from "@/components/LitigationTracker";
 import { Glossary } from "@/components/Glossary";
 import { Disclaimers } from "@/components/Disclaimers";
 import { InformedConsent } from "@/components/InformedConsent";
+import ExosomeScience from "@/components/ExosomeScience";
 import { useFilters } from "@/contexts/FilterContext";
 import { companiesData, filterCompanies } from "@/data/companies";
 import { useMemo } from "react";
@@ -187,7 +188,7 @@ function DataTicker() {
 }
 
 // ── Tab definitions ─────────────────────────────────────────────────────────
-type TabId = "home" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "litigation" | "ipsc" | "news" | "glossary" | "disclaimers" | "consent";
+type TabId = "home" | "companies" | "reportcard" | "studies" | "dosing" | "regulatory" | "statechecklist" | "dmf" | "compliance" | "enforcement" | "litigation" | "ipsc" | "news" | "glossary" | "disclaimers" | "consent" | "science";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "home", label: "Home" },
@@ -206,6 +207,7 @@ const TABS: { id: TabId; label: string }[] = [
   { id: "glossary", label: "Glossary" },
   { id: "disclaimers", label: "Disclaimers" },
   { id: "consent", label: "Informed Consent" },
+  { id: "science", label: "What Are Exosomes" },
 ];
 
 // ── Main Component ──────────────────────────────────────────────────────────
@@ -416,7 +418,7 @@ export default function Home() {
                   <span style={{ color: P.primary }}>Compliance Watchdog</span>
                 </h1>
                 <p style={{ fontSize: "17px", color: P.textMuted, lineHeight: 1.7, margin: "0 0 36px 0", maxWidth: "520px" }}>
-                  34 companies. Real compliance data. FDA enforcement tracking. Built for physicians, investors, and regulators who need the truth about who is operating legally in the exosome space.
+                  82 companies. Real compliance data. FDA enforcement tracking. Built for physicians, investors, and regulators who need the truth about who is operating legally in the exosome space.
                 </p>
                 <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", marginBottom: "40px" }}>
                   <button onClick={() => navigate("companies")} style={{
@@ -431,7 +433,7 @@ export default function Home() {
                   }}>What Is the 351(a) Pathway?</button>
                 </div>
                 <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                  {["34 Companies", "0 FDA-Approved", "351(a) Gold Standard", "MISEV2023"].map(b => (
+                  {["82 Companies", "0 FDA-Approved", "351(a) Gold Standard", "MISEV2023"].map(b => (
                     <span key={b} style={{
                       fontFamily: "monospace", fontSize: "11px", color: P.primaryLight,
                       border: `1px solid ${P.border}`, padding: "4px 10px", borderRadius: "4px",
@@ -451,7 +453,7 @@ export default function Home() {
           <section style={{ background: P.bgSection, borderBottom: `1px solid ${P.borderLight}` }}>
             <div className="stats-grid" style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
               {[
-                { value: "34", label: "Companies Tracked", sub: "Across the US exosome market" },
+                { value: "82", label: "Companies Tracked", sub: "Across the US exosome market" },
                 { value: "0", label: "FDA-Approved Products", sub: "No exosome has BLA approval" },
                 { value: "351(a)", label: "Gold Standard", sub: "The only defensible pathway" },
                 { value: "16+", label: "Years (DynaCord)", sub: "Longest-operating manufacturer" },
@@ -661,6 +663,7 @@ export default function Home() {
       {activeTab === "glossary" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><Glossary /></div>}
       {activeTab === "disclaimers" && <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "80px 24px 40px" }}><Disclaimers /></div>}
       {activeTab === "consent" && <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "80px 24px 40px" }}><InformedConsent /></div>}
+      {activeTab === "science" && <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "80px 24px 40px" }}><ExosomeScience /></div>}
 
       {/* ── Footer ── */}
       <footer style={{ background: P.bgSection, borderTop: `1px solid ${P.borderLight}`, padding: "60px 24px 40px" }}>
